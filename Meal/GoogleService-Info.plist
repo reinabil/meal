@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>864711243514-q0k9drliogql1pdcq9th5153pr63schv.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.864711243514-q0k9drliogql1pdcq9th5153pr63schv</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDWrxF5sWVrAFfxBXxf1UQygsg2qTXlS0U</string>
+	<key>GCM_SENDER_ID</key>
+	<string>864711243514</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.nabilrei.Meal</string>
+	<key>PROJECT_ID</key>
+	<string>meal-81472</string>
+	<key>STORAGE_BUCKET</key>
+	<string>meal-81472.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:864711243514:ios:b4ed6fefc1e4934a5efb43</string>
+</dict>
+</plist>
