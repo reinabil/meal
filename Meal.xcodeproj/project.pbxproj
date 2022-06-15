@@ -24,6 +24,7 @@
 		E97EAC9C2859DE5D00DEA510 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E97EAC982859DE5D00DEA510 /* Poppins-Bold.ttf */; };
 		E97EAC9D2859DE5D00DEA510 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E97EAC992859DE5D00DEA510 /* Poppins-Medium.ttf */; };
 		E97EAC9F2859DEFF00DEA510 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E97EAC9E2859DEFF00DEA510 /* SignIn.storyboard */; };
+		E97EACA12859E2F400DEA510 /* JoinCreateFamily.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E97EACA02859E2F400DEA510 /* JoinCreateFamily.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		E97EAC982859DE5D00DEA510 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		E97EAC992859DE5D00DEA510 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		E97EAC9E2859DEFF00DEA510 /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
+		E97EACA02859E2F400DEA510 /* JoinCreateFamily.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JoinCreateFamily.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				DE9FE5D7284DA7240032242F /* Info.plist */,
 				DE9FE5CF284DA7210032242F /* Meal.xcdatamodeld */,
 				E97EAC9E2859DEFF00DEA510 /* SignIn.storyboard */,
+				E97EACA02859E2F400DEA510 /* JoinCreateFamily.storyboard */,
 			);
 			path = Meal;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E97EACA12859E2F400DEA510 /* JoinCreateFamily.storyboard in Resources */,
 				DE21569B28505A6B00841DF0 /* GoogleService-Info.plist in Resources */,
 				DE9FE5D6284DA7240032242F /* LaunchScreen.storyboard in Resources */,
 				E97EAC9C2859DE5D00DEA510 /* Poppins-Bold.ttf in Resources */,
