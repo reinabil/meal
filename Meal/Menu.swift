@@ -8,6 +8,7 @@
 import Foundation
 
 struct Menu {
+    let menu_id: String
     let name: String
     let family_id: String
     let portions: Int

@@ -35,6 +35,7 @@ class JoinFamilyViewController: UIViewController {
         
         print(Auth.auth().currentUser?.uid)
         let docRef = db.collection("user").document("\(Auth.auth().currentUser!.uid)")
+//        let docRef = db.collection("user").document("r3LF7aqEu9ZXJoOgnvWlixFd8083")
 
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
@@ -59,6 +60,11 @@ class JoinFamilyViewController: UIViewController {
     @IBAction func joinFamilyPressed(_ sender: UIButton) {
         if familyId.text != "" {
             family_id = familyId.text?.lowercased()
+            
+            db.collection("user").document("\(Auth.auth().currentUser!.uid)").updateData([
+                "family_id" : family_id
+            ])
+            
             self.performSegue(withIdentifier: "goToMenu", sender: self)
         }
         print(family_id!)
@@ -74,6 +80,12 @@ class JoinFamilyViewController: UIViewController {
                 print("Document successfully written!")
             }
         }
+            
+        db.collection("user").document("\(Auth.auth().currentUser!.uid)").updateData([
+            "family_id" : family_id
+        ])
+        
+        
         self.performSegue(withIdentifier: "goToMenu", sender: self)
     }
     
