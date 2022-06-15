@@ -23,6 +23,7 @@
 		E97EAC9B2859DE5D00DEA510 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E97EAC972859DE5D00DEA510 /* Poppins-SemiBold.ttf */; };
 		E97EAC9C2859DE5D00DEA510 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E97EAC982859DE5D00DEA510 /* Poppins-Bold.ttf */; };
 		E97EAC9D2859DE5D00DEA510 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E97EAC992859DE5D00DEA510 /* Poppins-Medium.ttf */; };
+		E97EAC9F2859DEFF00DEA510 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E97EAC9E2859DEFF00DEA510 /* SignIn.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		E97EAC972859DE5D00DEA510 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		E97EAC982859DE5D00DEA510 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		E97EAC992859DE5D00DEA510 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		E97EAC9E2859DEFF00DEA510 /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				DE9FE5D4284DA7240032242F /* LaunchScreen.storyboard */,
 				DE9FE5D7284DA7240032242F /* Info.plist */,
 				DE9FE5CF284DA7210032242F /* Meal.xcdatamodeld */,
+				E97EAC9E2859DEFF00DEA510 /* SignIn.storyboard */,
 			);
 			path = Meal;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 				DE9FE5D6284DA7240032242F /* LaunchScreen.storyboard in Resources */,
 				E97EAC9C2859DE5D00DEA510 /* Poppins-Bold.ttf in Resources */,
 				DE9FE5D3284DA7240032242F /* Assets.xcassets in Resources */,
+				E97EAC9F2859DEFF00DEA510 /* SignIn.storyboard in Resources */,
 				E97EAC9B2859DE5D00DEA510 /* Poppins-SemiBold.ttf in Resources */,
 				E97EAC9D2859DE5D00DEA510 /* Poppins-Medium.ttf in Resources */,
 				DE9FE5CE284DA7210032242F /* Main.storyboard in Resources */,
