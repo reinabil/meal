@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Regular.ttf">
+            <string>Poppins-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="125" id="KGk-i7-Jjw" customClass="BottomPartTableViewCell" customModule="Meal" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="371" height="125"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="371" height="125"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uE7-QL-xhI">
+                        <rect key="frame" x="0.0" y="0.0" width="371" height="109"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vote Result from all family members" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TuW-JN-Hdk">
+                                <rect key="frame" x="16" y="14" width="182" height="14"/>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="10"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="W7H-SS-TgB">
+                                <rect key="frame" x="16" y="42" width="339" height="53"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="shO-re-atn">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" name="BrandLightGray"/>
+                        <constraints>
+                            <constraint firstItem="TuW-JN-Hdk" firstAttribute="leading" secondItem="uE7-QL-xhI" secondAttribute="leading" constant="16" id="4eu-zN-mUU"/>
+                            <constraint firstAttribute="trailing" secondItem="W7H-SS-TgB" secondAttribute="trailing" constant="16" id="7HS-Uv-vOF"/>
+                            <constraint firstItem="W7H-SS-TgB" firstAttribute="top" secondItem="TuW-JN-Hdk" secondAttribute="bottom" constant="14" id="YFA-Y8-Pjg"/>
+                            <constraint firstItem="W7H-SS-TgB" firstAttribute="leading" secondItem="uE7-QL-xhI" secondAttribute="leading" constant="16" id="ZFh-Aa-0B7"/>
+                            <constraint firstAttribute="bottom" secondItem="W7H-SS-TgB" secondAttribute="bottom" constant="14" id="a1w-kd-3QF"/>
+                            <constraint firstItem="TuW-JN-Hdk" firstAttribute="top" secondItem="uE7-QL-xhI" secondAttribute="top" constant="14" id="x2B-B5-lMN"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="uE7-QL-xhI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="MWP-UE-sB0"/>
+                    <constraint firstAttribute="bottom" secondItem="uE7-QL-xhI" secondAttribute="bottom" constant="16" id="NhZ-j1-WLN"/>
+                    <constraint firstAttribute="trailing" secondItem="uE7-QL-xhI" secondAttribute="trailing" id="SdF-ye-JrS"/>
+                    <constraint firstItem="uE7-QL-xhI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="pry-D0-5dd"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="collectionView" destination="W7H-SS-TgB" id="MF6-jY-F2f"/>
+            </connections>
+            <point key="canvasLocation" x="168.84057971014494" y="102.79017857142857"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="BrandLightGray">
+            <color red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
