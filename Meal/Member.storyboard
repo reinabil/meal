@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Bold.ttf">
+            <string>Poppins-Bold</string>
+        </array>
+        <array key="Poppins-SemiBold.ttf">
+            <string>Poppins-SemiBold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Member View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="MemberViewController" customModule="Meal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="et8-t3-RNx">
+                                <rect key="frame" x="16" y="44" width="382" height="38"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yf0-aK-yHB">
+                                        <rect key="frame" x="327" y="0.0" width="55" height="38"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Edit">
+                                            <fontDescription key="titleFontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
+                                            <color key="baseForegroundColor" name="BrandOrange"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Member" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lze-DS-12C">
+                                <rect key="frame" x="16" y="86" width="138.5" height="45"/>
+                                <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qzo-Vg-60h">
+                                <rect key="frame" x="0.0" y="139" width="414" height="1"/>
+                                <color key="backgroundColor" systemColor="separatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="LSP-Wx-0Ca"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="VOR-SD-9HD">
+                                <rect key="frame" x="162" y="181.5" width="90" height="87.5"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="Xga-mq-McH"/>
+                                    <constraint firstAttribute="width" constant="90" id="dgo-ls-aVx"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcJ-16-d0r">
+                                <rect key="frame" x="190.5" y="278" width="33" height="24"/>
+                                <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="DA7-DH-S2c">
+                                <rect key="frame" x="16" y="334" width="382" height="512"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="Ubc-87-Nup">
+                                    <rect key="frame" x="0.0" y="111" width="382" height="128"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="62U-eC-Csk">
+                                            <rect key="frame" x="115.5" y="32" width="151.5" height="42"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" title="Leave Group">
+                                                <fontDescription key="titleFontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="20"/>
+                                                <color key="baseForegroundColor" name="BrandOrange"/>
+                                            </buttonConfiguration>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="62U-eC-Csk" firstAttribute="centerX" secondItem="Ubc-87-Nup" secondAttribute="centerX" id="T8O-XP-Oh1"/>
+                                        <constraint firstItem="62U-eC-Csk" firstAttribute="top" secondItem="Ubc-87-Nup" secondAttribute="top" constant="32" id="yw4-2e-3hC"/>
+                                    </constraints>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="dpR-hh-J7c">
+                                        <rect key="frame" x="0.0" y="49.5" width="382" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dpR-hh-J7c" id="z50-wj-a2S">
+                                            <rect key="frame" x="0.0" y="0.0" width="382" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="VOR-SD-9HD" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="1RT-PQ-4R9"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="et8-t3-RNx" secondAttribute="trailing" constant="16" id="2ds-n8-mef"/>
+                            <constraint firstItem="et8-t3-RNx" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="7I6-rQ-mrT"/>
+                            <constraint firstItem="fcJ-16-d0r" firstAttribute="top" secondItem="VOR-SD-9HD" secondAttribute="bottom" constant="8" id="Bzs-ko-R7H"/>
+                            <constraint firstItem="lze-DS-12C" firstAttribute="top" secondItem="et8-t3-RNx" secondAttribute="bottom" constant="4" id="FY7-J9-SwM"/>
+                            <constraint firstItem="qzo-Vg-60h" firstAttribute="top" secondItem="lze-DS-12C" secondAttribute="bottom" constant="8" symbolic="YES" id="JLb-Hm-0kG"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="DA7-DH-S2c" secondAttribute="bottom" constant="16" id="N9D-NS-ftz"/>
+                            <constraint firstItem="et8-t3-RNx" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="PPm-9o-nIf"/>
+                            <constraint firstItem="DA7-DH-S2c" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="QEL-wk-SOu"/>
+                            <constraint firstItem="fcJ-16-d0r" firstAttribute="centerX" secondItem="VOR-SD-9HD" secondAttribute="centerX" id="VCD-1H-dMx"/>
+                            <constraint firstItem="qzo-Vg-60h" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="WfA-vc-3Fb"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="qzo-Vg-60h" secondAttribute="trailing" id="fpZ-io-k6y"/>
+                            <constraint firstItem="VOR-SD-9HD" firstAttribute="top" secondItem="qzo-Vg-60h" secondAttribute="bottom" constant="40" id="hdD-tc-lxD"/>
+                            <constraint firstItem="lze-DS-12C" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="jWs-KN-Ts8"/>
+                            <constraint firstItem="DA7-DH-S2c" firstAttribute="top" secondItem="fcJ-16-d0r" secondAttribute="bottom" constant="32" id="udc-xl-L7Z"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="DA7-DH-S2c" secondAttribute="trailing" constant="16" id="yn9-RQ-eGW"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="editButton" destination="Yf0-aK-yHB" id="1eM-yX-v2X"/>
+                        <outlet property="leaveGroupButton" destination="62U-eC-Csk" id="FVQ-VS-jxm"/>
+                        <outlet property="profilePicture" destination="VOR-SD-9HD" id="ayD-rc-cgT"/>
+                        <outlet property="tableView" destination="DA7-DH-S2c" id="R6x-xa-A5d"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="42" y="61"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="person" catalog="system" width="128" height="117"/>
+        <namedColor name="BrandOrange">
+            <color red="0.98039215686274506" green="0.35294117647058826" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="separatorColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
