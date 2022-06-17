@@ -157,30 +157,54 @@
 				DE9FE5D4284DA7240032242F /* LaunchScreen.storyboard */,
 				DE9FE5D7284DA7240032242F /* Info.plist */,
 				DE9FE5CF284DA7210032242F /* Meal.xcdatamodeld */,
+				E969B12A285CE6E60025E31F /* Views */,
+				E969B12B285CE6F80025E31F /* Controllers */,
+			);
+			path = Meal;
+			sourceTree = "<group>";
+		};
+		E969B12A285CE6E60025E31F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E969B12C285CE7020025E31F /* CustomCells */,
 				E97EAC9E2859DEFF00DEA510 /* SignIn.storyboard */,
 				E97EACA02859E2F400DEA510 /* JoinCreateFamily.storyboard */,
 				E97EACA4285A235400DEA510 /* Vote.storyboard */,
+				E9451D48285B8A640091A31E /* Member.storyboard */,
+				E9F42925285CD3B100C85012 /* History.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E969B12B285CE6F80025E31F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
 				E97EACB2285B74AC00DEA510 /* VoteViewController.swift */,
+				E9451D56285BA4120091A31E /* MemberViewController.swift */,
+				E9F4292B285CDB5600C85012 /* HistoryViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E969B12C285CE7020025E31F /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
 				E97EACA6285A267D00DEA510 /* TopPartTableViewCell.swift */,
 				E97EACA7285A267D00DEA510 /* TopPartTableViewCell.xib */,
 				E97EACAA285A28D000DEA510 /* BottomPartTableViewCell.swift */,
 				E97EACAB285A28D000DEA510 /* BottomPartTableViewCell.xib */,
 				E97EACAE285A29E900DEA510 /* VoterCollectionViewCell.swift */,
 				E97EACAF285A29E900DEA510 /* VoterCollectionViewCell.xib */,
-				E9451D48285B8A640091A31E /* Member.storyboard */,
 				E9451D4A285B9B6B0091A31E /* UserNameTableViewCell.swift */,
 				E9451D4B285B9B6B0091A31E /* UserNameTableViewCell.xib */,
 				E9451D4E285BA1760091A31E /* FamilyMemberTableViewCell.swift */,
 				E9451D4F285BA1760091A31E /* FamilyMemberTableViewCell.xib */,
 				E9451D52285BA3410091A31E /* FamilyIDTableViewCell.swift */,
 				E9451D53285BA3410091A31E /* FamilyIDTableViewCell.xib */,
-				E9451D56285BA4120091A31E /* MemberViewController.swift */,
-				E9F42925285CD3B100C85012 /* History.storyboard */,
 				E9F42927285CD89800C85012 /* HistoryTableViewCell.swift */,
 				E9F42928285CD89800C85012 /* HistoryTableViewCell.xib */,
-				E9F4292B285CDB5600C85012 /* HistoryViewController.swift */,
 			);
-			path = Meal;
+			path = CustomCells;
 			sourceTree = "<group>";
 		};
 		E97EAC942859DE3C00DEA510 /* Themes */ = {
