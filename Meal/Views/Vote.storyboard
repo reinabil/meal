@@ -48,6 +48,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="Edit">
                                             <color key="baseForegroundColor" name="BrandOrange"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="editButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="tdD-be-baw"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ddf-Z1-PUz">
                                         <rect key="frame" x="332" y="0.0" width="50" height="31"/>
@@ -55,6 +58,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="Add">
                                             <color key="baseForegroundColor" name="BrandOrange"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="addButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="peC-CL-Vhv"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -100,6 +106,9 @@
                                                 <fontDescription key="titleFontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="17"/>
                                                 <color key="baseForegroundColor" name="BrandOrange"/>
                                             </buttonConfiguration>
+                                            <connections>
+                                                <action selector="finishedEatingButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="9uH-Eu-pnJ"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you click this button, all of the meals and their votes will be deleted" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBG-jt-cdS">
                                             <rect key="frame" x="16" y="74" width="350" height="39"/>
@@ -152,6 +161,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addButton" destination="Ddf-Z1-PUz" id="kCr-Um-nTA"/>
                         <outlet property="tableView" destination="8Ww-Vv-NZE" id="A1S-CP-Xsz"/>
                         <outlet property="tableViewFooterView" destination="P9J-CC-h1i" id="YgG-a3-ZFG"/>
                     </connections>
@@ -163,7 +173,7 @@
     </scenes>
     <resources>
         <namedColor name="BrandOrange">
-            <color red="0.98039215686274506" green="0.3529411764705882" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.98039215686274506" green="0.35294117647058826" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="separatorColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>

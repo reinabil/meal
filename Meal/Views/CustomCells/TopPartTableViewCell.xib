@@ -6,6 +6,7 @@
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -50,6 +51,9 @@
                                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                                     <color key="baseBackgroundColor" systemColor="systemBackgroundColor"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="YH5-f4-VXC"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gqb-V5-IpV">
                                                 <rect key="frame" x="97" y="0.0" width="60.5" height="31"/>
@@ -60,6 +64,9 @@
                                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                                     <color key="baseBackgroundColor" systemColor="systemBackgroundColor"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="YV5-z6-rPC"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -114,6 +121,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="arrowImage" destination="6Ad-JO-sqA" id="3nu-KG-LIe"/>
                 <outlet property="background" destination="5IR-GU-rWt" id="am1-50-S0k"/>
                 <outlet property="dontEatButton" destination="iL5-QP-QmR" id="eqW-gn-dFj"/>
                 <outlet property="eatButton" destination="gqb-V5-IpV" id="q96-9J-EWC"/>

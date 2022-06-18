@@ -16,6 +16,8 @@ class BottomPartTableViewCell: UITableViewCell {
         
         //Register custom collectionView cell XIB to collectionView
         collectionView.register(UINib(nibName: "VoterCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "voterCell")
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
