@@ -20,10 +20,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Join Create Family View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
+                <viewController id="Y6W-OH-hqX" customClass="JoinCreateFamilyViewController" customModule="Meal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -64,6 +64,9 @@
                                                     <fontDescription key="titleFontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="17"/>
                                                     <color key="baseBackgroundColor" name="BrandOrange"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="joinFamilyButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="p4F-3D-kyH"/>
+                                                </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vxZ-OJ-M64">
                                                 <rect key="frame" x="0.0" y="74" width="252" height="17"/>
@@ -117,6 +120,9 @@
                                                             <fontDescription key="titleFontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="17"/>
                                                             <color key="baseForegroundColor" name="BrandOrange"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="createNewFamilyButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="a4f-PR-eOY"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -142,7 +148,7 @@
     <resources>
         <image name="Illustration_JoinCreateFamily" width="208" height="187"/>
         <namedColor name="BrandOrange">
-            <color red="0.98039215686274506" green="0.3529411764705882" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.98039215686274506" green="0.35294117647058826" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

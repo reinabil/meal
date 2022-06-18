@@ -17,11 +17,11 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Sign In View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                <viewController id="Y6W-OH-hqX" customClass="SignInViewController" customModule="Meal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc" customClass="SignIn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -58,6 +58,9 @@
                                                     <directionalEdgeInsets key="contentInsets" top="0.0" leading="40" bottom="0.0" trailing="40"/>
                                                     <color key="baseBackgroundColor" name="BrandOrange"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="MEo-sq-qEk"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
