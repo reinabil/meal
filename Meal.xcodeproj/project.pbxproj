@@ -19,6 +19,34 @@
 		DE9FE5D1284DA7210032242F /* Meal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DE9FE5CF284DA7210032242F /* Meal.xcdatamodeld */; };
 		DE9FE5D3284DA7240032242F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE9FE5D2284DA7240032242F /* Assets.xcassets */; };
 		DE9FE5D6284DA7240032242F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE9FE5D4284DA7240032242F /* LaunchScreen.storyboard */; };
+		E9451D49285B8A640091A31E /* Member.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9451D48285B8A640091A31E /* Member.storyboard */; };
+		E9451D4C285B9B6B0091A31E /* UserNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9451D4A285B9B6B0091A31E /* UserNameTableViewCell.swift */; };
+		E9451D4D285B9B6B0091A31E /* UserNameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9451D4B285B9B6B0091A31E /* UserNameTableViewCell.xib */; };
+		E9451D50285BA1760091A31E /* FamilyMemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9451D4E285BA1760091A31E /* FamilyMemberTableViewCell.swift */; };
+		E9451D51285BA1760091A31E /* FamilyMemberTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9451D4F285BA1760091A31E /* FamilyMemberTableViewCell.xib */; };
+		E9451D54285BA3410091A31E /* FamilyIDTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9451D52285BA3410091A31E /* FamilyIDTableViewCell.swift */; };
+		E9451D55285BA3410091A31E /* FamilyIDTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9451D53285BA3410091A31E /* FamilyIDTableViewCell.xib */; };
+		E9451D57285BA4120091A31E /* MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9451D56285BA4120091A31E /* MemberViewController.swift */; };
+		E969B12E285D92750025E31F /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E969B12D285D92750025E31F /* SignInViewController.swift */; };
+		E969B130285D92DC0025E31F /* JoinCreateFamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E969B12F285D92DC0025E31F /* JoinCreateFamilyViewController.swift */; };
+		E97EAC9A2859DE5D00DEA510 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E97EAC962859DE5D00DEA510 /* Poppins-Regular.ttf */; };
+		E97EAC9B2859DE5D00DEA510 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E97EAC972859DE5D00DEA510 /* Poppins-SemiBold.ttf */; };
+		E97EAC9C2859DE5D00DEA510 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E97EAC982859DE5D00DEA510 /* Poppins-Bold.ttf */; };
+		E97EAC9D2859DE5D00DEA510 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E97EAC992859DE5D00DEA510 /* Poppins-Medium.ttf */; };
+		E97EAC9F2859DEFF00DEA510 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E97EAC9E2859DEFF00DEA510 /* SignIn.storyboard */; };
+		E97EACA12859E2F400DEA510 /* JoinCreateFamily.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E97EACA02859E2F400DEA510 /* JoinCreateFamily.storyboard */; };
+		E97EACA5285A235400DEA510 /* Vote.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E97EACA4285A235400DEA510 /* Vote.storyboard */; };
+		E97EACA8285A267D00DEA510 /* TopPartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97EACA6285A267D00DEA510 /* TopPartTableViewCell.swift */; };
+		E97EACA9285A267D00DEA510 /* TopPartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E97EACA7285A267D00DEA510 /* TopPartTableViewCell.xib */; };
+		E97EACAC285A28D000DEA510 /* BottomPartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97EACAA285A28D000DEA510 /* BottomPartTableViewCell.swift */; };
+		E97EACAD285A28D000DEA510 /* BottomPartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E97EACAB285A28D000DEA510 /* BottomPartTableViewCell.xib */; };
+		E97EACB0285A29E900DEA510 /* VoterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97EACAE285A29E900DEA510 /* VoterCollectionViewCell.swift */; };
+		E97EACB1285A29E900DEA510 /* VoterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E97EACAF285A29E900DEA510 /* VoterCollectionViewCell.xib */; };
+		E97EACB3285B74AC00DEA510 /* VoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97EACB2285B74AC00DEA510 /* VoteViewController.swift */; };
+		E9F42926285CD3B100C85012 /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9F42925285CD3B100C85012 /* History.storyboard */; };
+		E9F42929285CD89800C85012 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F42927285CD89800C85012 /* HistoryTableViewCell.swift */; };
+		E9F4292A285CD89800C85012 /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9F42928285CD89800C85012 /* HistoryTableViewCell.xib */; };
+		E9F4292C285CDB5600C85012 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F4292B285CDB5600C85012 /* HistoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +67,34 @@
 		DE9FE5D2284DA7240032242F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE9FE5D5284DA7240032242F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE9FE5D7284DA7240032242F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9451D48285B8A640091A31E /* Member.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Member.storyboard; sourceTree = "<group>"; };
+		E9451D4A285B9B6B0091A31E /* UserNameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNameTableViewCell.swift; sourceTree = "<group>"; };
+		E9451D4B285B9B6B0091A31E /* UserNameTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserNameTableViewCell.xib; sourceTree = "<group>"; };
+		E9451D4E285BA1760091A31E /* FamilyMemberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyMemberTableViewCell.swift; sourceTree = "<group>"; };
+		E9451D4F285BA1760091A31E /* FamilyMemberTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FamilyMemberTableViewCell.xib; sourceTree = "<group>"; };
+		E9451D52285BA3410091A31E /* FamilyIDTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyIDTableViewCell.swift; sourceTree = "<group>"; };
+		E9451D53285BA3410091A31E /* FamilyIDTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FamilyIDTableViewCell.xib; sourceTree = "<group>"; };
+		E9451D56285BA4120091A31E /* MemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberViewController.swift; sourceTree = "<group>"; };
+		E969B12D285D92750025E31F /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		E969B12F285D92DC0025E31F /* JoinCreateFamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinCreateFamilyViewController.swift; sourceTree = "<group>"; };
+		E97EAC962859DE5D00DEA510 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		E97EAC972859DE5D00DEA510 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		E97EAC982859DE5D00DEA510 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		E97EAC992859DE5D00DEA510 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		E97EAC9E2859DEFF00DEA510 /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
+		E97EACA02859E2F400DEA510 /* JoinCreateFamily.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JoinCreateFamily.storyboard; sourceTree = "<group>"; };
+		E97EACA4285A235400DEA510 /* Vote.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Vote.storyboard; sourceTree = "<group>"; };
+		E97EACA6285A267D00DEA510 /* TopPartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopPartTableViewCell.swift; sourceTree = "<group>"; };
+		E97EACA7285A267D00DEA510 /* TopPartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopPartTableViewCell.xib; sourceTree = "<group>"; };
+		E97EACAA285A28D000DEA510 /* BottomPartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomPartTableViewCell.swift; sourceTree = "<group>"; };
+		E97EACAB285A28D000DEA510 /* BottomPartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomPartTableViewCell.xib; sourceTree = "<group>"; };
+		E97EACAE285A29E900DEA510 /* VoterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoterCollectionViewCell.swift; sourceTree = "<group>"; };
+		E97EACAF285A29E900DEA510 /* VoterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VoterCollectionViewCell.xib; sourceTree = "<group>"; };
+		E97EACB2285B74AC00DEA510 /* VoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteViewController.swift; sourceTree = "<group>"; };
+		E9F42925285CD3B100C85012 /* History.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
+		E9F42927285CD89800C85012 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		E9F42928285CD89800C85012 /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
+		E9F4292B285CDB5600C85012 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +147,7 @@
 		DE9FE5C5284DA7210032242F /* Meal */ = {
 			isa = PBXGroup;
 			children = (
+				E97EAC942859DE3C00DEA510 /* Themes */,
 				DE21569728503F7800841DF0 /* Meal.entitlements */,
 				DE9FE5C6284DA7210032242F /* AppDelegate.swift */,
 				DE9FE5C8284DA7210032242F /* SceneDelegate.swift */,
@@ -104,8 +161,75 @@
 				DE9FE5D4284DA7240032242F /* LaunchScreen.storyboard */,
 				DE9FE5D7284DA7240032242F /* Info.plist */,
 				DE9FE5CF284DA7210032242F /* Meal.xcdatamodeld */,
+				E969B12A285CE6E60025E31F /* Views */,
+				E969B12B285CE6F80025E31F /* Controllers */,
 			);
 			path = Meal;
+			sourceTree = "<group>";
+		};
+		E969B12A285CE6E60025E31F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E969B12C285CE7020025E31F /* CustomCells */,
+				E97EAC9E2859DEFF00DEA510 /* SignIn.storyboard */,
+				E97EACA02859E2F400DEA510 /* JoinCreateFamily.storyboard */,
+				E97EACA4285A235400DEA510 /* Vote.storyboard */,
+				E9451D48285B8A640091A31E /* Member.storyboard */,
+				E9F42925285CD3B100C85012 /* History.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E969B12B285CE6F80025E31F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E969B12D285D92750025E31F /* SignInViewController.swift */,
+				E97EACB2285B74AC00DEA510 /* VoteViewController.swift */,
+				E9451D56285BA4120091A31E /* MemberViewController.swift */,
+				E9F4292B285CDB5600C85012 /* HistoryViewController.swift */,
+				E969B12F285D92DC0025E31F /* JoinCreateFamilyViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E969B12C285CE7020025E31F /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				E97EACA6285A267D00DEA510 /* TopPartTableViewCell.swift */,
+				E97EACA7285A267D00DEA510 /* TopPartTableViewCell.xib */,
+				E97EACAA285A28D000DEA510 /* BottomPartTableViewCell.swift */,
+				E97EACAB285A28D000DEA510 /* BottomPartTableViewCell.xib */,
+				E97EACAE285A29E900DEA510 /* VoterCollectionViewCell.swift */,
+				E97EACAF285A29E900DEA510 /* VoterCollectionViewCell.xib */,
+				E9451D4A285B9B6B0091A31E /* UserNameTableViewCell.swift */,
+				E9451D4B285B9B6B0091A31E /* UserNameTableViewCell.xib */,
+				E9451D4E285BA1760091A31E /* FamilyMemberTableViewCell.swift */,
+				E9451D4F285BA1760091A31E /* FamilyMemberTableViewCell.xib */,
+				E9451D52285BA3410091A31E /* FamilyIDTableViewCell.swift */,
+				E9451D53285BA3410091A31E /* FamilyIDTableViewCell.xib */,
+				E9F42927285CD89800C85012 /* HistoryTableViewCell.swift */,
+				E9F42928285CD89800C85012 /* HistoryTableViewCell.xib */,
+			);
+			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		E97EAC942859DE3C00DEA510 /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				E97EAC952859DE5100DEA510 /* Fonts */,
+			);
+			path = Themes;
+			sourceTree = "<group>";
+		};
+		E97EAC952859DE5100DEA510 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E97EAC982859DE5D00DEA510 /* Poppins-Bold.ttf */,
+				E97EAC992859DE5D00DEA510 /* Poppins-Medium.ttf */,
+				E97EAC962859DE5D00DEA510 /* Poppins-Regular.ttf */,
+				E97EAC972859DE5D00DEA510 /* Poppins-SemiBold.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,10 +292,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9451D55285BA3410091A31E /* FamilyIDTableViewCell.xib in Resources */,
+				E97EACA12859E2F400DEA510 /* JoinCreateFamily.storyboard in Resources */,
 				DE21569B28505A6B00841DF0 /* GoogleService-Info.plist in Resources */,
+				E9451D49285B8A640091A31E /* Member.storyboard in Resources */,
 				DE9FE5D6284DA7240032242F /* LaunchScreen.storyboard in Resources */,
+				E97EACA5285A235400DEA510 /* Vote.storyboard in Resources */,
+				E9F4292A285CD89800C85012 /* HistoryTableViewCell.xib in Resources */,
+				E97EAC9C2859DE5D00DEA510 /* Poppins-Bold.ttf in Resources */,
+				E9451D51285BA1760091A31E /* FamilyMemberTableViewCell.xib in Resources */,
 				DE9FE5D3284DA7240032242F /* Assets.xcassets in Resources */,
+				E9F42926285CD3B100C85012 /* History.storyboard in Resources */,
+				E97EAC9F2859DEFF00DEA510 /* SignIn.storyboard in Resources */,
+				E97EAC9B2859DE5D00DEA510 /* Poppins-SemiBold.ttf in Resources */,
+				E97EAC9D2859DE5D00DEA510 /* Poppins-Medium.ttf in Resources */,
+				E97EACB1285A29E900DEA510 /* VoterCollectionViewCell.xib in Resources */,
 				DE9FE5CE284DA7210032242F /* Main.storyboard in Resources */,
+				E97EACAD285A28D000DEA510 /* BottomPartTableViewCell.xib in Resources */,
+				E9451D4D285B9B6B0091A31E /* UserNameTableViewCell.xib in Resources */,
+				E97EACA9285A267D00DEA510 /* TopPartTableViewCell.xib in Resources */,
+				E97EAC9A2859DE5D00DEA510 /* Poppins-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,11 +365,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE9FE5D1284DA7210032242F /* Meal.xcdatamodeld in Sources */,
+				E9451D50285BA1760091A31E /* FamilyMemberTableViewCell.swift in Sources */,
+				E9451D4C285B9B6B0091A31E /* UserNameTableViewCell.swift in Sources */,
+				E969B130285D92DC0025E31F /* JoinCreateFamilyViewController.swift in Sources */,
+				E9451D57285BA4120091A31E /* MemberViewController.swift in Sources */,
 				DE6201DD2850AD0600E88035 /* MenuViewController.swift in Sources */,
+				E97EACAC285A28D000DEA510 /* BottomPartTableViewCell.swift in Sources */,
+				E97EACB0285A29E900DEA510 /* VoterCollectionViewCell.swift in Sources */,
+				E9451D54285BA3410091A31E /* FamilyIDTableViewCell.swift in Sources */,
+				E97EACA8285A267D00DEA510 /* TopPartTableViewCell.swift in Sources */,
 				DE2156042852BB5F00E2DA35 /* Menu.swift in Sources */,
+				E9F42929285CD89800C85012 /* HistoryTableViewCell.swift in Sources */,
 				DE215699285056C200841DF0 /* JoinFamilyViewController.swift in Sources */,
+				E97EACB3285B74AC00DEA510 /* VoteViewController.swift in Sources */,
 				DE9FE5CB284DA7210032242F /* ViewController.swift in Sources */,
+				E969B12E285D92750025E31F /* SignInViewController.swift in Sources */,
 				DE9FE5C7284DA7210032242F /* AppDelegate.swift in Sources */,
+				E9F4292C285CDB5600C85012 /* HistoryViewController.swift in Sources */,
 				DE9FE5C9284DA7210032242F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,9 +529,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Meal/Meal.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YH7J3D49RU;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Meal/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -394,6 +547,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nabilrei.Meal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -407,9 +561,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Meal/Meal.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YH7J3D49RU;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Meal/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -424,6 +579,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nabilrei.Meal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
