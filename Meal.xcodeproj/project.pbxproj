@@ -34,7 +34,7 @@
 		E97EAC9C2859DE5D00DEA510 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E97EAC982859DE5D00DEA510 /* Poppins-Bold.ttf */; };
 		E97EAC9D2859DE5D00DEA510 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E97EAC992859DE5D00DEA510 /* Poppins-Medium.ttf */; };
 		E97EAC9F2859DEFF00DEA510 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E97EAC9E2859DEFF00DEA510 /* SignIn.storyboard */; };
-		E97EACA12859E2F400DEA510 /* JoinCreateFamily.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E97EACA02859E2F400DEA510 /* JoinCreateFamily.storyboard */; };
+		E97EACA12859E2F400DEA510 /* JoinCreateFamily_temp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E97EACA02859E2F400DEA510 /* JoinCreateFamily_temp.storyboard */; };
 		E97EACA5285A235400DEA510 /* Vote.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E97EACA4285A235400DEA510 /* Vote.storyboard */; };
 		E97EACA8285A267D00DEA510 /* TopPartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97EACA6285A267D00DEA510 /* TopPartTableViewCell.swift */; };
 		E97EACA9285A267D00DEA510 /* TopPartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E97EACA7285A267D00DEA510 /* TopPartTableViewCell.xib */; };
@@ -82,7 +82,7 @@
 		E97EAC982859DE5D00DEA510 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		E97EAC992859DE5D00DEA510 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		E97EAC9E2859DEFF00DEA510 /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
-		E97EACA02859E2F400DEA510 /* JoinCreateFamily.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JoinCreateFamily.storyboard; sourceTree = "<group>"; };
+		E97EACA02859E2F400DEA510 /* JoinCreateFamily_temp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JoinCreateFamily_temp.storyboard; sourceTree = "<group>"; };
 		E97EACA4285A235400DEA510 /* Vote.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Vote.storyboard; sourceTree = "<group>"; };
 		E97EACA6285A267D00DEA510 /* TopPartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopPartTableViewCell.swift; sourceTree = "<group>"; };
 		E97EACA7285A267D00DEA510 /* TopPartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopPartTableViewCell.xib; sourceTree = "<group>"; };
@@ -172,7 +172,7 @@
 			children = (
 				E969B12C285CE7020025E31F /* CustomCells */,
 				E97EAC9E2859DEFF00DEA510 /* SignIn.storyboard */,
-				E97EACA02859E2F400DEA510 /* JoinCreateFamily.storyboard */,
+				E97EACA02859E2F400DEA510 /* JoinCreateFamily_temp.storyboard */,
 				E97EACA4285A235400DEA510 /* Vote.storyboard */,
 				E9451D48285B8A640091A31E /* Member.storyboard */,
 				E9F42925285CD3B100C85012 /* History.storyboard */,
@@ -293,7 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9451D55285BA3410091A31E /* FamilyIDTableViewCell.xib in Resources */,
-				E97EACA12859E2F400DEA510 /* JoinCreateFamily.storyboard in Resources */,
+				E97EACA12859E2F400DEA510 /* JoinCreateFamily_temp.storyboard in Resources */,
 				DE21569B28505A6B00841DF0 /* GoogleService-Info.plist in Resources */,
 				E9451D49285B8A640091A31E /* Member.storyboard in Resources */,
 				DE9FE5D6284DA7240032242F /* LaunchScreen.storyboard in Resources */,
@@ -532,7 +532,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = YH7J3D49RU;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Meal/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -564,7 +564,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = YH7J3D49RU;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Meal/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

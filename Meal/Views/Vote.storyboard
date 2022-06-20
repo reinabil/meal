@@ -164,11 +164,20 @@
                         <outlet property="addButton" destination="Ddf-Z1-PUz" id="kCr-Um-nTA"/>
                         <outlet property="tableView" destination="8Ww-Vv-NZE" id="A1S-CP-Xsz"/>
                         <outlet property="tableViewFooterView" destination="P9J-CC-h1i" id="YgG-a3-ZFG"/>
+                        <segue destination="QRh-Lx-7cm" kind="presentation" identifier="goToSignIn" id="akN-qt-B54"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="40.579710144927539" y="45.535714285714285"/>
+        </scene>
+        <!--SignIn-->
+        <scene sceneID="CsB-wh-g3r">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SignIn" id="QRh-Lx-7cm" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qH5-uf-i8u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="827" y="46"/>
         </scene>
     </scenes>
     <resources>

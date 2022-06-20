@@ -6,6 +6,11 @@
 //
 
 import UIKit
+import AuthenticationServices
+import CryptoKit
+import FirebaseAuth
+import FirebaseFirestore
+
 
 class VoteViewController: UIViewController {
 
@@ -16,9 +21,19 @@ class VoteViewController: UIViewController {
     //Dummy data, change with real data later
     var tableViewData = DataSeeder.sharedData
     
+    let defaults = UserDefaults.standard
+    var db: Firestore!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // [START setup]
+        let settings = FirestoreSettings()
+
+        Firestore.firestore().settings = settings
+        // [END setup]
+        db = Firestore.firestore()
+        
         //Register XIB and set tableView delegate and dataSource to self
         tableView.register(UINib(nibName: "TopPartTableViewCell", bundle: nil), forCellReuseIdentifier: "topCell")
         tableView.register(UINib(nibName: "BottomPartTableViewCell", bundle: nil), forCellReuseIdentifier: "bottomCell")
@@ -34,6 +49,8 @@ class VoteViewController: UIViewController {
     
     @IBAction func addButtonPressed(_ sender: UIButton) {
         
+        performSegue(withIdentifier: "goToSignIn", sender: self)
+        
     }
     
     
@@ -41,7 +58,11 @@ class VoteViewController: UIViewController {
         
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+          if segue.identifier == "goToSignIn" {
+              guard let vc = segue.destination as? SignInViewController else { return }
+          }
+      }
 }
 
 
