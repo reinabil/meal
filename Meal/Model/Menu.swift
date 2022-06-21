@@ -12,5 +12,5 @@ struct Menu {
     let name: String
     let family_id: String
     let portions: Int
-    let isOpened: Bool
+    var isOpened: Bool
 }
