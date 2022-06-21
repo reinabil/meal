@@ -20,6 +20,9 @@ class VoteViewController: UIViewController {
     
     //Dummy data, change with real data later
     var tableViewData = DataSeeder.sharedData
+    //Variable to store expanded tableViewCell data
+    var openedCellSections: [IndexPath] = []
+    var openedCellDataIndex: [Int] = []
     
     let defaults = UserDefaults.standard
     var db: Firestore!
@@ -42,6 +45,20 @@ class VoteViewController: UIViewController {
     }
     
     @IBAction func editButtonPressed(_ sender: UIButton) {
+        //Check if there is any cell that is expanded
+        if openedCellSections.count > 0 {
+            //Set each element's isOpened property to false (collapse it)
+            for i in 0...openedCellSections.count-1 {
+                tableViewData[openedCellDataIndex[i]].isOpened = false
+                let section = IndexSet.init(integer: openedCellSections[i].section)
+                tableView.reloadSections(section, with: .none)
+            }
+        }
+        
+        openedCellSections.removeAll()
+        openedCellDataIndex.removeAll()
+        
+        //Set tableView to editing mode
         tableView.setEditing((tableView.isEditing) ? false : true, animated: true)
         sender.setTitle((tableView.isEditing) ? "Cancel" : "Edit", for: .normal)
         addButton.setTitle((tableView.isEditing) ? "Done" : "Add", for: .normal)
@@ -95,6 +112,10 @@ extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPar
         }
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return (indexPath.row == 0) ? true : false
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return tableViewData.count //change with real data later
     }
@@ -115,6 +136,11 @@ extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPar
         if tableViewData[indexPath.section].isOpened {
             tableViewData[indexPath.section].isOpened = false
             
+            if let savedIndexPath = openedCellSections.firstIndex(of: indexPath) {
+                openedCellSections.remove(at: savedIndexPath)
+                openedCellDataIndex.remove(at: savedIndexPath)
+            }
+            
             let sections = IndexSet.init(integer: indexPath.section)
             tableView.reloadSections(sections, with: .none)
             
@@ -122,6 +148,9 @@ extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPar
             topPartCell?.arrowImage.image = UIImage(systemName: "chevron.down")?.withRenderingMode(.alwaysOriginal)
         } else {
             tableViewData[indexPath.section].isOpened = true
+            
+            openedCellSections.append(indexPath)
+            openedCellDataIndex.append(indexPath.section)
             
             let sections = IndexSet.init(integer: indexPath.section)
             tableView.reloadSections(sections, with: .none)
