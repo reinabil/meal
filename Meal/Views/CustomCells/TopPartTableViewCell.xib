@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -53,6 +52,7 @@
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="buttonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="YH5-f4-VXC"/>
+                                                    <action selector="dontEatButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Nuc-j1-F92"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gqb-V5-IpV">
@@ -66,6 +66,7 @@
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="buttonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="YV5-z6-rPC"/>
+                                                    <action selector="eatButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="BSV-vT-lId"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -100,7 +101,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" name="BrandLightGray"/>
+                        <color key="backgroundColor" systemColor="quaternarySystemFillColor"/>
                         <constraints>
                             <constraint firstItem="b1Z-hc-HwT" firstAttribute="leading" secondItem="5IR-GU-rWt" secondAttribute="leading" constant="16" id="Alf-Vg-z9e"/>
                             <constraint firstItem="b1Z-hc-HwT" firstAttribute="top" secondItem="5IR-GU-rWt" secondAttribute="top" constant="14" id="U5l-6q-Q8b"/>
@@ -135,11 +136,11 @@
         <image name="chevron.down" catalog="system" width="128" height="72"/>
         <image name="hand.thumbsdown" catalog="system" width="128" height="128"/>
         <image name="hand.thumbsup" catalog="system" width="128" height="128"/>
-        <namedColor name="BrandLightGray">
-            <color red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="quaternarySystemFillColor">
+            <color red="0.45490196078431372" green="0.45490196078431372" blue="0.50196078431372548" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

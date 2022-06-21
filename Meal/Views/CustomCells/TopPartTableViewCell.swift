@@ -9,6 +9,8 @@ import UIKit
 
 protocol TopPartTableViewCellDelegate:AnyObject {
     func buttonClicked(cell: TopPartTableViewCell)
+//    func eatButtonPressed(cell: TopPartTableViewCell)
+//    func dontEatButtonPressed(cell: TopPartTableViewCell)
 }
 
 class TopPartTableViewCell: UITableViewCell {
@@ -22,8 +24,14 @@ class TopPartTableViewCell: UITableViewCell {
     
     weak var delegate: (TopPartTableViewCellDelegate)?
     
+    // empty function
+    var eatButtonPressed : (() -> ())?
+    var dontEatButtonPressed : (() -> ())?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        eatButton.backgroundColor = UIColor.systemBackground
         
         //Make background frame rounded
         background.layer.cornerRadius = 10
@@ -37,4 +45,17 @@ class TopPartTableViewCell: UITableViewCell {
         delegate?.buttonClicked(cell: self)
     }
     
+    @IBAction func eatButtonPressed(_ sender: UIButton) {
+        eatButtonPressed?()
+        
+        if eatButton.backgroundColor == UIColor.systemBackground {
+            eatButton.backgroundColor = UIColor(named: "BrandOrange")
+        } else {
+            eatButton.backgroundColor = UIColor.systemBackground
+        }
+    }
+    
+    @IBAction func dontEatButtonPressed(_ sender: UIButton) {
+        dontEatButtonPressed?()
+    }
 }

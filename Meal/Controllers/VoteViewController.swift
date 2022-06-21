@@ -229,9 +229,11 @@ class VoteViewController: UIViewController {
 
 extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPartTableViewCellDelegate {
     
+    
+    
     func buttonClicked(cell: TopPartTableViewCell) {
-        //Insert logic when eat/dont eat button pressed
-        print("button pressed")
+        //In    sert logic when eat/dont eat button pressed
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -243,9 +245,112 @@ extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPar
             cell.delegate = self
             // Set foodName, portion, and button state here (Example code below)
             //
-            cell.foodNameLabel.text = "foodName 1"
+            cell.foodNameLabel.text = self.menu[indexPath.section].name
             //cell.portionLabel.text = "Portion: xx"
             //cell.eatButton or cell.dontEatButton
+            
+            cell.eatButtonPressed = { [unowned self] in
+                print(indexPath.section)
+                print(self.menu[indexPath.section].menu_id)
+                
+                print(self.family_id)
+                print("menu ID : \(self.menu[indexPath.section].menu_id)")
+                
+                var likeRef = self.db.collection("like").document("\(Auth.auth().currentUser!.uid)_\(self.menu[indexPath.section].menu_id)")
+                
+                self.db.collection("dislike").document("\(Auth.auth().currentUser!.uid)_\(self.menu[indexPath.section].menu_id)").delete() { err in
+                    if let err = err {
+                        print("Error removing document: \(err)")
+                    } else {
+                        print("Document successfully removed!")
+                    }
+                }
+
+                likeRef.getDocument { (document, error) in
+                    if let document = document, document.exists {
+                        
+                        /// DELETE DATA KALO DATANYA UDH ADA DI LIKE (unlike)
+                        let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                        self.db.collection("like").document("\(Auth.auth().currentUser!.uid)_\(self.menu[indexPath.section].menu_id)").delete() { err in
+                            if let err = err {
+                                print("Error removing document: \(err)")
+                            } else {
+                                print("Document successfully removed!")
+                                
+                                //MARK: - bg button to default
+                            }
+                        }
+                    } else {
+                        
+                        /// KALO DATANYA GAADA DI LIKE, LIKE
+                        likeRef.setData([
+                            "like_id": "\(likeRef.documentID)",
+                            "user_id": "\(Auth.auth().currentUser!.uid)",
+                            "menu_id": "\(self.menu[indexPath.section].menu_id)"
+                        ]) { err in
+                            if let err = err {
+                                print("Error writing document: \(err)")
+                            } else {
+                                print("Document successfully written!")
+                                
+                                //MARK: - bg color to orange
+                            
+                            }
+                        }
+                    }
+                }
+            }
+            
+            cell.dontEatButtonPressed = { [unowned self] in
+                print(indexPath.section)
+                print(self.menu[indexPath.section].menu_id)
+                
+                print(self.family_id)
+                print("menu ID : \(self.menu[indexPath.section].menu_id)")
+                
+                var dislikeRef = self.db.collection("dislike").document("\(Auth.auth().currentUser!.uid)_\(self.menu[indexPath.section].menu_id)")
+                
+                self.db.collection("like").document("\(Auth.auth().currentUser!.uid)_\(self.menu[indexPath.section].menu_id)").delete() { err in
+                    if let err = err {
+                        print("Error removing document: \(err)")
+                    } else {
+                        print("Document successfully removed!")
+                    }
+                }
+                
+                dislikeRef.getDocument { (document, error) in
+                    if let document = document, document.exists {
+                        
+                        /// DELETE DATA KALO DATANYA UDH ADA DI DISLIKE (undislike)
+                        let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                        self.db.collection("dislike").document("\(Auth.auth().currentUser!.uid)_\(self.menu[indexPath.section].menu_id)").delete() { err in
+                            if let err = err {
+                                print("Error removing document: \(err)")
+                            } else {
+                                print("Document successfully removed!")
+                                
+                                //MARK: - bg color to default
+                            }
+                        }
+                    } else {
+                        
+                        /// KALO DATANYA GAADA DI dislike, dislike
+                        dislikeRef.setData([
+                            "dislike_id": "\(dislikeRef.documentID)",
+                            "user_id": "\(Auth.auth().currentUser!.uid)",
+                            "menu_id": "\(self.menu[indexPath.section].menu_id)"
+                        ]) { err in
+                            if let err = err {
+                                print("Error writing document: \(err)")
+                            } else {
+                                print("Document successfully written!")
+                                
+                                //MARK: - bg color to orange
+                            }
+                        }
+                    }
+                }
+            }
 
             return cell
         } else {
@@ -271,7 +376,18 @@ extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPar
         let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
             
             //Change code below to delete item logic
-            print("item at \(indexPath.section) deleted")
+            print("item \(self.menu[indexPath.section].menu_id) deleted")
+            
+            self.db.collection("menu").document("\(self.menu[indexPath.section].menu_id)").delete() { err in
+                if let err = err {
+                    print("Error removing document: \(err)")
+                } else {
+                    print("Document successfully removed!")
+                }
+            }
+            
+            self.menu.remove(at: indexPath.section)
+            print(self.menu)
         }
         
         return UISwipeActionsConfiguration(actions: [action])
