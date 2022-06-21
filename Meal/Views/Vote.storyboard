@@ -53,9 +53,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ddf-Z1-PUz">
-                                        <rect key="frame" x="332" y="0.0" width="50" height="31"/>
+                                        <rect key="frame" x="297.5" y="0.0" width="84.5" height="31"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Add">
+                                        <buttonConfiguration key="configuration" style="plain" title="Add Meal">
                                             <color key="baseForegroundColor" name="BrandOrange"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -64,8 +64,8 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's Menu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mf7-kg-1Fw">
-                                <rect key="frame" x="16" y="83" width="227" height="45"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vote Meal's" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mf7-kg-1Fw">
+                                <rect key="frame" x="16" y="83" width="188.5" height="45"/>
                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="32"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -110,23 +110,13 @@
                                                 <action selector="finishedEatingButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="9uH-Eu-pnJ"/>
                                             </connections>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you click this button, all of the meals and their votes will be deleted" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBG-jt-cdS">
-                                            <rect key="frame" x="16" y="74" width="350" height="39"/>
-                                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="XJK-76-maV" secondAttribute="trailing" constant="48" id="73P-sY-9Wi"/>
                                         <constraint firstItem="XJK-76-maV" firstAttribute="top" secondItem="P9J-CC-h1i" secondAttribute="top" constant="16" id="IjE-Np-IfT"/>
                                         <constraint firstItem="XJK-76-maV" firstAttribute="centerX" secondItem="P9J-CC-h1i" secondAttribute="centerX" id="Qyc-cA-rew"/>
-                                        <constraint firstAttribute="trailing" secondItem="aBG-jt-cdS" secondAttribute="trailing" constant="16" id="Yv7-CU-n0L"/>
-                                        <constraint firstItem="aBG-jt-cdS" firstAttribute="leading" secondItem="P9J-CC-h1i" secondAttribute="leading" constant="16" id="h33-cq-m4d"/>
                                         <constraint firstItem="XJK-76-maV" firstAttribute="leading" secondItem="P9J-CC-h1i" secondAttribute="leading" constant="48" id="kbX-yZ-HDm"/>
-                                        <constraint firstItem="aBG-jt-cdS" firstAttribute="top" secondItem="XJK-76-maV" secondAttribute="bottom" constant="8" id="tHU-AK-7sH"/>
-                                        <constraint firstAttribute="bottom" secondItem="aBG-jt-cdS" secondAttribute="bottom" constant="16" id="y4h-dc-227"/>
                                     </constraints>
                                 </view>
                                 <prototypes>

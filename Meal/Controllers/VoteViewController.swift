@@ -61,7 +61,7 @@ class VoteViewController: UIViewController {
         //Set tableView to editing mode
         tableView.setEditing((tableView.isEditing) ? false : true, animated: true)
         sender.setTitle((tableView.isEditing) ? "Cancel" : "Edit", for: .normal)
-        addButton.setTitle((tableView.isEditing) ? "Done" : "Add", for: .normal)
+        addButton.setTitle((tableView.isEditing) ? "Done" : "Add Meal", for: .normal)
     }
     
     @IBAction func addButtonPressed(_ sender: UIButton) {
