@@ -15,8 +15,11 @@ class SignInViewController: UIViewController {
 
     let defaults = UserDefaults.standard
     var db: Firestore!
+    let launchedBefore = UserDefaults.standard.bool(forKey: "usersignedin")
     
     override func viewDidLoad() {
+        
+            
         
         navigationItem.hidesBackButton = true  
         super.viewDidLoad()
@@ -35,15 +38,15 @@ class SignInViewController: UIViewController {
     
     //Continue with Apple button pressed
     @IBAction func buttonPressed(_ sender: UIButton) {
-//        print("Sign in with apple")
-//        let request  = createAppleIDRequest()
-//        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
-//
-//        authorizationController.delegate = self
-//        authorizationController.presentationContextProvider = self
-//
-//        authorizationController.performRequests()
-        self.performSegue(withIdentifier: "goToJoinCreateFamily", sender: self)
+        print("Sign in with apple")
+        let request  = createAppleIDRequest()
+        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+
+        authorizationController.delegate = self
+        authorizationController.presentationContextProvider = self
+
+        authorizationController.performRequests()
+        
     }
     
     func createAppleIDRequest() -> ASAuthorizationAppleIDRequest {
@@ -111,6 +114,7 @@ class SignInViewController: UIViewController {
 }
 
 extension SignInViewController: ASAuthorizationControllerDelegate {
+    
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
             
@@ -135,12 +139,19 @@ extension SignInViewController: ASAuthorizationControllerDelegate {
                 // Mak a request to set user's display name on Firebase
                 let changeRequest = authDataResult?.user.createProfileChangeRequest()
                 changeRequest?.displayName = appleIDCredential.fullName?.givenName
+                
 //
 //                if changeRequest?.displayName != nil {
 //                    self.defaults.set(changeRequest?.displayName, forKey: "userName")
 //                    self.defaults.set(Auth.auth().currentUser?.uid, forKey: "uid")
 //                }
-//
+                
+                if error == nil {
+                    UserDefaults.standard.set(true, forKey: "usersignedin")
+                    UserDefaults.standard.synchronize()
+                    print(authDataResult?.user.email)
+                }
+                
                 changeRequest?.commitChanges(completion: { (error) in
 
                     if let error = error {
@@ -172,6 +183,7 @@ extension SignInViewController: ASAuthorizationControllerDelegate {
                 
                 
             }
+            
         }
     }
 }

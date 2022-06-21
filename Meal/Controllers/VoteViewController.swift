@@ -17,14 +17,25 @@ class VoteViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewFooterView: UIView!
     @IBOutlet weak var addButton: UIButton!
+    var menuArray: Array<Any>?
+    var menu: [Menu] = []
     
     //Dummy data, change with real data later
     var tableViewData = DataSeeder.sharedData
     
     let defaults = UserDefaults.standard
     var db: Firestore!
+    var family_id = ""
     
     override func viewDidLoad() {
+        
+        print("\(UserDefaults.standard.string(forKey: "family_id"))")
+        
+        if UserDefaults.standard.string(forKey: "family_id") != nil || UserDefaults.standard.string(forKey: "family_id") != "" {
+            family_id = UserDefaults.standard.string(forKey: "family_id") ?? ""
+        }
+        
+        print(Auth.auth().currentUser?.email)
         super.viewDidLoad()
 
         // [START setup]
@@ -39,6 +50,15 @@ class VoteViewController: UIViewController {
         tableView.register(UINib(nibName: "BottomPartTableViewCell", bundle: nil), forCellReuseIdentifier: "bottomCell")
         tableView.delegate = self
         tableView.dataSource = self
+        
+        if UserDefaults.standard.string(forKey: "family_id") == nil || UserDefaults.standard.string(forKey: "family_id") == "" {
+            tableView.isHidden = true
+        } else {
+            tableView.isHidden = false
+            loadMenu()
+        }
+        
+        
     }
     
     @IBAction func editButtonPressed(_ sender: UIButton) {
@@ -49,13 +69,137 @@ class VoteViewController: UIViewController {
     
     @IBAction func addButtonPressed(_ sender: UIButton) {
         
-        performSegue(withIdentifier: "goToSignIn", sender: self)
+        
+        
+    print(UserDefaults.standard.bool(forKey: "usersignedin"))
+        print(Auth.auth().currentUser?.email)
+    
+        
+        // kalo sudah login
+        if UserDefaults.standard.bool(forKey: "usersignedin") && Auth.auth().currentUser?.uid != nil {
+            print("Add ITEM")
+            
+            //klo udh login tp belom masukin family id
+            let docRef = db.collection("user").document("\(Auth.auth().currentUser!.uid)")
+
+            docRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                    
+                    // ADD DATA MENU
+                    print("Document data: \(dataDescription)")
+                    print("\(document.get("family_id"))")
+                    let alert = UIAlertController(title: "Add New Item", message: "", preferredStyle: .alert)
+                    var textField = UITextField()
+                    
+                    let action = UIAlertAction(title: "Add item", style: .default, handler: { (action) in
+                        
+                        print(textField.text)
+                        if textField.text != "" {
+                            
+                            // Add a new document with a generated id.
+                            var ref = self.db.collection("menu").document()
+                            
+                            ref.setData([
+                                "name": "\(textField.text!)",
+                                "family_id": "\(self.family_id)",
+                                "portions": 0,
+                                "date": Date().timeIntervalSince1970,
+                                "menu_id": ref.documentID,
+                                "isOpened": false
+                            ]) { err in
+                                if let err = err {
+                                    print("Error adding document: \(err)")
+                                } else {
+                                    print("Document added with ID: \(ref.documentID)")
+                                }
+                            }
+                            
+                            
+                        }
+                    } )
+                    
+                    alert.addTextField{(alertTextField) in
+                        alertTextField.placeholder = "Write your new item here"
+                        textField = alertTextField
+                    }
+                    
+                    alert.addAction(action)
+                    self.present(alert, animated: true, completion: nil)
+                    
+                    
+                    if document.get("family_id") as! String == "" {
+                        self.performSegue(withIdentifier: "goToSignIn", sender: self)
+                    }
+                   
+                } else {
+                    print("Document does not exist")
+                }
+            }
+            
+        // kalo belom login
+        } else {
+            performSegue(withIdentifier: "goToSignIn", sender: self)
+        }
+            
+            
+        
+        
+        
+      
         
     }
     
     
     @IBAction func finishedEatingButtonPressed(_ sender: UIButton) {
         
+    }
+    
+    func loadMenu() {
+        
+        let menuRef = db.collection("menu").document()
+        
+        db.collection("menu").order(by: "date", descending: true).whereField("family_id", isEqualTo: "\(UserDefaults.standard.string(forKey: "family_id")!)")
+            .addSnapshotListener { querySnapshot, error in
+                self.menu = []
+                guard let documents = querySnapshot?.documents else {
+                    print("Error fetching documents: \(error!)")
+                    return
+                }
+                
+                let name = documents.map { $0["name"] ?? [""] }
+                let family_id = documents.map { $0["family_id"] ?? [0] }
+                let portions = documents.map { $0["portions"] ?? [""] }
+                let menu_id = documents.map { $0["menu_id"] ?? [""]}
+                let isOpened = documents.map { $0["isOpened"] ?? [""]}
+                
+               
+                print("document ID : \(menuRef.documentID)")
+                print("query snapshot : \(querySnapshot?.documents)")
+                
+                if name != nil || name[0] as! String != "" {
+                    for i in 0..<name.count {
+                        self.menu.append(Menu(menu_id: menu_id[i] as! String, name: name[i] as! String, family_id: family_id[i] as! String, portions: portions[i] as! Int, isOpened: isOpened[i] as! Bool))
+                    }
+                }
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    let indexPath = IndexPath(row: self.menu.count - 1, section: 0)
+//                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+                }
+                    
+                
+                
+                print("Menu: \(name)")
+//                print("Document ID: \()")
+                print("Portions: \(portions)")
+                print("Family ID: \(family_id)")
+                print(self.menu)
+                
+                
+                print("jumlah menu : \(self.menu.count)")
+            }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -75,13 +219,14 @@ extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPar
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print("idx path: \(indexPath) - row: \(indexPath.row)")
+//        let menu = self.menu[indexPath.row]
         if indexPath.row == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "topCell") as? TopPartTableViewCell else { return UITableViewCell() }
             
             cell.delegate = self
             // Set foodName, portion, and button state here (Example code below)
             //
-            //cell.foodNameLabel.text = "foodName"
+            cell.foodNameLabel.text = "foodName 1"
             //cell.portionLabel.text = "Portion: xx"
             //cell.eatButton or cell.dontEatButton
 
@@ -95,8 +240,10 @@ extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPar
         }
     }
     
+    //MARK: - number if section
     func numberOfSections(in tableView: UITableView) -> Int {
         return tableViewData.count //change with real data later
+//        return self.menu.count ?? 0
     }
     
     //Function for showing delete button when the card is swiped
@@ -132,6 +279,10 @@ extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPar
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return self.menu.count ?? 0
+        
+//        return 3
+
         if tableViewData[section].isOpened {
             return 2
         } else {
@@ -165,12 +316,12 @@ struct Vote {
 class DataSeeder {
     static let sharedData = [
         Food(isOpened: false, foodName: "Sapi Lada Hitam", voters: [
-        Vote(voter: "Mom", choice: "Yes"),
-        Vote(voter: "Dad", choice: "No"),
-        Vote(voter: "Sis", choice: "No"),
-        Vote(voter: "Bro", choice: "-")
+            Vote(voter: "Mom", choice: "Yes"),
+            Vote(voter: "Dad", choice: "No"),
+            Vote(voter: "Sis", choice: "No"),
+            Vote(voter: "Bro", choice: "-")
     ]),
-    Food(isOpened: false, foodName: "Sapi Lada Hitam 2", voters: [
-        Vote(voter: "Mom", choice: "Yes")
+        Food(isOpened: false, foodName: "Sapi Lada Hitam 2", voters: [
+            Vote(voter: "Mom", choice: "Yes")
     ])]
 }

@@ -71,14 +71,15 @@ class MenuViewController: UIViewController {
                 let family_id = documents.map { $0["family_id"] ?? [0] }
                 let portions = documents.map { $0["portions"] ?? [""] }
                 let menu_id = documents.map { $0["menu_id"] ?? [""]}
-                
+                let isOpened = documents.map { $0["isOpened"] ?? [""]}
+
                
                 print("document ID : \(menuRef.documentID)")
                 print("query snapshot : \(querySnapshot?.documents)")
                 
                 if name != nil || name[0] as! String != "" {
                     for i in 0..<name.count {
-                        self.menu.append(Menu(menu_id: menu_id[i] as! String, name: name[i] as! String, family_id: family_id[i] as! String, portions: portions[i] as! Int))
+                        self.menu.append(Menu(menu_id: menu_id[i] as! String, name: name[i] as! String, family_id: family_id[i] as! String, portions: portions[i] as! Int, isOpened: isOpened as! Bool))
                     }
                 }
                 

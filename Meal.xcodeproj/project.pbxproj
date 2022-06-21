@@ -153,7 +153,7 @@
 				DE9FE5C8284DA7210032242F /* SceneDelegate.swift */,
 				DE9FE5CA284DA7210032242F /* ViewController.swift */,
 				DE6201DC2850AD0600E88035 /* MenuViewController.swift */,
-				DE2156032852BB5F00E2DA35 /* Menu.swift */,
+				DECAEB262860C8EF00099FA2 /* Model */,
 				DE215698285056C200841DF0 /* JoinFamilyViewController.swift */,
 				DE9FE5CC284DA7210032242F /* Main.storyboard */,
 				DE9FE5D2284DA7240032242F /* Assets.xcassets */,
@@ -165,6 +165,14 @@
 				E969B12B285CE6F80025E31F /* Controllers */,
 			);
 			path = Meal;
+			sourceTree = "<group>";
+		};
+		DECAEB262860C8EF00099FA2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DE2156032852BB5F00E2DA35 /* Menu.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		E969B12A285CE6E60025E31F /* Views */ = {
