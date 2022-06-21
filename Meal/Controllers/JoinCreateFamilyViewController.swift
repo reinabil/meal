@@ -10,14 +10,23 @@ import AuthenticationServices
 import CryptoKit
 import FirebaseAuth
 import FirebaseFirestore
+import CloudKit
 
 class JoinCreateFamilyViewController: UIViewController {
+    
+    var family_id: String?
     
     let defaults = UserDefaults.standard
     var db: Firestore!
 
     override func viewDidLoad() {
         
+        // [START setup]
+        let settings = FirestoreSettings()
+
+        Firestore.firestore().settings = settings
+        // [END setup]
+        db = Firestore.firestore()
         
         super.viewDidLoad()
 
@@ -37,55 +46,53 @@ class JoinCreateFamilyViewController: UIViewController {
         var textField = UITextField()
         
         let action = UIAlertAction(title: "Join", style: .default, handler: { (action) in
-            
-            print(textField.text)
+           
             if textField.text != "" {
-                
-                // Add a new document with a generated id.
-//                var ref = self.db.collection("menu").document()
-//
-//                ref.setData([
-//                    "name": "\(textField.text!)",
-//                    "family_id": "\(self.family_id!)",
-//                    "portions": 0,
-//                    "date": Date().timeIntervalSince1970,
-//                    "menu_id": ref.documentID
-//                ]) { err in
-//                    if let err = err {
-//                        print("Error adding document: \(err)")
-//                    } else {
-//                        print("Document added with ID: \(ref.documentID)")
-//                    }
-//                }
-                
-                
+                let docFamilyRec = self.db.collection("family").document("\(textField.text!)")
+                docFamilyRec.getDocument { (document, error) in
+                    if let document = document, document.exists {
+                        let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                        print("Document data: \(dataDescription)")
+                      
+                            self.family_id = textField.text!.lowercased()
+                            // nyimpen family_id di user default biar ga ilang2
+                            UserDefaults.standard.set("\(textField.text!.lowercased())", forKey: "family_id")
+                        
+                            self.db.collection("user").document("\(Auth.auth().currentUser!.uid)").updateData([
+                                "family_id" : self.family_id
+                            ])
+                            
+                            
+                            
+                            
+                            self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
+                       
+                    } else {
+                        
+                        // family id ga ada
+                        print("Document does not exist")
+                        let alert = UIAlertController(title: "Family ID tidak ada", message: "", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
+                        }))
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                }
             }
+
+            
+            if textField.text == "" {
+                
+                let alert = UIAlertController(title: "Family ID Masih kosong", message: "", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
+                }))
+                self.present(alert, animated: true, completion: nil)
+            }
+                
+                
+            
         } )
         
         let action1 = UIAlertAction(title: "Cancel", style: .cancel , handler: { (action) in
-            
-            print(textField.text)
-            if textField.text != "" {
-                
-                // Add a new document with a generated id.
-//                var ref = self.db.collection("menu").document()
-//
-//                ref.setData([
-//                    "name": "\(textField.text!)",
-//                    "family_id": "\(self.family_id!)",
-//                    "portions": 0,
-//                    "date": Date().timeIntervalSince1970,
-//                    "menu_id": ref.documentID
-//                ]) { err in
-//                    if let err = err {
-//                        print("Error adding document: \(err)")
-//                    } else {
-//                        print("Document added with ID: \(ref.documentID)")
-//                    }
-//                }
-                
-                
-            }
         } )
         
         alert.view.tintColor = UIColor(named: "BrandOrange")
