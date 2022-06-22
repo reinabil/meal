@@ -11,6 +11,7 @@
 		DE2156042852BB5F00E2DA35 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2156032852BB5F00E2DA35 /* Menu.swift */; };
 		DE215699285056C200841DF0 /* JoinFamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE215698285056C200841DF0 /* JoinFamilyViewController.swift */; };
 		DE21569B28505A6B00841DF0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE21569A28505A6B00841DF0 /* GoogleService-Info.plist */; };
+		DE24EA27286293D900E2EF2A /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE24EA26286293D900E2EF2A /* Like.swift */; };
 		DE6201DD2850AD0600E88035 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6201DC2850AD0600E88035 /* MenuViewController.swift */; };
 		DE9FE5C7284DA7210032242F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9FE5C6284DA7210032242F /* AppDelegate.swift */; };
 		DE9FE5C9284DA7210032242F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9FE5C8284DA7210032242F /* SceneDelegate.swift */; };
@@ -57,6 +58,7 @@
 		DE21569728503F7800841DF0 /* Meal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Meal.entitlements; sourceTree = "<group>"; };
 		DE215698285056C200841DF0 /* JoinFamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinFamilyViewController.swift; sourceTree = "<group>"; };
 		DE21569A28505A6B00841DF0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DE24EA26286293D900E2EF2A /* Like.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
 		DE6201DC2850AD0600E88035 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		DE9FE5C3284DA7210032242F /* Meal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE9FE5C6284DA7210032242F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				DE2156032852BB5F00E2DA35 /* Menu.swift */,
+				DE24EA26286293D900E2EF2A /* Like.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				E9F42929285CD89800C85012 /* HistoryTableViewCell.swift in Sources */,
 				DE215699285056C200841DF0 /* JoinFamilyViewController.swift in Sources */,
 				E97EACB3285B74AC00DEA510 /* VoteViewController.swift in Sources */,
+				DE24EA27286293D900E2EF2A /* Like.swift in Sources */,
 				DE9FE5CB284DA7210032242F /* ViewController.swift in Sources */,
 				E969B12E285D92750025E31F /* SignInViewController.swift in Sources */,
 				DE9FE5C7284DA7210032242F /* AppDelegate.swift in Sources */,

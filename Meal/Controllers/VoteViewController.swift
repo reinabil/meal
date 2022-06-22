@@ -19,6 +19,7 @@ class VoteViewController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     var menuArray: Array<Any>?
     var menu: [Menu] = []
+    var like: [Like] = []
     
     //Dummy data, change with real data later
     var tableViewData = DataSeeder.sharedData
@@ -158,13 +159,6 @@ class VoteViewController: UIViewController {
         } else {
             performSegue(withIdentifier: "goToSignIn", sender: self)
         }
-            
-            
-        
-        
-        
-      
-        
     }
     
     
@@ -219,6 +213,38 @@ class VoteViewController: UIViewController {
             }
     }
     
+    func loadLike(index: Int) {
+        
+        let likeRef = db.collection("like").document()
+        
+        db.collection("like").whereField("menu_id", isEqualTo: "\(self.menu[index].menu_id)")
+            .addSnapshotListener { querySnapshot, error in
+                self.like = []
+                guard let documents = querySnapshot?.documents else {
+                    print("Error fetching documents: \(error!)")
+                    return
+                }
+                
+                let like_id = documents.map { $0["like_id"] ?? [""] }
+                let menu_id = documents.map { $0["menu_id"] ?? [""] }
+                let user_id = documents.map { $0["user_id"] ?? [""]}
+                
+                for i in 0..<like_id.count {
+                    self.like.append(Like(like_id: like_id[i] as! String, menu_id: menu_id[i] as! String, user_id: user_id[i] as! String))
+                }
+                
+                print("LIKE = \(self.like)")
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    let indexPath = IndexPath(row: self.like.count - 1, section: 0)
+//                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+                }
+                    
+            
+            }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
           if segue.identifier == "goToSignIn" {
               guard let vc = segue.destination as? SignInViewController else { return }
@@ -242,19 +268,23 @@ extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPar
         if indexPath.row == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "topCell") as? TopPartTableViewCell else { return UITableViewCell() }
             
+            var portions = 0
+            
             cell.delegate = self
             // Set foodName, portion, and button state here (Example code below)
             //
             cell.foodNameLabel.text = self.menu[indexPath.section].name
-            //cell.portionLabel.text = "Portion: xx"
+            cell.portionLabel.text = "Portion: \(portions)"
             //cell.eatButton or cell.dontEatButton
             
+            //MARK: - EAT BUTTON
             cell.eatButtonPressed = { [unowned self] in
                 print(indexPath.section)
                 print(self.menu[indexPath.section].menu_id)
                 
                 print(self.family_id)
                 print("menu ID : \(self.menu[indexPath.section].menu_id)")
+                
                 
                 var likeRef = self.db.collection("like").document("\(Auth.auth().currentUser!.uid)_\(self.menu[indexPath.section].menu_id)")
                 
@@ -278,11 +308,25 @@ extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPar
                                 print("Document successfully removed!")
                                 
                                 //MARK: - bg button to default
+                                
+//                                let menuRef = db.collection("menu").document("\(self.menu[indexPath.section].menu_id)")
+//
+//                                // Set the "capital" field of the city 'DC'
+//                                menuRef.updateData([
+//                                    "portions": FieldValue.increment(Int64(1))
+//                                ]) { err in
+//                                    if let err = err {
+//                                        print("Error updating document: \(err)")
+//                                    } else {
+//                                        print("Document successfully updated")
+//                                    }
+//                                }
                             }
                         }
                     } else {
                         
                         /// KALO DATANYA GAADA DI LIKE, LIKE
+                        loadLike(index: indexPath.section)
                         likeRef.setData([
                             "like_id": "\(likeRef.documentID)",
                             "user_id": "\(Auth.auth().currentUser!.uid)",
@@ -293,7 +337,22 @@ extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPar
                             } else {
                                 print("Document successfully written!")
                                 
+                                
+                                
                                 //MARK: - bg color to orange
+                                
+//                                let menuRef = db.collection("menu").document("\(self.menu[indexPath.section].menu_id)")
+//
+//                                // Set the "capital" field of the city 'DC'
+//                                menuRef.updateData([
+//                                    "portions": FieldValue.increment(Int64(-1))
+//                                ]) { err in
+//                                    if let err = err {
+//                                        print("Error updating document: \(err)")
+//                                    } else {
+//                                        print("Document successfully updated")
+//                                    }
+//                                }
                             
                             }
                         }
@@ -398,6 +457,8 @@ extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPar
         if menu[indexPath.section].isOpened {
             menu[indexPath.section].isOpened = false
             
+            
+            
             if let savedIndexPath = openedCellSections.firstIndex(of: indexPath) {
                 openedCellSections.remove(at: savedIndexPath)
                 openedCellDataIndex.remove(at: savedIndexPath)
@@ -409,7 +470,11 @@ extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPar
             let topPartCell = tableView.cellForRow(at: indexPath) as? TopPartTableViewCell
             topPartCell?.arrowImage.image = UIImage(systemName: "chevron.down")?.withRenderingMode(.alwaysOriginal)
         } else {
+            
+            // dari nutup ke buka
             menu[indexPath.section].isOpened = true
+            
+            print("\(self.menu[indexPath.section].menu_id)")
             
             openedCellSections.append(indexPath)
             openedCellDataIndex.append(indexPath.section)

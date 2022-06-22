@@ -6,13 +6,32 @@
 //
 
 import UIKit
+import AuthenticationServices
+import CryptoKit
+import FirebaseAuth
+import FirebaseFirestore
 
 class BottomPartTableViewCell: UITableViewCell {
 
+    
+    let defaults = UserDefaults.standard
+    var db: Firestore!
+    var menuArray: Array<Any>?
+    var like: [Like] = []
+    var menu: [Menu] = []
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        // [START setup]
+        let settings = FirestoreSettings()
+
+        Firestore.firestore().settings = settings
+        // [END setup]
+        db = Firestore.firestore()
+    
         
         //Register custom collectionView cell XIB to collectionView
         collectionView.register(UINib(nibName: "VoterCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "voterCell")
@@ -24,13 +43,16 @@ class BottomPartTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    
 }
 
 extension BottomPartTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     //Number of collectionView cell
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10 //change to number of real voters
+        
+        
+        return 2 //change to number of real voters
     }
     
     //Set cell for item at indexPath
