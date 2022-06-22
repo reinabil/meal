@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jXs-4U-5O6">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -31,7 +31,7 @@
             </objects>
             <point key="canvasLocation" x="-1657" y="106"/>
         </scene>
-        <!--Vote View Controller-->
+        <!--Vote-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController id="Y6W-OH-hqX" customClass="VoteViewController" customModule="Meal" customModuleProvider="target" sceneMemberID="viewController">
@@ -84,7 +84,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8Ww-Vv-NZE">
-                                <rect key="frame" x="16" y="178" width="382" height="668"/>
+                                <rect key="frame" x="16" y="178" width="382" height="619"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="P9J-CC-h1i" userLabel="Footer View">
                                     <rect key="frame" x="0.0" y="111" width="382" height="129"/>
@@ -150,6 +150,7 @@
                             <constraint firstItem="Mf7-kg-1Fw" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="zfp-Qo-dET"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Vote" image="hand.thumbsup.fill" catalog="system" id="RzC-Vu-8RL"/>
                     <connections>
                         <outlet property="addButton" destination="Ddf-Z1-PUz" id="kCr-Um-nTA"/>
                         <outlet property="tableView" destination="8Ww-Vv-NZE" id="A1S-CP-Xsz"/>
@@ -159,7 +160,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="40.579710144927539" y="45.535714285714285"/>
+            <point key="canvasLocation" x="950.72463768115949" y="45.535714285714285"/>
         </scene>
         <!--SignIn-->
         <scene sceneID="CsB-wh-g3r">
@@ -167,10 +168,51 @@
                 <viewControllerPlaceholder storyboardName="SignIn" id="QRh-Lx-7cm" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qH5-uf-i8u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="827" y="46"/>
+            <point key="canvasLocation" x="1736.9565217391305" y="45.535714285714285"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="5vJ-Ky-4P7">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="jXs-4U-5O6" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7SO-TB-i2n">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" name="BrandOrange"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="viewControllers" id="LeQ-v8-aTh"/>
+                        <segue destination="jTD-Hr-wpP" kind="relationship" relationship="viewControllers" id="qSd-FW-jaJ"/>
+                        <segue destination="8er-w5-Glu" kind="relationship" relationship="viewControllers" id="R3g-AD-JWh"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N4P-yv-IWO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="40.579710144927539" y="45.535714285714285"/>
+        </scene>
+        <!--Member-->
+        <scene sceneID="xXo-Mr-lYN">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Member" id="8er-w5-Glu" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="R3i-IG-6pW"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wwe-9B-OvJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="504" y="470"/>
+        </scene>
+        <!--History-->
+        <scene sceneID="5xV-b7-dRH">
+            <objects>
+                <viewControllerPlaceholder storyboardName="History" id="jTD-Hr-wpP" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="O0b-Vv-rjR"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rWX-xp-azi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="636" y="-366"/>
         </scene>
     </scenes>
     <resources>
+        <image name="hand.thumbsup.fill" catalog="system" width="128" height="121"/>
         <namedColor name="BrandOrange">
             <color red="0.98039215686274506" green="0.35294117647058826" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
