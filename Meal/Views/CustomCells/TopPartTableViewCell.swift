@@ -36,6 +36,11 @@ class TopPartTableViewCell: UITableViewCell {
         
         //Make background frame rounded
         background.layer.cornerRadius = 10
+        background.backgroundColor = UIColor(named: "BrandLightGray")
+        
+        foodNameLabel.textColor = UIColor.black
+        portionLabel.textColor = UIColor.black
+        arrowImage.tintColor = UIColor.black
     }
     
     func setupButton(button: UIButton) {
