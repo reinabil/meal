@@ -42,6 +42,12 @@ class TopPartTableViewCell: UITableViewCell {
         button.backgroundColor = UIColor.white
         button.tintColor = UIColor.black
         button.layer.cornerRadius = button.frame.height/2
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOpacity = 0.1
+        button.layer.shadowOffset = .zero
+        button.layer.shadowRadius = 3
+        button.layer.shouldRasterize = true
+        button.layer.rasterizationScale = UIScreen.main.scale
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
