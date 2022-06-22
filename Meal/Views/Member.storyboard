@@ -16,7 +16,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Member View Controller-->
+        <!--Member-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController id="Y6W-OH-hqX" customClass="MemberViewController" customModule="Meal" customModuleProvider="target" sceneMemberID="viewController">
@@ -65,7 +65,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="DA7-DH-S2c">
-                                <rect key="frame" x="16" y="334" width="382" height="512"/>
+                                <rect key="frame" x="16" y="334" width="382" height="463"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="Ubc-87-Nup">
                                     <rect key="frame" x="0.0" y="111" width="382" height="128"/>
@@ -118,6 +118,8 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="DA7-DH-S2c" secondAttribute="trailing" constant="16" id="yn9-RQ-eGW"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Member" image="person" catalog="system" id="P6p-MH-omD"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="editButton" destination="Yf0-aK-yHB" id="1eM-yX-v2X"/>
                         <outlet property="leaveGroupButton" destination="62U-eC-Csk" id="FVQ-VS-jxm"/>
