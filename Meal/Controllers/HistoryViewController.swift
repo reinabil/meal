@@ -25,6 +25,7 @@ class HistoryViewController: UIViewController {
         
         setupTableView()
         summaryBackground.layer.cornerRadius = 10
+        summaryBackground.backgroundColor = UIColor(named: "BrandLightGray")
     }
     
     func setupTableView() {
@@ -32,6 +33,7 @@ class HistoryViewController: UIViewController {
         tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UINib(nibName: "HistoryTableViewCell", bundle: nil), forCellReuseIdentifier: "historyCell")
+        tableView.backgroundColor = UIColor.white
     }
 }
 
@@ -57,5 +59,12 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = UIColor.black
+        header.textLabel?.font = UIFont(name: "Poppins-SemiBold", size: 18)
+        header.contentView.backgroundColor = .white
     }
 }
