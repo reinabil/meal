@@ -41,31 +41,25 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="X1M-Hj-jIl">
                                         <rect key="frame" x="213.5" y="5.5" width="157.5" height="31"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iL5-QP-QmR">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iL5-QP-QmR">
                                                 <rect key="frame" x="0.0" y="0.0" width="89" height="31"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Don't Eat" imagePadding="4" cornerStyle="capsule">
+                                                <buttonConfiguration key="configuration" style="plain" title="Don't Eat" imagePadding="4">
                                                     <imageReference key="image" image="hand.thumbsdown" catalog="system" symbolScale="medium"/>
                                                     <fontDescription key="titleFontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="10"/>
-                                                    <color key="baseForegroundColor" systemColor="labelColor"/>
-                                                    <color key="baseBackgroundColor" systemColor="systemBackgroundColor"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="buttonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="YH5-f4-VXC"/>
                                                     <action selector="dontEatButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Nuc-j1-F92"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gqb-V5-IpV">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gqb-V5-IpV">
                                                 <rect key="frame" x="97" y="0.0" width="60.5" height="31"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Eat" imagePadding="4" cornerStyle="capsule">
+                                                <buttonConfiguration key="configuration" style="plain" title="Eat" imagePadding="4">
                                                     <imageReference key="image" image="hand.thumbsup" catalog="system" symbolScale="medium"/>
                                                     <fontDescription key="titleFontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="10"/>
-                                                    <color key="baseForegroundColor" systemColor="labelColor"/>
-                                                    <color key="baseBackgroundColor" systemColor="systemBackgroundColor"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="buttonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="YV5-z6-rPC"/>
                                                     <action selector="eatButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="BSV-vT-lId"/>
                                                 </connections>
                                             </button>
@@ -136,14 +130,8 @@
         <image name="chevron.down" catalog="system" width="128" height="72"/>
         <image name="hand.thumbsdown" catalog="system" width="128" height="128"/>
         <image name="hand.thumbsup" catalog="system" width="128" height="128"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="quaternarySystemFillColor">
             <color red="0.45490196078431372" green="0.45490196078431372" blue="0.50196078431372548" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

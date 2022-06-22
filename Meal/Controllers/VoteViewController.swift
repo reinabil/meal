@@ -258,8 +258,9 @@ extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPar
     
     
     func buttonClicked(cell: TopPartTableViewCell) {
-        //In    sert logic when eat/dont eat button pressed
-        
+//        Insert logic when eat/dont eat button pressed
+//        cell.eatButton.tintColor = 
+//        cell.eatButton.backgroundColor = UIColor(named: "BrandOrange")
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
