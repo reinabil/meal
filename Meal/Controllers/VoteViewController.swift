@@ -54,6 +54,7 @@ class VoteViewController: UIViewController {
         tableView.register(UINib(nibName: "BottomPartTableViewCell", bundle: nil), forCellReuseIdentifier: "bottomCell")
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.backgroundColor = UIColor.clear
         
         if UserDefaults.standard.string(forKey: "family_id") == nil || UserDefaults.standard.string(forKey: "family_id") == "" {
             tableView.isHidden = true

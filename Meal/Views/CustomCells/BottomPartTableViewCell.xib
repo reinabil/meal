@@ -3,8 +3,8 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -28,7 +28,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vote Result from all family members" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TuW-JN-Hdk">
                                 <rect key="frame" x="16" y="14" width="182" height="14"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="10"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="W7H-SS-TgB">
@@ -42,7 +42,7 @@
                                 </collectionViewFlowLayout>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="quaternarySystemFillColor"/>
+                        <color key="backgroundColor" name="BrandLightGray"/>
                         <constraints>
                             <constraint firstItem="TuW-JN-Hdk" firstAttribute="leading" secondItem="uE7-QL-xhI" secondAttribute="leading" constant="16" id="4eu-zN-mUU"/>
                             <constraint firstAttribute="trailing" secondItem="W7H-SS-TgB" secondAttribute="trailing" constant="16" id="7HS-Uv-vOF"/>
@@ -53,6 +53,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="uE7-QL-xhI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="MWP-UE-sB0"/>
                     <constraint firstAttribute="bottom" secondItem="uE7-QL-xhI" secondAttribute="bottom" constant="16" id="NhZ-j1-WLN"/>
@@ -61,6 +62,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="collectionView" destination="W7H-SS-TgB" id="MF6-jY-F2f"/>
             </connections>
@@ -68,8 +70,8 @@
         </tableViewCell>
     </objects>
     <resources>
-        <systemColor name="quaternarySystemFillColor">
-            <color red="0.45490196078431372" green="0.45490196078431372" blue="0.50196078431372548" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <namedColor name="BrandLightGray">
+            <color red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
