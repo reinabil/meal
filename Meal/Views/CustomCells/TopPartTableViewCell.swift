@@ -31,10 +31,28 @@ class TopPartTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        eatButton.backgroundColor = UIColor.systemBackground
+        setupButton(button: eatButton)
+        setupButton(button: dontEatButton)
         
         //Make background frame rounded
         background.layer.cornerRadius = 10
+        background.backgroundColor = UIColor(named: "BrandLightGray")
+        
+        foodNameLabel.textColor = UIColor.black
+        portionLabel.textColor = UIColor.black
+        arrowImage.tintColor = UIColor.black
+    }
+    
+    func setupButton(button: UIButton) {
+        button.backgroundColor = UIColor.white
+        button.tintColor = UIColor.black
+        button.layer.cornerRadius = button.frame.height/2
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOpacity = 0.1
+        button.layer.shadowOffset = .zero
+        button.layer.shadowRadius = 3
+        button.layer.shouldRasterize = true
+        button.layer.rasterizationScale = UIScreen.main.scale
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -48,14 +66,24 @@ class TopPartTableViewCell: UITableViewCell {
     @IBAction func eatButtonPressed(_ sender: UIButton) {
         eatButtonPressed?()
         
-        if eatButton.backgroundColor == UIColor.systemBackground {
-            eatButton.backgroundColor = UIColor(named: "BrandOrange")
+        if sender.backgroundColor == UIColor.white {
+            sender.backgroundColor = UIColor(named: "BrandOrange")
+            sender.tintColor = UIColor.white
         } else {
-            eatButton.backgroundColor = UIColor.systemBackground
+            sender.backgroundColor = UIColor.white
+            sender.tintColor = UIColor.black
         }
     }
     
     @IBAction func dontEatButtonPressed(_ sender: UIButton) {
         dontEatButtonPressed?()
+        
+        if sender.backgroundColor == UIColor.white {
+            sender.backgroundColor = UIColor(named: "BrandOrange")
+            sender.tintColor = UIColor.white
+        } else {
+            sender.backgroundColor = UIColor.white
+            sender.tintColor = UIColor.black
+        }
     }
 }

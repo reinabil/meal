@@ -14,6 +14,7 @@ class MemberViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var leaveGroupButton: UIButton!
     
+    let textGrayColor = UIColor(red: 60/255, green: 60/255, blue: 67/255, alpha: 0.6)
     let sections = [
         ["USERNAME", ["First Name", "Last Name"]],
         ["FAMILY ID", ["FM001"]],
@@ -33,6 +34,7 @@ class MemberViewController: UIViewController {
         tableView.register(UINib(nibName: "UserNameTableViewCell", bundle: nil), forCellReuseIdentifier: "UsernameCell")
         tableView.register(UINib(nibName: "FamilyIDTableViewCell", bundle: nil), forCellReuseIdentifier: "FamilyIDCell")
         tableView.register(UINib(nibName: "FamilyMemberTableViewCell", bundle: nil), forCellReuseIdentifier: "FamilyMemberCell")
+        tableView.backgroundColor = .clear
     }
 }
 
@@ -56,7 +58,7 @@ extension MemberViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 0 {
             cell = tableView.dequeueReusableCell(withIdentifier: "UsernameCell") as? UserNameTableViewCell
             // Set cell content below
-            //cell.leftSideLabel.text = "First Name"
+//            cell.leftSideLabel.text = "First Name"
             //cell.rightSideLabel.text = "John"
             
         } else if indexPath.section == 1 {
@@ -72,5 +74,12 @@ extension MemberViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         return cell ?? UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = textGrayColor
+        header.textLabel?.font = UIFont(name: "Poppins-Regular", size: 12)
+        header.contentView.backgroundColor = .white
     }
 }

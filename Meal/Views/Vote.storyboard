@@ -67,7 +67,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vote Meal's" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mf7-kg-1Fw">
                                 <rect key="frame" x="16" y="83" width="188.5" height="45"/>
                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="32"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5vM-6M-VS7" userLabel="Line">
@@ -80,7 +80,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vote each menu whether you’re going to eat it or not" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4kt-Td-1FT">
                                 <rect key="frame" x="16" y="145" width="317" height="17"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8Ww-Vv-NZE">
@@ -99,7 +99,7 @@
                                             <state key="normal" title="Finished Eating">
                                                 <color key="titleColor" name="BrandOrange"/>
                                             </state>
-                                            <buttonConfiguration key="configuration" style="plain" title="Finished Eating" cornerStyle="capsule">
+                                            <buttonConfiguration key="configuration" style="plain" title="New Meal List" cornerStyle="capsule">
                                                 <backgroundConfiguration key="background" strokeWidth="2" strokeOutset="0.0">
                                                     <color key="strokeColor" name="BrandOrange"/>
                                                 </backgroundConfiguration>
@@ -111,7 +111,7 @@
                                             </connections>
                                         </button>
                                     </subviews>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="XJK-76-maV" secondAttribute="trailing" constant="48" id="73P-sY-9Wi"/>
                                         <constraint firstItem="XJK-76-maV" firstAttribute="top" secondItem="P9J-CC-h1i" secondAttribute="top" constant="16" id="IjE-Np-IfT"/>
@@ -127,12 +127,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="382" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="8Ww-Vv-NZE" secondAttribute="trailing" constant="16" id="4DW-Gf-3Te"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="8Ww-Vv-NZE" secondAttribute="bottom" constant="16" id="9bt-pR-32p"/>
@@ -176,8 +177,10 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="jXs-4U-5O6" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7SO-TB-i2n">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="BrandLightGray"/>
+                        <color key="barTintColor" red="0.33333333333333331" green="0.31372549019607843" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="selectedImageTintColor" name="BrandOrange"/>
                     </tabBar>
                     <connections>
@@ -213,6 +216,9 @@
     </scenes>
     <resources>
         <image name="hand.thumbsup.fill" catalog="system" width="128" height="121"/>
+        <namedColor name="BrandLightGray">
+            <color red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="BrandOrange">
             <color red="0.98039215686274506" green="0.35294117647058826" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

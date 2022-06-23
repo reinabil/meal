@@ -16,6 +16,7 @@ class FamilyMemberTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        familyMemberNameLabel.textColor = .black
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
