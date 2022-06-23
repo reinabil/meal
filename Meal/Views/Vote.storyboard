@@ -99,7 +99,7 @@
                                             <state key="normal" title="Finished Eating">
                                                 <color key="titleColor" name="BrandOrange"/>
                                             </state>
-                                            <buttonConfiguration key="configuration" style="plain" title="Finished Eating" cornerStyle="capsule">
+                                            <buttonConfiguration key="configuration" style="plain" title="New Meal List" cornerStyle="capsule">
                                                 <backgroundConfiguration key="background" strokeWidth="2" strokeOutset="0.0">
                                                     <color key="strokeColor" name="BrandOrange"/>
                                                 </backgroundConfiguration>
