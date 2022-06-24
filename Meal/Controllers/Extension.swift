@@ -13,67 +13,114 @@ import FirebaseFirestore
 
 extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPartTableViewCellDelegate {
     
-    func dontEatButtonPressed(cell: TopPartTableViewCell, send: UIButton) {
+    func loadMenu() {
         
-        print(send.tag)
-        print(self.menu[send.tag].menu_id)
+        let menuRef = db.collection("menu").document()
         
-        print(self.family_id)
-        print("menu ID : \(self.menu[send.tag].menu_id)")
-        
-        var dislikeRef = self.db.collection("dislike").document("\(Auth.auth().currentUser!.uid)_\(self.menu[send.tag].menu_id)")
-        
-        self.db.collection("like").document("\(Auth.auth().currentUser!.uid)_\(self.menu[send.tag].menu_id)").delete() { err in
-            if let err = err {
-                print("Error removing document: \(err)")
-            } else {
-                print("Document successfully removed!")
-            }
-        }
-        
-        dislikeRef.getDocument { (document, error) in
-            if let document = document, document.exists {
+        db.collection("menu").order(by: "date", descending: true).whereField("family_id", isEqualTo: "\(UserDefaults.standard.string(forKey: "family_id")!)")
+            .addSnapshotListener { querySnapshot, error in
+                self.menu = []
+                guard let documents = querySnapshot?.documents else {
+                    print("Error fetching documents: \(error!)")
+                    return
+                }
                 
-                /// DELETE DATA KALO DATANYA UDH ADA DI DISLIKE (undislike)
-                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                self.db.collection("dislike").document("\(Auth.auth().currentUser!.uid)_\(self.menu[send.tag].menu_id)").delete() { err in
-                    if let err = err {
-                        print("Error removing document: \(err)")
-                    } else {
-                        print("Document successfully removed!")
-                        
-                        //MARK: - bg color to default
+                let name = documents.map { $0["name"] ?? [""] }
+                let family_id = documents.map { $0["family_id"] ?? [0] }
+                let portions = documents.map { $0["portions"] ?? [""] }
+                let menu_id = documents.map { $0["menu_id"] ?? [""]}
+                let isOpened = documents.map { $0["isOpened"] ?? [""]}
+                
+               
+                print("document ID : \(menuRef.documentID)")
+                print("query snapshot : \(querySnapshot?.documents)")
+                
+                if name != nil || name[0] as! String != "" {
+                    for i in 0..<name.count {
+                        self.menu.append(Menu(menu_id: menu_id[i] as! String, name: name[i] as! String, family_id: family_id[i] as! String, portions: portions[i] as! Int, isOpened: isOpened[i] as! Bool))
                     }
                 }
-            } else {
                 
-                /// KALO DATANYA GAADA DI dislike, dislike
-                dislikeRef.setData([
-                    "dislike_id": "\(dislikeRef.documentID)",
-                    "user_id": "\(Auth.auth().currentUser!.uid)",
-                    "menu_id": "\(self.menu[send.tag].menu_id)"
-                ]) { err in
-                    if let err = err {
-                        print("Error writing document: \(err)")
-                    } else {
-                        print("Document successfully written!")
-                        
-                        //MARK: - bg color to orange
-                    }
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+//                    let indexPath = IndexPath(row: self.menu.count - 1, section: 0)
+//                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
                 }
+                    
+                
+                
+                print("Menu: \(name)")
+//                print("Document ID: \()")
+                print("Portions: \(portions)")
+                print("Family ID: \(family_id)")
+                print(self.menu)
+                
+                
+                print("jumlah menu : \(self.menu.count)")
             }
-        }
-        
-        
-        if send.backgroundColor == UIColor.white {
-            send.backgroundColor = UIColor(named: "BrandOrange")
-            send.tintColor = UIColor.white
-        } else {
-            send.backgroundColor = UIColor.white
-            send.tintColor = UIColor.black
-        }
     }
-    
+    func loadLike() {
+        
+        let likeRef = db.collection("like").document()
+        
+        db.collection("like").whereField("user_id", isEqualTo: "\(Auth.auth().currentUser!.uid ?? "")")
+            .addSnapshotListener { querySnapshot, error in
+                self.like = []
+                guard let documents = querySnapshot?.documents else {
+                    print("Error fetching documents: \(error!)")
+                    return
+                }
+                
+                let like_id = documents.map { $0["like_id"] ?? [""] }
+                let menu_id = documents.map { $0["menu_id"] ?? [""] }
+                let user_id = documents.map { $0["user_id"] ?? [""]}
+                
+                for i in 0..<like_id.count {
+                    self.like.append(Like(like_id: like_id[i] as! String, menu_id: menu_id[i] as! String, user_id: user_id[i] as! String))
+                }
+                
+                print("LIKE = \(self.like)")
+                
+//                DispatchQueue.main.async {
+//                    self.tableView.reloadData()
+//                    let indexPath = IndexPath(row: self.like.count - 1, section: 0)
+//                }
+                    
+            
+            }
+    }
+    func loadDisike() {
+        
+        let dislikeRef = db.collection("dislike").document()
+        
+        db.collection("dislike").whereField("user_id", isEqualTo: "\(Auth.auth().currentUser!.uid ?? "")")
+            .addSnapshotListener { querySnapshot, error in
+                self.dislike = []
+                guard let documents = querySnapshot?.documents else {
+                    print("Error fetching documents: \(error!)")
+                    return
+                }
+                
+                let dislike_id = documents.map { $0["dislike_id"] ?? [""] }
+                let menu_id = documents.map { $0["menu_id"] ?? [""] }
+                let user_id = documents.map { $0["user_id"] ?? [""]}
+                
+                for i in 0..<dislike_id.count {
+                    self.dislike.append(Dislike(dislike_id: dislike_id[i] as! String, menu_id: menu_id[i] as! String, user_id: user_id[i] as! String))
+                }
+                
+                
+                print("DISLIKE = \(self.dislike)")
+                
+//                DispatchQueue.main.async {
+//                    self.tableView.reloadData()
+//                    let indexPath = IndexPath(row: self.dislike.count - 1, section: 0)
+////                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+//                }
+                    
+            
+            }
+    }
     
     func eatButtonPressed(cell: TopPartTableViewCell, send: UIButton) {
         print(send.tag)
@@ -92,6 +139,8 @@ extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPar
                 print("Document successfully removed!")
             }
         }
+        
+//        loadDisike()
 
         likeRef.getDocument { (document, error) in
             if let document = document, document.exists {
@@ -130,12 +179,16 @@ extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPar
         
         let user_liked = like.contains(where: {$0.menu_id == menu[send.tag].menu_id}) && like.contains(where: {$0.user_id == Auth.auth().currentUser!.uid})
         
-        if user_liked {
+        if !user_liked {
             send.backgroundColor = UIColor(named: "BrandOrange")
             send.tintColor = UIColor.white
+            
+            cell.dontEatButton.backgroundColor = UIColor.white
+            cell.dontEatButton.tintColor = UIColor.black
         } else {
             send.backgroundColor = UIColor.white
             send.tintColor = UIColor.black
+            
         }
         
         print("APAKAH LIKENYA LIKE MENU INI? \(like.contains(where: {$0.menu_id == menu[send.tag].menu_id}))")
@@ -144,6 +197,73 @@ extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPar
         
     }
     
+    func dontEatButtonPressed(cell: TopPartTableViewCell, send: UIButton) {
+        
+        print(send.tag)
+        print(self.menu[send.tag].menu_id)
+        
+        print(self.family_id)
+        print("menu ID : \(self.menu[send.tag].menu_id)")
+        
+        var dislikeRef = self.db.collection("dislike").document("\(Auth.auth().currentUser!.uid)_\(self.menu[send.tag].menu_id)")
+        
+        self.db.collection("like").document("\(Auth.auth().currentUser!.uid)_\(self.menu[send.tag].menu_id)").delete() { err in
+            if let err = err {
+                print("Error removing document: \(err)")
+            } else {
+                print("Document successfully removed!")
+            }
+        }
+        
+//        loadLike()
+        
+        dislikeRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                
+                /// DELETE DATA KALO DATANYA UDH ADA DI DISLIKE (undislike)
+                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                self.db.collection("dislike").document("\(Auth.auth().currentUser!.uid)_\(self.menu[send.tag].menu_id)").delete() { err in
+                    if let err = err {
+                        print("Error removing document: \(err)")
+                    } else {
+                        print("Document successfully removed!")
+                        
+                        //MARK: - bg color to default
+                    }
+                }
+            } else {
+                
+                /// KALO DATANYA GAADA DI dislike, dislike
+                dislikeRef.setData([
+                    "dislike_id": "\(dislikeRef.documentID)",
+                    "user_id": "\(Auth.auth().currentUser!.uid)",
+                    "menu_id": "\(self.menu[send.tag].menu_id)"
+                ]) { err in
+                    if let err = err {
+                        print("Error writing document: \(err)")
+                    } else {
+                        print("Document successfully written!")
+                        
+                        //MARK: - bg color to orange
+                    }
+                }
+            }
+        }
+        
+        let user_disliked = dislike.contains(where: {$0.menu_id == menu[send.tag].menu_id}) && dislike.contains(where: {$0.user_id == Auth.auth().currentUser!.uid})
+        
+        if !user_disliked {
+            send.backgroundColor = UIColor(named: "BrandOrange")
+            send.tintColor = UIColor.white
+            
+            cell.eatButton.backgroundColor = UIColor.white
+            cell.eatButton.tintColor = UIColor.black
+        } else {
+            send.backgroundColor = UIColor.white
+            send.tintColor = UIColor.black
+        }
+    }
+        
     func buttonClicked(cell: TopPartTableViewCell) {
     }
     
@@ -198,6 +318,28 @@ extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPar
                 } else {
                     print("Document successfully removed!")
                 }
+            }
+            
+            self.db.collection("like").whereField("menu_id", isEqualTo: self.menu[indexPath.section].menu_id).getDocuments() {
+                (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                  } else {
+                    for document in querySnapshot!.documents {
+                      document.reference.delete()
+                    }
+                  }
+            }
+            
+            self.db.collection("dislike").whereField("menu_id", isEqualTo: self.menu[indexPath.section].menu_id).getDocuments() {
+                (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                  } else {
+                    for document in querySnapshot!.documents {
+                      document.reference.delete()
+                    }
+                  }
             }
             
             self.menu.remove(at: indexPath.section)

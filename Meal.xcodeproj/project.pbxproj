@@ -12,6 +12,7 @@
 		DE215699285056C200841DF0 /* JoinFamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE215698285056C200841DF0 /* JoinFamilyViewController.swift */; };
 		DE21569B28505A6B00841DF0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE21569A28505A6B00841DF0 /* GoogleService-Info.plist */; };
 		DE24EA27286293D900E2EF2A /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE24EA26286293D900E2EF2A /* Like.swift */; };
+		DE29375628658D89000F6556 /* Dislike.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE29375528658D89000F6556 /* Dislike.swift */; };
 		DE2EA0F928654CBD003C2AE6 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2EA0F828654CBD003C2AE6 /* Extension.swift */; };
 		DE6201DD2850AD0600E88035 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6201DC2850AD0600E88035 /* MenuViewController.swift */; };
 		DE9FE5C7284DA7210032242F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9FE5C6284DA7210032242F /* AppDelegate.swift */; };
@@ -60,6 +61,7 @@
 		DE215698285056C200841DF0 /* JoinFamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinFamilyViewController.swift; sourceTree = "<group>"; };
 		DE21569A28505A6B00841DF0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DE24EA26286293D900E2EF2A /* Like.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
+		DE29375528658D89000F6556 /* Dislike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dislike.swift; sourceTree = "<group>"; };
 		DE2EA0F828654CBD003C2AE6 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		DE6201DC2850AD0600E88035 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		DE9FE5C3284DA7210032242F /* Meal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meal.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,6 +178,7 @@
 			children = (
 				DE2156032852BB5F00E2DA35 /* Menu.swift */,
 				DE24EA26286293D900E2EF2A /* Like.swift */,
+				DE29375528658D89000F6556 /* Dislike.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				DE9FE5CB284DA7210032242F /* ViewController.swift in Sources */,
 				E969B12E285D92750025E31F /* SignInViewController.swift in Sources */,
 				DE9FE5C7284DA7210032242F /* AppDelegate.swift in Sources */,
+				DE29375628658D89000F6556 /* Dislike.swift in Sources */,
 				E9F4292C285CDB5600C85012 /* HistoryViewController.swift in Sources */,
 				DE9FE5C9284DA7210032242F /* SceneDelegate.swift in Sources */,
 			);

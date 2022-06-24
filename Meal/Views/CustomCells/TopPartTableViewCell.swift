@@ -80,38 +80,4 @@ class TopPartTableViewCell: UITableViewCell {
     @IBAction func dontEatButtonPressed(_ sender: UIButton) {
         delegate?.dontEatButtonPressed(cell: self, send: sender)
     }
-    
-//    func loadLike() {
-//
-//        var family_id = UserDefaults.standard.bool(forKey: "family_id")
-//        var user_id = Auth.auth().currentUser?.uid
-//        let menuRef = db.collection("like").document()
-//
-//        print("user_id \(user_id!)")
-//
-//        db.collection("like").whereField("user_id", isEqualTo: "\(user_id!)")
-//            .addSnapshotListener { querySnapshot, error in
-//                self.like = []
-//                guard let documents = querySnapshot?.documents else {
-//                    print("Error fetching documents: \(error!)")
-//                    return
-//                }
-//
-//                let like_id = documents.map { $0["like_id"] ?? [""] }
-//                let menu_id = documents.map { $0["menu_id"] ?? [0] }
-//                let user_id = documents.map { $0["user_id"] ?? [""] }
-//
-//
-//                print("document ID : \(menuRef.documentID)")
-//                print("query snapshot : \(querySnapshot?.documents)")
-//
-//                if like_id != nil || like_id[0] as! String != "" {
-//                    for i in 0..<like_id.count {
-//                        self.like.append(Like(like_id: like_id[i] as! String, menu_id: menu_id[i] as! String, user_id: user_id[i] as! String))
-//                    }
-//                }
-//            }
-//
-//        print("LIKE DATABASE = \(like)")
-//    }
 }

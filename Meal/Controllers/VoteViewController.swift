@@ -20,6 +20,7 @@ class VoteViewController: UIViewController {
     var menuArray: Array<Any>?
     var menu: [Menu] = []
     var like: [Like] = []
+    var dislike: [Dislike] = []
     
     //Dummy data, change with real data later
     var tableViewData = DataSeeder.sharedData
@@ -65,8 +66,10 @@ class VoteViewController: UIViewController {
             // insert table
             
             tableView.isHidden = false
-            loadMenu()
+            
             loadLike()
+            loadDisike()
+            loadMenu()
         }
     }
     
@@ -171,84 +174,6 @@ class VoteViewController: UIViewController {
         
     }
     
-    func loadMenu() {
-        
-        let menuRef = db.collection("menu").document()
-        
-        db.collection("menu").order(by: "date", descending: true).whereField("family_id", isEqualTo: "\(UserDefaults.standard.string(forKey: "family_id")!)")
-            .addSnapshotListener { querySnapshot, error in
-                self.menu = []
-                guard let documents = querySnapshot?.documents else {
-                    print("Error fetching documents: \(error!)")
-                    return
-                }
-                
-                let name = documents.map { $0["name"] ?? [""] }
-                let family_id = documents.map { $0["family_id"] ?? [0] }
-                let portions = documents.map { $0["portions"] ?? [""] }
-                let menu_id = documents.map { $0["menu_id"] ?? [""]}
-                let isOpened = documents.map { $0["isOpened"] ?? [""]}
-                
-               
-                print("document ID : \(menuRef.documentID)")
-                print("query snapshot : \(querySnapshot?.documents)")
-                
-                if name != nil || name[0] as! String != "" {
-                    for i in 0..<name.count {
-                        self.menu.append(Menu(menu_id: menu_id[i] as! String, name: name[i] as! String, family_id: family_id[i] as! String, portions: portions[i] as! Int, isOpened: isOpened[i] as! Bool))
-                    }
-                }
-                
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                    let indexPath = IndexPath(row: self.menu.count - 1, section: 0)
-//                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
-                }
-                    
-                
-                
-                print("Menu: \(name)")
-//                print("Document ID: \()")
-                print("Portions: \(portions)")
-                print("Family ID: \(family_id)")
-                print(self.menu)
-                
-                
-                print("jumlah menu : \(self.menu.count)")
-            }
-    }
-    
-    func loadLike() {
-        
-        let likeRef = db.collection("like").document()
-        
-        db.collection("like").whereField("user_id", isEqualTo: "\(Auth.auth().currentUser!.uid ?? "")")
-            .addSnapshotListener { querySnapshot, error in
-                self.like = []
-                guard let documents = querySnapshot?.documents else {
-                    print("Error fetching documents: \(error!)")
-                    return
-                }
-                
-                let like_id = documents.map { $0["like_id"] ?? [""] }
-                let menu_id = documents.map { $0["menu_id"] ?? [""] }
-                let user_id = documents.map { $0["user_id"] ?? [""]}
-                
-                for i in 0..<like_id.count {
-                    self.like.append(Like(like_id: like_id[i] as! String, menu_id: menu_id[i] as! String, user_id: user_id[i] as! String))
-                }
-                
-                print("LIKE = \(self.like)")
-                
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                    let indexPath = IndexPath(row: self.like.count - 1, section: 0)
-//                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
-                }
-                    
-            
-            }
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
           if segue.identifier == "goToSignIn" {
