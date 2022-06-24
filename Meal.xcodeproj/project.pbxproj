@@ -12,6 +12,7 @@
 		DE215699285056C200841DF0 /* JoinFamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE215698285056C200841DF0 /* JoinFamilyViewController.swift */; };
 		DE21569B28505A6B00841DF0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE21569A28505A6B00841DF0 /* GoogleService-Info.plist */; };
 		DE24EA27286293D900E2EF2A /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE24EA26286293D900E2EF2A /* Like.swift */; };
+		DE2EA0F928654CBD003C2AE6 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2EA0F828654CBD003C2AE6 /* Extension.swift */; };
 		DE6201DD2850AD0600E88035 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6201DC2850AD0600E88035 /* MenuViewController.swift */; };
 		DE9FE5C7284DA7210032242F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9FE5C6284DA7210032242F /* AppDelegate.swift */; };
 		DE9FE5C9284DA7210032242F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9FE5C8284DA7210032242F /* SceneDelegate.swift */; };
@@ -59,6 +60,7 @@
 		DE215698285056C200841DF0 /* JoinFamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinFamilyViewController.swift; sourceTree = "<group>"; };
 		DE21569A28505A6B00841DF0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DE24EA26286293D900E2EF2A /* Like.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
+		DE2EA0F828654CBD003C2AE6 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		DE6201DC2850AD0600E88035 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		DE9FE5C3284DA7210032242F /* Meal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE9FE5C6284DA7210032242F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 			children = (
 				E969B12D285D92750025E31F /* SignInViewController.swift */,
 				E97EACB2285B74AC00DEA510 /* VoteViewController.swift */,
+				DE2EA0F828654CBD003C2AE6 /* Extension.swift */,
 				E9451D56285BA4120091A31E /* MemberViewController.swift */,
 				E9F4292B285CDB5600C85012 /* HistoryViewController.swift */,
 				E969B12F285D92DC0025E31F /* JoinCreateFamilyViewController.swift */,
@@ -384,6 +387,7 @@
 				E97EACAC285A28D000DEA510 /* BottomPartTableViewCell.swift in Sources */,
 				E97EACB0285A29E900DEA510 /* VoterCollectionViewCell.swift in Sources */,
 				E9451D54285BA3410091A31E /* FamilyIDTableViewCell.swift in Sources */,
+				DE2EA0F928654CBD003C2AE6 /* Extension.swift in Sources */,
 				E97EACA8285A267D00DEA510 /* TopPartTableViewCell.swift in Sources */,
 				DE2156042852BB5F00E2DA35 /* Menu.swift in Sources */,
 				E9F42929285CD89800C85012 /* HistoryTableViewCell.swift in Sources */,

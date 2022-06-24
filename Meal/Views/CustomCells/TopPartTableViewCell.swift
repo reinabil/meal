@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import FirebaseFirestore
+import FirebaseAuth
 
 protocol TopPartTableViewCellDelegate:AnyObject {
     func buttonClicked(cell: TopPartTableViewCell)
-//    func eatButtonPressed(cell: TopPartTableViewCell)
-//    func dontEatButtonPressed(cell: TopPartTableViewCell)
+    func eatButtonPressed(cell: TopPartTableViewCell, send: UIButton)
+    func dontEatButtonPressed(cell: TopPartTableViewCell, send: UIButton)
 }
 
 class TopPartTableViewCell: UITableViewCell {
@@ -24,12 +26,18 @@ class TopPartTableViewCell: UITableViewCell {
     
     weak var delegate: (TopPartTableViewCellDelegate)?
     
-    // empty function
-    var eatButtonPressed : (() -> ())?
-    var dontEatButtonPressed : (() -> ())?
-    
+//    let voteViewController: VoteViewController? = nil
+    var db: Firestore!
+
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        // [START setup]
+        let settings = FirestoreSettings()
+
+        Firestore.firestore().settings = settings
+        // [END setup]
+        db = Firestore.firestore()
         
         setupButton(button: eatButton)
         setupButton(button: dontEatButton)
@@ -41,6 +49,8 @@ class TopPartTableViewCell: UITableViewCell {
         foodNameLabel.textColor = UIColor.black
         portionLabel.textColor = UIColor.black
         arrowImage.tintColor = UIColor.black
+        
+//        loadLike()
     }
     
     func setupButton(button: UIButton) {
@@ -64,26 +74,44 @@ class TopPartTableViewCell: UITableViewCell {
     }
     
     @IBAction func eatButtonPressed(_ sender: UIButton) {
-        eatButtonPressed?()
-        
-        if sender.backgroundColor == UIColor.white {
-            sender.backgroundColor = UIColor(named: "BrandOrange")
-            sender.tintColor = UIColor.white
-        } else {
-            sender.backgroundColor = UIColor.white
-            sender.tintColor = UIColor.black
-        }
+        delegate?.eatButtonPressed(cell: self, send: sender)
     }
     
     @IBAction func dontEatButtonPressed(_ sender: UIButton) {
-        dontEatButtonPressed?()
-        
-        if sender.backgroundColor == UIColor.white {
-            sender.backgroundColor = UIColor(named: "BrandOrange")
-            sender.tintColor = UIColor.white
-        } else {
-            sender.backgroundColor = UIColor.white
-            sender.tintColor = UIColor.black
-        }
+        delegate?.dontEatButtonPressed(cell: self, send: sender)
     }
+    
+//    func loadLike() {
+//
+//        var family_id = UserDefaults.standard.bool(forKey: "family_id")
+//        var user_id = Auth.auth().currentUser?.uid
+//        let menuRef = db.collection("like").document()
+//
+//        print("user_id \(user_id!)")
+//
+//        db.collection("like").whereField("user_id", isEqualTo: "\(user_id!)")
+//            .addSnapshotListener { querySnapshot, error in
+//                self.like = []
+//                guard let documents = querySnapshot?.documents else {
+//                    print("Error fetching documents: \(error!)")
+//                    return
+//                }
+//
+//                let like_id = documents.map { $0["like_id"] ?? [""] }
+//                let menu_id = documents.map { $0["menu_id"] ?? [0] }
+//                let user_id = documents.map { $0["user_id"] ?? [""] }
+//
+//
+//                print("document ID : \(menuRef.documentID)")
+//                print("query snapshot : \(querySnapshot?.documents)")
+//
+//                if like_id != nil || like_id[0] as! String != "" {
+//                    for i in 0..<like_id.count {
+//                        self.like.append(Like(like_id: like_id[i] as! String, menu_id: menu_id[i] as! String, user_id: user_id[i] as! String))
+//                    }
+//                }
+//            }
+//
+//        print("LIKE DATABASE = \(like)")
+//    }
 }
