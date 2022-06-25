@@ -90,7 +90,7 @@
                                     <rect key="frame" x="0.0" y="111" width="398" height="129"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XJK-76-maV">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XJK-76-maV">
                                             <rect key="frame" x="48" y="16" width="302" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="KaA-2n-zYP"/>
@@ -99,10 +99,7 @@
                                             <state key="normal" title="Finished Eating">
                                                 <color key="titleColor" name="BrandOrange"/>
                                             </state>
-                                            <buttonConfiguration key="configuration" style="plain" title="New Meal List" cornerStyle="capsule">
-                                                <backgroundConfiguration key="background" strokeWidth="2" strokeOutset="0.0">
-                                                    <color key="strokeColor" name="BrandOrange"/>
-                                                </backgroundConfiguration>
+                                            <buttonConfiguration key="configuration" style="plain" title="New Meal List" titleAlignment="center">
                                                 <fontDescription key="titleFontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="17"/>
                                                 <color key="baseForegroundColor" name="BrandOrange"/>
                                             </buttonConfiguration>
@@ -155,6 +152,7 @@
                     <connections>
                         <outlet property="addButton" destination="Ddf-Z1-PUz" id="kCr-Um-nTA"/>
                         <outlet property="tableView" destination="8Ww-Vv-NZE" id="A1S-CP-Xsz"/>
+                        <outlet property="tableViewFooterButton" destination="XJK-76-maV" id="jNK-Qw-iyk"/>
                         <outlet property="tableViewFooterView" destination="P9J-CC-h1i" id="YgG-a3-ZFG"/>
                         <segue destination="QRh-Lx-7cm" kind="presentation" identifier="goToSignIn" id="akN-qt-B54"/>
                     </connections>

@@ -16,6 +16,7 @@ class VoteViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewFooterView: UIView!
+    @IBOutlet weak var tableViewFooterButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
     var menuArray: Array<Any>?
     var menu: [Menu] = []
@@ -61,6 +62,7 @@ class VoteViewController: UIViewController {
         tableView.dataSource = self
         tableView.backgroundColor = UIColor.clear
         setupTableViewBackground()
+        setupTableViewFooterButton()
         
         if UserDefaults.standard.string(forKey: "family_id") == nil || UserDefaults.standard.string(forKey: "family_id") == "" {
 //            tableView.isHidden = true
@@ -76,6 +78,12 @@ class VoteViewController: UIViewController {
             loadDisike()
             loadMenu()
         }
+    }
+    
+    func setupTableViewFooterButton() {
+        tableViewFooterButton.layer.borderWidth = 2
+        tableViewFooterButton.layer.borderColor = CGColor(red: 250/255, green: 90/255, blue: 39/255, alpha: 1)
+        tableViewFooterButton.layer.cornerRadius = tableViewFooterButton.frame.height/2
     }
     
     //Background for empty state
@@ -129,6 +137,18 @@ class VoteViewController: UIViewController {
         tableView.setEditing((tableView.isEditing) ? false : true, animated: true)
         sender.setTitle((tableView.isEditing) ? "Cancel" : "Edit", for: .normal)
         addButton.setTitle((tableView.isEditing) ? "Done" : "Add Meal", for: .normal)
+        
+        //Change footer button text and appearance based on current state of tableView
+        if tableView.isEditing {
+            tableViewFooterButton.titleLabel?.text = "Delete All"
+            tableViewFooterButton.titleLabel?.textColor = UIColor.red
+            tableViewFooterButton.titleLabel?.textAlignment = .center
+            tableViewFooterButton.layer.borderWidth = 0
+        } else {
+            tableViewFooterButton.titleLabel?.text = "New Meal List"
+            tableViewFooterButton.titleLabel?.textColor = UIColor(named: "BrandOrange")
+            setupTableViewFooterButton()
+        }
     }
     
     @IBAction func addButtonPressed(_ sender: UIButton) {

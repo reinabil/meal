@@ -405,6 +405,7 @@ extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPar
         }
     }
     
+    // Add spacing between cells
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 1
     }
