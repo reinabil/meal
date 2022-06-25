@@ -32,6 +32,10 @@ class VoteViewController: UIViewController {
     var db: Firestore!
     var family_id = ""
     
+    var emptyStateContainerView: UIView!
+    var emptyStateTopLabel: UILabel!
+    var emptyStateBottomLabel: UILabel!
+    
     override func viewDidLoad() {
         
         print("\(UserDefaults.standard.string(forKey: "family_id"))")
@@ -56,21 +60,55 @@ class VoteViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = UIColor.clear
+        setupTableViewBackground()
         
         if UserDefaults.standard.string(forKey: "family_id") == nil || UserDefaults.standard.string(forKey: "family_id") == "" {
-            tableView.isHidden = true
+//            tableView.isHidden = true
             
             // insert empty label
         } else {
             
             // insert table
             
-            tableView.isHidden = false
+//            tableView.isHidden = false
             
             loadLike()
             loadDisike()
             loadMenu()
         }
+    }
+    
+    //Background for empty state
+    func setupTableViewBackground() {
+        emptyStateContainerView = UIView()
+        
+        emptyStateTopLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 232, height: 24))
+        emptyStateTopLabel.text = "History is Empty"
+        emptyStateTopLabel.textColor = .black
+        emptyStateTopLabel.textAlignment = .center
+        emptyStateTopLabel.font = UIFont(name: "Poppins-SemiBold", size: 14)
+        emptyStateContainerView?.addSubview(emptyStateTopLabel)
+        
+        emptyStateBottomLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 232, height: 24))
+        emptyStateBottomLabel.text = "Start adding and voting meal"
+        emptyStateBottomLabel.textColor = .black
+        emptyStateBottomLabel.textAlignment = .center
+        emptyStateBottomLabel.numberOfLines = 0
+        emptyStateBottomLabel.font = UIFont(name: "Poppins-Regular", size: 12)
+        emptyStateContainerView?.addSubview(emptyStateBottomLabel)
+        
+        emptyStateTopLabel.translatesAutoresizingMaskIntoConstraints = false
+        emptyStateBottomLabel?.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            emptyStateTopLabel.centerXAnchor.constraint(equalTo: emptyStateContainerView.centerXAnchor),
+            emptyStateTopLabel.centerYAnchor.constraint(equalTo: emptyStateContainerView.centerYAnchor),
+            emptyStateBottomLabel.topAnchor.constraint(equalTo: emptyStateTopLabel.topAnchor, constant: 25),
+            emptyStateBottomLabel.centerXAnchor.constraint(equalTo: emptyStateTopLabel.centerXAnchor),
+            emptyStateBottomLabel.leftAnchor.constraint(equalTo: emptyStateContainerView.leftAnchor, constant: 16),
+            emptyStateBottomLabel.rightAnchor.constraint(equalTo: emptyStateContainerView.rightAnchor, constant: -16)
+        ])
+        
+        tableView.backgroundView = emptyStateContainerView
     }
     
     @IBAction func editButtonPressed(_ sender: UIButton) {
