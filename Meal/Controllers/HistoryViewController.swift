@@ -9,8 +9,6 @@ import UIKit
 
 class HistoryViewController: UIViewController {
 
-    @IBOutlet weak var summaryBackground: UIView!
-    @IBOutlet weak var percentageLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     var emptyStateContainerView: UIView!
@@ -19,6 +17,7 @@ class HistoryViewController: UIViewController {
     
     // Summary dibuat ke dalam tableView?
     let dummyData: [String] = [
+        "Summary",
         "June 2022",
         "May 2022",
         "April 2022",
@@ -29,8 +28,6 @@ class HistoryViewController: UIViewController {
         super.viewDidLoad()
         
         setupTableView()
-        summaryBackground.layer.cornerRadius = 10
-        summaryBackground.backgroundColor = UIColor(named: "BrandLightGray")
     }
     
     func setupTableView() {
@@ -38,7 +35,9 @@ class HistoryViewController: UIViewController {
         tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UINib(nibName: "HistoryTableViewCell", bundle: nil), forCellReuseIdentifier: "historyCell")
+        tableView.register(UINib(nibName: "SummaryTableViewCell", bundle: nil), forCellReuseIdentifier: "summaryCell")
         tableView.backgroundColor = UIColor.white
+        tableView.separatorStyle = .none
         setupTableViewBackground()
     }
     
@@ -79,13 +78,19 @@ class HistoryViewController: UIViewController {
 
 extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell") as? HistoryTableViewCell else { return UITableViewCell() }
+        var cell: UITableViewCell? = nil
         
-        return cell
+        if indexPath.section == 0 {
+            cell = tableView.dequeueReusableCell(withIdentifier: "summaryCell") as? SummaryTableViewCell
+        } else {
+            cell = tableView.dequeueReusableCell(withIdentifier: "historyCell") as? HistoryTableViewCell
+        }
+        
+        return cell ?? UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return (section == 0) ? 1 : 3
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

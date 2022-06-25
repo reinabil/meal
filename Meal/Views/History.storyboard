@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,9 +10,6 @@
     <customFonts key="customFonts">
         <array key="Poppins-Bold.ttf">
             <string>Poppins-Bold</string>
-        </array>
-        <array key="Poppins-SemiBold.ttf">
-            <string>Poppins-SemiBold</string>
         </array>
     </customFonts>
     <scenes>
@@ -26,82 +22,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKf-DM-zzi">
-                                <rect key="frame" x="16" y="108" width="118" height="45"/>
+                                <rect key="frame" x="16" y="86" width="118" height="45"/>
                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="32"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QDL-if-4ww" userLabel="Separator Line">
-                                <rect key="frame" x="0.0" y="161" width="414" height="1"/>
+                                <rect key="frame" x="0.0" y="139" width="414" height="1"/>
                                 <color key="backgroundColor" systemColor="separatorColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="FwL-tU-xKH"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wB5-pt-XrB">
-                                <rect key="frame" x="16" y="182" width="91" height="25.5"/>
-                                <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="18"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bfU-RX-SE0">
-                                <rect key="frame" x="16" y="215.5" width="382" height="153"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AVERAGE FOOD WASTE OF YOUR FAMILY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kfl-DO-98R">
-                                        <rect key="frame" x="16" y="8" width="236.5" height="17"/>
-                                        <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="12"/>
-                                        <color key="textColor" name="RedLabel"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="firstBaseline" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Uzi-xQ-it4">
-                                        <rect key="frame" x="16" y="36" width="236" height="42"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gzv-A2-RKH">
-                                                <rect key="frame" x="0.0" y="0.0" width="64" height="42"/>
-                                                <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="30"/>
-                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="of your meals were wasted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fU1-v9-OSQ">
-                                                <rect key="frame" x="72" y="19" width="164" height="17"/>
-                                                <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="12"/>
-                                                <color key="textColor" red="0.49019607843137253" green="0.49019607843137253" blue="0.49019607843137253" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xck-Gh-RA4">
-                                        <rect key="frame" x="16" y="90" width="350" height="1"/>
-                                        <color key="backgroundColor" systemColor="separatorColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="1" id="qT3-LA-4YP"/>
-                                        </constraints>
-                                    </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let’s try to keep reducing the amount of food waste!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eif-56-P8j">
-                                        <rect key="frame" x="16" y="103" width="350" height="42"/>
-                                        <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="15"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="kfl-DO-98R" firstAttribute="top" secondItem="bfU-RX-SE0" secondAttribute="top" constant="8" id="3sm-Uz-GzU"/>
-                                    <constraint firstAttribute="trailing" secondItem="eif-56-P8j" secondAttribute="trailing" constant="16" id="ET8-ST-NGw"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="153" id="FxY-16-7lB"/>
-                                    <constraint firstAttribute="bottom" secondItem="eif-56-P8j" secondAttribute="bottom" constant="8" id="O4B-Fl-W40"/>
-                                    <constraint firstItem="eif-56-P8j" firstAttribute="top" secondItem="Xck-Gh-RA4" secondAttribute="bottom" constant="12" id="VKD-fv-1Oq"/>
-                                    <constraint firstItem="Uzi-xQ-it4" firstAttribute="leading" secondItem="bfU-RX-SE0" secondAttribute="leading" constant="16" id="Xir-nb-Jpp"/>
-                                    <constraint firstItem="eif-56-P8j" firstAttribute="leading" secondItem="bfU-RX-SE0" secondAttribute="leading" constant="16" id="ZGR-wH-b5m"/>
-                                    <constraint firstItem="kfl-DO-98R" firstAttribute="leading" secondItem="bfU-RX-SE0" secondAttribute="leading" constant="16" id="c55-UD-8fR"/>
-                                    <constraint firstAttribute="trailing" secondItem="Xck-Gh-RA4" secondAttribute="trailing" constant="16" id="dPQ-jt-3FE"/>
-                                    <constraint firstItem="Xck-Gh-RA4" firstAttribute="leading" secondItem="bfU-RX-SE0" secondAttribute="leading" constant="16" id="h9c-Kb-7Uu"/>
-                                    <constraint firstItem="Xck-Gh-RA4" firstAttribute="top" secondItem="Uzi-xQ-it4" secondAttribute="bottom" constant="12" id="hGs-sc-hhN"/>
-                                    <constraint firstAttribute="height" priority="750" constant="153" id="vD4-nZ-fUU"/>
-                                </constraints>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="erR-FA-Tok">
-                                <rect key="frame" x="16" y="404.5" width="382" height="392.5"/>
+                                <rect key="frame" x="16" y="156" width="382" height="641"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -109,26 +43,19 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="QDL-if-4ww" firstAttribute="top" secondItem="PKf-DM-zzi" secondAttribute="bottom" constant="8" id="2y7-Wy-Q8n"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="bfU-RX-SE0" secondAttribute="trailing" constant="16" id="5Us-zA-bhj"/>
                             <constraint firstItem="QDL-if-4ww" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="AHC-Kz-jIe"/>
                             <constraint firstItem="PKf-DM-zzi" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="Bkn-89-9o9"/>
-                            <constraint firstItem="wB5-pt-XrB" firstAttribute="top" secondItem="QDL-if-4ww" secondAttribute="bottom" constant="20" id="HQz-sT-jWH"/>
-                            <constraint firstItem="bfU-RX-SE0" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="Ik4-o8-VOO"/>
-                            <constraint firstItem="wB5-pt-XrB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="PsR-hI-mG4"/>
+                            <constraint firstItem="erR-FA-Tok" firstAttribute="top" secondItem="QDL-if-4ww" secondAttribute="bottom" constant="16" id="Mue-c4-HrJ"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="QDL-if-4ww" secondAttribute="trailing" id="TkT-F9-RLw"/>
                             <constraint firstItem="erR-FA-Tok" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="VaC-NT-m5N"/>
-                            <constraint firstItem="bfU-RX-SE0" firstAttribute="top" secondItem="wB5-pt-XrB" secondAttribute="bottom" constant="8" id="XHA-o6-QmZ"/>
-                            <constraint firstItem="erR-FA-Tok" firstAttribute="top" secondItem="bfU-RX-SE0" secondAttribute="bottom" constant="36" id="cKH-bK-VBS"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="erR-FA-Tok" secondAttribute="trailing" constant="16" id="gDv-UV-M7T"/>
-                            <constraint firstItem="PKf-DM-zzi" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="64" id="t7S-bi-Ae6"/>
+                            <constraint firstItem="PKf-DM-zzi" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="42" id="t7S-bi-Ae6"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="erR-FA-Tok" secondAttribute="bottom" constant="16" id="vGI-05-Tgd"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="History" image="clock" catalog="system" id="fwy-c9-lPi"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="percentageLabel" destination="Gzv-A2-RKH" id="os1-XC-ybd"/>
-                        <outlet property="summaryBackground" destination="bfU-RX-SE0" id="H0Z-H7-zD5"/>
                         <outlet property="tableView" destination="erR-FA-Tok" id="nbf-2i-1GB"/>
                     </connections>
                 </viewController>
@@ -139,9 +66,6 @@
     </scenes>
     <resources>
         <image name="clock" catalog="system" width="128" height="121"/>
-        <namedColor name="RedLabel">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="separatorColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

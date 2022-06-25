@@ -1,19 +1,16 @@
 //
-//  HistoryTableViewCell.swift
+//  SummaryTableViewCell.swift
 //  Meal
 //
-//  Created by Anselmus Pavel Adriska on 17/06/22.
+//  Created by Anselmus Pavel Adriska on 25/06/22.
 //
 
 import UIKit
 
-class HistoryTableViewCell: UITableViewCell {
+class SummaryTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var percentageLabel: UILabel!
     @IBOutlet weak var background: UIView!
-    @IBOutlet weak var leftSideImage: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var notesLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
