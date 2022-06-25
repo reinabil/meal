@@ -6,7 +6,6 @@
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -30,35 +29,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="68" translatesAutoresizingMaskIntoConstraints="NO" id="kHE-tK-ZPL">
-                                <rect key="frame" x="58" y="171" width="274" height="502"/>
+                                <rect key="frame" x="28" y="151.66666666666669" width="334" height="540.66666666666652"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Illustration_SignIn" translatesAutoresizingMaskIntoConstraints="NO" id="6zq-5p-b2V">
-                                        <rect key="frame" x="34.333333333333329" y="0.0" width="205.33333333333337" height="223"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="284"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="gOS-q9-MOF">
-                                        <rect key="frame" x="2.6666666666666572" y="291" width="268.66666666666674" height="211"/>
+                                        <rect key="frame" x="12.666666666666657" y="352" width="308.66666666666674" height="188.66666666666663"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log In with Your Apple ID" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rxu-S5-gf1">
-                                                <rect key="frame" x="2" y="0.0" width="264.66666666666669" height="89.666666666666671"/>
-                                                <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="32"/>
-                                                <nil key="textColor"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rxu-S5-gf1">
+                                                <rect key="frame" x="23.333333333333343" y="0.0" width="262.33333333333326" height="73"/>
+                                                <string key="text">Start reducing food
+waste in your home</string>
+                                                <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="26"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let’s start reducing food waste in your home." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4P-RZ-ekg">
-                                                <rect key="frame" x="17.333333333333343" y="105.66666666666663" width="234" height="39.333333333333343"/>
-                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
-                                                <nil key="textColor"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign in with your Apple ID to start voting meals with your family" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4P-RZ-ekg">
+                                                <rect key="frame" x="0.0" y="88.999999999999943" width="308.66666666666669" height="33.666666666666657"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lHL-Jv-0JY">
-                                                <rect key="frame" x="0.0" y="161" width="268.66666666666669" height="50"/>
+                                                <rect key="frame" x="0.0" y="138.66666666666669" width="308.66666666666669" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="VeW-8I-zbN"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Continue with Apple" imagePadding="8" cornerStyle="capsule">
                                                     <imageReference key="image" image="applelogo" catalog="system" symbolScale="large"/>
-                                                    <fontDescription key="titleFontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="16"/>
+                                                    <fontDescription key="titleFontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="17"/>
                                                     <directionalEdgeInsets key="contentInsets" top="0.0" leading="40" bottom="0.0" trailing="40"/>
                                                     <color key="baseBackgroundColor" name="BrandOrange"/>
                                                 </buttonConfiguration>
@@ -76,11 +77,11 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="kHE-tK-ZPL" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="1Wk-r3-2dV"/>
-                            <constraint firstItem="kHE-tK-ZPL" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="58" id="hEd-Eq-Fep"/>
-                            <constraint firstAttribute="trailing" secondItem="kHE-tK-ZPL" secondAttribute="trailing" constant="58" id="qrR-xK-Lmi"/>
+                            <constraint firstItem="kHE-tK-ZPL" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="28" id="hEd-Eq-Fep"/>
+                            <constraint firstAttribute="trailing" secondItem="kHE-tK-ZPL" secondAttribute="trailing" constant="28" id="qrR-xK-Lmi"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="RIK-uB-IW6">
@@ -126,30 +127,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="cBv-od-CNC">
-                                <rect key="frame" x="58" y="152" width="274" height="586.33333333333337"/>
+                                <rect key="frame" x="32" y="152" width="326" height="646.33333333333337"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Illustration_JoinCreateFamily" translatesAutoresizingMaskIntoConstraints="NO" id="0sV-zx-Yi2">
-                                        <rect key="frame" x="33" y="0.0" width="208" height="187"/>
+                                        <rect key="frame" x="7.6666666666666572" y="0.0" width="311" height="247"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gfg-Eq-bwI">
-                                        <rect key="frame" x="8.6666666666666572" y="226" width="256.66666666666674" height="131.33333333333337"/>
+                                        <rect key="frame" x="7.6666666666666572" y="286" width="310.66666666666674" height="131.33333333333337"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Your Family Group" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afD-Zv-4JG">
-                                                <rect key="frame" x="18" y="0.0" width="221" height="89.666666666666671"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Join Your Family Group" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afD-Zv-4JG">
+                                                <rect key="frame" x="45" y="0.0" width="221" height="89.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="32"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Family group is where you and your family can add and voting what meal to eat." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1I-O4-vBx">
-                                                <rect key="frame" x="0.0" y="97.666666666666686" width="256.66666666666669" height="33.666666666666657"/>
+                                                <rect key="frame" x="0.0" y="97.666666666666629" width="310.66666666666669" height="33.666666666666657"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="gga-W6-sKf">
-                                        <rect key="frame" x="11.000000000000014" y="396.33333333333337" width="252.33333333333337" height="190"/>
+                                        <rect key="frame" x="37.000000000000014" y="456.33333333333337" width="252.33333333333337" height="190"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XcB-pW-6SK">
                                                 <rect key="frame" x="0.0" y="0.0" width="252.33333333333334" height="50"/>
@@ -199,7 +200,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don’t Have a Family Group yet?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwq-Dc-9ED">
                                                         <rect key="frame" x="32.666666666666671" y="0.0" width="187" height="17"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jd6-Dd-L00">
@@ -229,10 +230,10 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="f21-Nl-4O5"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="cBv-od-CNC" firstAttribute="leading" secondItem="f21-Nl-4O5" secondAttribute="leading" constant="58" id="NQU-hi-owN"/>
-                            <constraint firstItem="f21-Nl-4O5" firstAttribute="trailing" secondItem="cBv-od-CNC" secondAttribute="trailing" constant="58" id="e9s-xh-QqM"/>
+                            <constraint firstItem="cBv-od-CNC" firstAttribute="leading" secondItem="f21-Nl-4O5" secondAttribute="leading" constant="32" id="NQU-hi-owN"/>
+                            <constraint firstItem="f21-Nl-4O5" firstAttribute="trailing" secondItem="cBv-od-CNC" secondAttribute="trailing" constant="32" id="e9s-xh-QqM"/>
                             <constraint firstItem="cBv-od-CNC" firstAttribute="top" secondItem="f21-Nl-4O5" secondAttribute="top" constant="64" id="rrX-eB-Mbc"/>
                         </constraints>
                     </view>
@@ -252,14 +253,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Illustration_JoinCreateFamily" width="208" height="187"/>
-        <image name="Illustration_SignIn" width="205.33332824707031" height="223"/>
+        <image name="Illustration_JoinCreateFamily" width="311" height="247"/>
+        <image name="Illustration_SignIn" width="334" height="284"/>
         <image name="applelogo" catalog="system" width="103" height="128"/>
         <namedColor name="BrandOrange">
             <color red="0.98039215686274506" green="0.3529411764705882" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
