@@ -27,19 +27,19 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5IR-GU-rWt">
-                        <rect key="frame" x="0.0" y="8" width="403" height="98"/>
+                        <rect key="frame" x="16" y="0.0" width="387" height="106"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="b1Z-hc-HwT">
-                                <rect key="frame" x="16" y="14" width="371" height="42"/>
+                                <rect key="frame" x="16" y="14" width="355" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lIQ-mU-AAT">
-                                        <rect key="frame" x="0.0" y="9" width="98" height="24"/>
+                                        <rect key="frame" x="0.0" y="13" width="98" height="24"/>
                                         <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="X1M-Hj-jIl">
-                                        <rect key="frame" x="213.5" y="5.5" width="157.5" height="31"/>
+                                        <rect key="frame" x="197.5" y="9.5" width="157.5" height="31"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iL5-QP-QmR">
                                                 <rect key="frame" x="0.0" y="0.0" width="89" height="31"/>
@@ -68,7 +68,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="ICe-vF-imX">
-                                <rect key="frame" x="16" y="64" width="371" height="20"/>
+                                <rect key="frame" x="16" y="72" width="355" height="20"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 portion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aoh-f8-uOe">
                                         <rect key="frame" x="0.0" y="0.0" width="58" height="20"/>
@@ -77,7 +77,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Jzl-SE-9No">
-                                        <rect key="frame" x="302" y="0.0" width="69" height="20"/>
+                                        <rect key="frame" x="286" y="0.0" width="69" height="20"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="See detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6pu-zf-uFP">
                                                 <rect key="frame" x="0.0" y="3" width="50" height="14"/>
@@ -110,8 +110,8 @@
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="5IR-GU-rWt" secondAttribute="trailing" id="NTp-ek-jr7"/>
-                    <constraint firstItem="5IR-GU-rWt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Njh-Jh-2rj"/>
-                    <constraint firstItem="5IR-GU-rWt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Zp8-WA-5og"/>
+                    <constraint firstItem="5IR-GU-rWt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Njh-Jh-2rj"/>
+                    <constraint firstItem="5IR-GU-rWt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Zp8-WA-5og"/>
                     <constraint firstAttribute="bottom" secondItem="5IR-GU-rWt" secondAttribute="bottom" id="rfv-bb-bHu"/>
                 </constraints>
             </tableViewCellContentView>
@@ -124,6 +124,7 @@
                 <outlet property="eatButton" destination="gqb-V5-IpV" id="q96-9J-EWC"/>
                 <outlet property="foodNameLabel" destination="lIQ-mU-AAT" id="kaI-Nd-c0V"/>
                 <outlet property="portionLabel" destination="aoh-f8-uOe" id="aZt-zB-LMv"/>
+                <outlet property="seeDetailLabel" destination="6pu-zf-uFP" id="3ti-L0-t4P"/>
             </connections>
             <point key="canvasLocation" x="154.34782608695653" y="83.705357142857139"/>
         </tableViewCell>
