@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-SemiBold.ttf">
+            <string>Poppins-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="135" id="KGk-i7-Jjw" customClass="SummaryTableViewCell" customModule="Meal" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="500" height="135"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="500" height="135"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wly-1b-8o6">
+                        <rect key="frame" x="0.0" y="0.0" width="500" height="153"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AVERAGE FOOD WASTE OF YOUR FAMILY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0XZ-rC-pDm">
+                                <rect key="frame" x="16" y="8" width="236.5" height="17"/>
+                                <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="12"/>
+                                <color key="textColor" name="RedLabel"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="firstBaseline" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="EQh-cB-Oku">
+                                <rect key="frame" x="16" y="33" width="236" height="42"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcC-st-c8v">
+                                        <rect key="frame" x="0.0" y="0.0" width="64" height="42"/>
+                                        <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="30"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="of your meals were wasted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgR-36-gQQ">
+                                        <rect key="frame" x="72" y="19" width="164" height="17"/>
+                                        <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="12"/>
+                                        <color key="textColor" red="0.49019607840000001" green="0.49019607840000001" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let’s try to keep reducing the amount of food waste!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9C-C2-TXV">
+                                <rect key="frame" x="16" y="96" width="468" height="21"/>
+                                <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="15"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQU-eo-0FG">
+                                <rect key="frame" x="16" y="87" width="468" height="1"/>
+                                <color key="backgroundColor" systemColor="separatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="y0r-ca-lCt"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="fQU-eo-0FG" firstAttribute="leading" secondItem="wly-1b-8o6" secondAttribute="leading" constant="16" id="07x-jM-xBh"/>
+                            <constraint firstItem="EQh-cB-Oku" firstAttribute="top" secondItem="0XZ-rC-pDm" secondAttribute="bottom" constant="8" id="7we-3t-sOB"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="153" id="B6I-h1-CzN"/>
+                            <constraint firstAttribute="height" priority="750" constant="153" id="BR7-vP-gA4"/>
+                            <constraint firstItem="0XZ-rC-pDm" firstAttribute="leading" secondItem="wly-1b-8o6" secondAttribute="leading" constant="16" id="GU5-0v-D4b"/>
+                            <constraint firstItem="0XZ-rC-pDm" firstAttribute="top" secondItem="wly-1b-8o6" secondAttribute="top" constant="8" id="JJj-4P-2zW"/>
+                            <constraint firstItem="fQU-eo-0FG" firstAttribute="top" secondItem="EQh-cB-Oku" secondAttribute="bottom" constant="12" id="Pek-nr-Zvo"/>
+                            <constraint firstAttribute="trailing" secondItem="w9C-C2-TXV" secondAttribute="trailing" constant="16" id="XyZ-Xx-y4Z"/>
+                            <constraint firstItem="w9C-C2-TXV" firstAttribute="top" secondItem="fQU-eo-0FG" secondAttribute="bottom" constant="8" id="ZiH-wV-maN"/>
+                            <constraint firstItem="EQh-cB-Oku" firstAttribute="leading" secondItem="wly-1b-8o6" secondAttribute="leading" constant="16" id="jkh-4G-Exv"/>
+                            <constraint firstItem="w9C-C2-TXV" firstAttribute="leading" secondItem="wly-1b-8o6" secondAttribute="leading" constant="16" id="sFh-We-uNm"/>
+                            <constraint firstAttribute="trailing" secondItem="fQU-eo-0FG" secondAttribute="trailing" constant="16" id="tqP-UR-k79"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="wly-1b-8o6" secondAttribute="bottom" id="0Kc-Fr-BSd"/>
+                    <constraint firstItem="wly-1b-8o6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="4OI-TF-GUx"/>
+                    <constraint firstItem="wly-1b-8o6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="IK1-iJ-HCo"/>
+                    <constraint firstAttribute="trailing" secondItem="wly-1b-8o6" secondAttribute="trailing" id="gSY-h1-6ln"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="background" destination="wly-1b-8o6" id="3pn-Md-WBT"/>
+                <outlet property="percentageLabel" destination="fcC-st-c8v" id="Qfu-s0-kKo"/>
+            </connections>
+            <point key="canvasLocation" x="124.6376811594203" y="110.15625"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="RedLabel">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="separatorColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

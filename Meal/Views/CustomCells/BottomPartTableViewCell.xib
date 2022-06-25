@@ -23,7 +23,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uE7-QL-xhI">
-                        <rect key="frame" x="0.0" y="0.0" width="371" height="109"/>
+                        <rect key="frame" x="16" y="0.0" width="355" height="109"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vote Result from all family members" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TuW-JN-Hdk">
                                 <rect key="frame" x="16" y="14" width="182" height="14"/>
@@ -32,7 +32,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="W7H-SS-TgB">
-                                <rect key="frame" x="16" y="42" width="339" height="53"/>
+                                <rect key="frame" x="16" y="42" width="323" height="53"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="shO-re-atn">
                                     <size key="itemSize" width="128" height="128"/>
@@ -55,7 +55,7 @@
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="uE7-QL-xhI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="MWP-UE-sB0"/>
+                    <constraint firstItem="uE7-QL-xhI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="MWP-UE-sB0"/>
                     <constraint firstAttribute="bottom" secondItem="uE7-QL-xhI" secondAttribute="bottom" constant="16" id="NhZ-j1-WLN"/>
                     <constraint firstAttribute="trailing" secondItem="uE7-QL-xhI" secondAttribute="trailing" id="SdF-ye-JrS"/>
                     <constraint firstItem="uE7-QL-xhI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="pry-D0-5dd"/>
@@ -64,6 +64,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="background" destination="uE7-QL-xhI" id="dDY-p3-Tsx"/>
                 <outlet property="collectionView" destination="W7H-SS-TgB" id="MF6-jY-F2f"/>
             </connections>
             <point key="canvasLocation" x="168.84057971014494" y="102.79017857142857"/>

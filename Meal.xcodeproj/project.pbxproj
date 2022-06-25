@@ -22,6 +22,8 @@
 		DE9FE5D1284DA7210032242F /* Meal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DE9FE5CF284DA7210032242F /* Meal.xcdatamodeld */; };
 		DE9FE5D3284DA7240032242F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE9FE5D2284DA7240032242F /* Assets.xcassets */; };
 		DE9FE5D6284DA7240032242F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE9FE5D4284DA7240032242F /* LaunchScreen.storyboard */; };
+		E903CBE8286704C9000AB715 /* AfterVote.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E903CBE7286704C9000AB715 /* AfterVote.storyboard */; };
+		E903CBEA286705E3000AB715 /* AfterVoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E903CBE9286705E3000AB715 /* AfterVoteViewController.swift */; };
 		E9451D49285B8A640091A31E /* Member.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9451D48285B8A640091A31E /* Member.storyboard */; };
 		E9451D4C285B9B6B0091A31E /* UserNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9451D4A285B9B6B0091A31E /* UserNameTableViewCell.swift */; };
 		E9451D4D285B9B6B0091A31E /* UserNameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9451D4B285B9B6B0091A31E /* UserNameTableViewCell.xib */; };
@@ -30,6 +32,8 @@
 		E9451D54285BA3410091A31E /* FamilyIDTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9451D52285BA3410091A31E /* FamilyIDTableViewCell.swift */; };
 		E9451D55285BA3410091A31E /* FamilyIDTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9451D53285BA3410091A31E /* FamilyIDTableViewCell.xib */; };
 		E9451D57285BA4120091A31E /* MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9451D56285BA4120091A31E /* MemberViewController.swift */; };
+		E947AC772866AA0400082B4A /* SummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E947AC752866AA0400082B4A /* SummaryTableViewCell.swift */; };
+		E947AC782866AA0400082B4A /* SummaryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E947AC762866AA0400082B4A /* SummaryTableViewCell.xib */; };
 		E969B12E285D92750025E31F /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E969B12D285D92750025E31F /* SignInViewController.swift */; };
 		E969B130285D92DC0025E31F /* JoinCreateFamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E969B12F285D92DC0025E31F /* JoinCreateFamilyViewController.swift */; };
 		E97EAC9A2859DE5D00DEA510 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E97EAC962859DE5D00DEA510 /* Poppins-Regular.ttf */; };
@@ -73,6 +77,8 @@
 		DE9FE5D2284DA7240032242F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE9FE5D5284DA7240032242F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE9FE5D7284DA7240032242F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E903CBE7286704C9000AB715 /* AfterVote.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AfterVote.storyboard; sourceTree = "<group>"; };
+		E903CBE9286705E3000AB715 /* AfterVoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterVoteViewController.swift; sourceTree = "<group>"; };
 		E9451D48285B8A640091A31E /* Member.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Member.storyboard; sourceTree = "<group>"; };
 		E9451D4A285B9B6B0091A31E /* UserNameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNameTableViewCell.swift; sourceTree = "<group>"; };
 		E9451D4B285B9B6B0091A31E /* UserNameTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserNameTableViewCell.xib; sourceTree = "<group>"; };
@@ -81,6 +87,8 @@
 		E9451D52285BA3410091A31E /* FamilyIDTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyIDTableViewCell.swift; sourceTree = "<group>"; };
 		E9451D53285BA3410091A31E /* FamilyIDTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FamilyIDTableViewCell.xib; sourceTree = "<group>"; };
 		E9451D56285BA4120091A31E /* MemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberViewController.swift; sourceTree = "<group>"; };
+		E947AC752866AA0400082B4A /* SummaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryTableViewCell.swift; sourceTree = "<group>"; };
+		E947AC762866AA0400082B4A /* SummaryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SummaryTableViewCell.xib; sourceTree = "<group>"; };
 		E969B12D285D92750025E31F /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		E969B12F285D92DC0025E31F /* JoinCreateFamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinCreateFamilyViewController.swift; sourceTree = "<group>"; };
 		E97EAC962859DE5D00DEA510 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
@@ -192,6 +200,7 @@
 				E97EACA4285A235400DEA510 /* Vote.storyboard */,
 				E9451D48285B8A640091A31E /* Member.storyboard */,
 				E9F42925285CD3B100C85012 /* History.storyboard */,
+				E903CBE7286704C9000AB715 /* AfterVote.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -205,6 +214,7 @@
 				E9451D56285BA4120091A31E /* MemberViewController.swift */,
 				E9F4292B285CDB5600C85012 /* HistoryViewController.swift */,
 				E969B12F285D92DC0025E31F /* JoinCreateFamilyViewController.swift */,
+				E903CBE9286705E3000AB715 /* AfterVoteViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -226,6 +236,8 @@
 				E9451D53285BA3410091A31E /* FamilyIDTableViewCell.xib */,
 				E9F42927285CD89800C85012 /* HistoryTableViewCell.swift */,
 				E9F42928285CD89800C85012 /* HistoryTableViewCell.xib */,
+				E947AC752866AA0400082B4A /* SummaryTableViewCell.swift */,
+				E947AC762866AA0400082B4A /* SummaryTableViewCell.xib */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -322,11 +334,13 @@
 				E9F42926285CD3B100C85012 /* History.storyboard in Resources */,
 				E97EAC9F2859DEFF00DEA510 /* SignIn.storyboard in Resources */,
 				E97EAC9B2859DE5D00DEA510 /* Poppins-SemiBold.ttf in Resources */,
+				E947AC782866AA0400082B4A /* SummaryTableViewCell.xib in Resources */,
 				E97EAC9D2859DE5D00DEA510 /* Poppins-Medium.ttf in Resources */,
 				E97EACB1285A29E900DEA510 /* VoterCollectionViewCell.xib in Resources */,
 				DE9FE5CE284DA7210032242F /* Main.storyboard in Resources */,
 				E97EACAD285A28D000DEA510 /* BottomPartTableViewCell.xib in Resources */,
 				E9451D4D285B9B6B0091A31E /* UserNameTableViewCell.xib in Resources */,
+				E903CBE8286704C9000AB715 /* AfterVote.storyboard in Resources */,
 				E97EACA9285A267D00DEA510 /* TopPartTableViewCell.xib in Resources */,
 				E97EAC9A2859DE5D00DEA510 /* Poppins-Regular.ttf in Resources */,
 			);
@@ -388,6 +402,7 @@
 				E9451D57285BA4120091A31E /* MemberViewController.swift in Sources */,
 				DE6201DD2850AD0600E88035 /* MenuViewController.swift in Sources */,
 				E97EACAC285A28D000DEA510 /* BottomPartTableViewCell.swift in Sources */,
+				E947AC772866AA0400082B4A /* SummaryTableViewCell.swift in Sources */,
 				E97EACB0285A29E900DEA510 /* VoterCollectionViewCell.swift in Sources */,
 				E9451D54285BA3410091A31E /* FamilyIDTableViewCell.swift in Sources */,
 				DE2EA0F928654CBD003C2AE6 /* Extension.swift in Sources */,
@@ -403,6 +418,7 @@
 				DE29375628658D89000F6556 /* Dislike.swift in Sources */,
 				E9F4292C285CDB5600C85012 /* HistoryViewController.swift in Sources */,
 				DE9FE5C9284DA7210032242F /* SceneDelegate.swift in Sources */,
+				E903CBEA286705E3000AB715 /* AfterVoteViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

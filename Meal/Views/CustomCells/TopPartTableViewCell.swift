@@ -23,6 +23,7 @@ class TopPartTableViewCell: UITableViewCell {
     @IBOutlet weak var dontEatButton: UIButton!
     @IBOutlet weak var portionLabel: UILabel!
     @IBOutlet weak var arrowImage: UIImageView!
+    @IBOutlet weak var seeDetailLabel: UILabel!
     
     weak var delegate: (TopPartTableViewCellDelegate)?
     
@@ -51,6 +52,22 @@ class TopPartTableViewCell: UITableViewCell {
         arrowImage.tintColor = UIColor.black
         
 //        loadLike()
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        
+        if editing {
+            eatButton.isHidden = true
+            dontEatButton.isHidden = true
+            arrowImage.isHidden = true
+            seeDetailLabel.isHidden = true
+        } else {
+            eatButton.isHidden = false
+            dontEatButton.isHidden = false
+            arrowImage.isHidden = false
+            seeDetailLabel.isHidden = false
+        }
     }
     
     func setupButton(button: UIButton) {

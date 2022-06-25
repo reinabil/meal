@@ -301,6 +301,9 @@ extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPar
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        tableView.backgroundView?.isHidden = (menu.count > 0) ? true : false
+        tableView.tableFooterView?.isHidden = (menu.count > 0) ? false : true
+        
         return menu.count //change with real data later
 //        return self.menu.count ?? 0
     }
@@ -400,5 +403,16 @@ extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPar
         } else {
             return 150
         }
+    }
+    
+    // Add spacing between cells
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
     }
 }

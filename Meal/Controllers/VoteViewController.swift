@@ -16,6 +16,7 @@ class VoteViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewFooterView: UIView!
+    @IBOutlet weak var tableViewFooterButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
     var menuArray: Array<Any>?
     var menu: [Menu] = []
@@ -31,6 +32,10 @@ class VoteViewController: UIViewController {
     let defaults = UserDefaults.standard
     var db: Firestore!
     var family_id = ""
+    
+    var emptyStateContainerView: UIView!
+    var emptyStateTopLabel: UILabel!
+    var emptyStateBottomLabel: UILabel!
     
     override func viewDidLoad() {
         
@@ -56,21 +61,62 @@ class VoteViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = UIColor.clear
+        setupTableViewBackground()
+        setupTableViewFooterButton()
         
         if UserDefaults.standard.string(forKey: "family_id") == nil || UserDefaults.standard.string(forKey: "family_id") == "" {
-            tableView.isHidden = true
+//            tableView.isHidden = true
             
             // insert empty label
         } else {
             
             // insert table
             
-            tableView.isHidden = false
+//            tableView.isHidden = false
             
             loadLike()
             loadDisike()
             loadMenu()
         }
+    }
+    
+    func setupTableViewFooterButton() {
+        tableViewFooterButton.layer.borderWidth = 2
+        tableViewFooterButton.layer.borderColor = CGColor(red: 250/255, green: 90/255, blue: 39/255, alpha: 1)
+        tableViewFooterButton.layer.cornerRadius = tableViewFooterButton.frame.height/2
+    }
+    
+    //Background for empty state
+    func setupTableViewBackground() {
+        emptyStateContainerView = UIView()
+        
+        emptyStateTopLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 232, height: 24))
+        emptyStateTopLabel.text = "History is Empty"
+        emptyStateTopLabel.textColor = .black
+        emptyStateTopLabel.textAlignment = .center
+        emptyStateTopLabel.font = UIFont(name: "Poppins-SemiBold", size: 14)
+        emptyStateContainerView?.addSubview(emptyStateTopLabel)
+        
+        emptyStateBottomLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 232, height: 24))
+        emptyStateBottomLabel.text = "Start adding and voting meal"
+        emptyStateBottomLabel.textColor = .black
+        emptyStateBottomLabel.textAlignment = .center
+        emptyStateBottomLabel.numberOfLines = 0
+        emptyStateBottomLabel.font = UIFont(name: "Poppins-Regular", size: 12)
+        emptyStateContainerView?.addSubview(emptyStateBottomLabel)
+        
+        emptyStateTopLabel.translatesAutoresizingMaskIntoConstraints = false
+        emptyStateBottomLabel?.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            emptyStateTopLabel.centerXAnchor.constraint(equalTo: emptyStateContainerView.centerXAnchor),
+            emptyStateTopLabel.centerYAnchor.constraint(equalTo: emptyStateContainerView.centerYAnchor),
+            emptyStateBottomLabel.topAnchor.constraint(equalTo: emptyStateTopLabel.topAnchor, constant: 25),
+            emptyStateBottomLabel.centerXAnchor.constraint(equalTo: emptyStateTopLabel.centerXAnchor),
+            emptyStateBottomLabel.leftAnchor.constraint(equalTo: emptyStateContainerView.leftAnchor, constant: 16),
+            emptyStateBottomLabel.rightAnchor.constraint(equalTo: emptyStateContainerView.rightAnchor, constant: -16)
+        ])
+        
+        tableView.backgroundView = emptyStateContainerView
     }
     
     @IBAction func editButtonPressed(_ sender: UIButton) {
@@ -91,6 +137,18 @@ class VoteViewController: UIViewController {
         tableView.setEditing((tableView.isEditing) ? false : true, animated: true)
         sender.setTitle((tableView.isEditing) ? "Cancel" : "Edit", for: .normal)
         addButton.setTitle((tableView.isEditing) ? "Done" : "Add Meal", for: .normal)
+        
+        //Change footer button text and appearance based on current state of tableView
+        if tableView.isEditing {
+            tableViewFooterButton.titleLabel?.text = "Delete All"
+            tableViewFooterButton.titleLabel?.textColor = UIColor.red
+            tableViewFooterButton.titleLabel?.textAlignment = .center
+            tableViewFooterButton.layer.borderWidth = 0
+        } else {
+            tableViewFooterButton.titleLabel?.text = "New Meal List"
+            tableViewFooterButton.titleLabel?.textColor = UIColor(named: "BrandOrange")
+            setupTableViewFooterButton()
+        }
     }
     
     @IBAction func addButtonPressed(_ sender: UIButton) {

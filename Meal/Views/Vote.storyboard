@@ -84,14 +84,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8Ww-Vv-NZE">
-                                <rect key="frame" x="16" y="178" width="382" height="619"/>
+                                <rect key="frame" x="0.0" y="178" width="398" height="619"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="P9J-CC-h1i" userLabel="Footer View">
-                                    <rect key="frame" x="0.0" y="111" width="382" height="129"/>
+                                    <rect key="frame" x="0.0" y="111" width="398" height="129"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XJK-76-maV">
-                                            <rect key="frame" x="48" y="16" width="286" height="50"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XJK-76-maV">
+                                            <rect key="frame" x="48" y="16" width="302" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="KaA-2n-zYP"/>
                                             </constraints>
@@ -99,10 +99,7 @@
                                             <state key="normal" title="Finished Eating">
                                                 <color key="titleColor" name="BrandOrange"/>
                                             </state>
-                                            <buttonConfiguration key="configuration" style="plain" title="New Meal List" cornerStyle="capsule">
-                                                <backgroundConfiguration key="background" strokeWidth="2" strokeOutset="0.0">
-                                                    <color key="strokeColor" name="BrandOrange"/>
-                                                </backgroundConfiguration>
+                                            <buttonConfiguration key="configuration" style="plain" title="New Meal List" titleAlignment="center">
                                                 <fontDescription key="titleFontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="17"/>
                                                 <color key="baseForegroundColor" name="BrandOrange"/>
                                             </buttonConfiguration>
@@ -121,10 +118,10 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="83Z-xW-wFU">
-                                        <rect key="frame" x="0.0" y="44.5" width="382" height="44"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="398" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="83Z-xW-wFU" id="dF1-9q-W8p">
-                                            <rect key="frame" x="0.0" y="0.0" width="382" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="398" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -145,7 +142,7 @@
                             <constraint firstAttribute="trailing" secondItem="5vM-6M-VS7" secondAttribute="trailing" id="XAG-lT-YrS"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="laL-cG-QIv" secondAttribute="trailing" constant="16" id="XFz-Wn-Feh"/>
                             <constraint firstItem="laL-cG-QIv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="Znv-Cl-fbO"/>
-                            <constraint firstItem="8Ww-Vv-NZE" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="gC0-vD-Szz"/>
+                            <constraint firstItem="8Ww-Vv-NZE" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="gC0-vD-Szz"/>
                             <constraint firstItem="Mf7-kg-1Fw" firstAttribute="top" secondItem="laL-cG-QIv" secondAttribute="bottom" constant="8" id="wHw-rL-KoD"/>
                             <constraint firstItem="8Ww-Vv-NZE" firstAttribute="top" secondItem="4kt-Td-1FT" secondAttribute="bottom" constant="16" id="wZ5-lp-lZg"/>
                             <constraint firstItem="Mf7-kg-1Fw" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="zfp-Qo-dET"/>
@@ -155,6 +152,7 @@
                     <connections>
                         <outlet property="addButton" destination="Ddf-Z1-PUz" id="kCr-Um-nTA"/>
                         <outlet property="tableView" destination="8Ww-Vv-NZE" id="A1S-CP-Xsz"/>
+                        <outlet property="tableViewFooterButton" destination="XJK-76-maV" id="jNK-Qw-iyk"/>
                         <outlet property="tableViewFooterView" destination="P9J-CC-h1i" id="YgG-a3-ZFG"/>
                         <segue destination="QRh-Lx-7cm" kind="presentation" identifier="goToSignIn" id="akN-qt-B54"/>
                     </connections>

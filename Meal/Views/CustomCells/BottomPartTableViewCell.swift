@@ -20,6 +20,7 @@ class BottomPartTableViewCell: UITableViewCell {
     var like: [Like] = []
     var menu: [Menu] = []
     
+    @IBOutlet weak var background: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func awakeFromNib() {
@@ -37,6 +38,8 @@ class BottomPartTableViewCell: UITableViewCell {
         collectionView.register(UINib(nibName: "VoterCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "voterCell")
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        background.layer.cornerRadius = 10
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
