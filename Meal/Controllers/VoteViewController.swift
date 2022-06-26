@@ -23,6 +23,8 @@ class VoteViewController: UIViewController {
     var like: [Like] = []
     var dislike: [Dislike] = []
     
+    var isLeftFood: Bool?
+    
     //Dummy data, change with real data later
     var tableViewData = DataSeeder.sharedData
     //Variable to store expanded tableViewCell data
@@ -38,6 +40,12 @@ class VoteViewController: UIViewController {
     var emptyStateBottomLabel: UILabel!
     
     override func viewDidLoad() {
+        
+        // reset user defaults
+//        let domain = Bundle.main.bundleIdentifier!
+//        UserDefaults.standard.removePersistentDomain(forName: domain)
+//        UserDefaults.standard.synchronize()
+//        print(Array(UserDefaults.standard.dictionaryRepresentation().keys).count)
         
         print("\(UserDefaults.standard.string(forKey: "family_id"))")
         
@@ -229,7 +237,78 @@ class VoteViewController: UIViewController {
     
     
     @IBAction func finishedEatingButtonPressed(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Is there any leftover from the meals in the family? ", message: "", preferredStyle: .alert)
+        var textField = UITextField()
         
+        let action = UIAlertAction(title: "No", style: .default, handler: { (action) in
+            let leftOverRec = self.db.collection("leftover").document("\(self.family_id)_\(Date().timeIntervalSince1970)")
+            
+            leftOverRec.setData([
+                "family_id": "\(self.family_id)",
+                "date": Date().timeIntervalSince1970,
+                "note": "",
+                "leftOver" : false
+            ])
+
+            
+            { err in
+                if let err = err {
+                    print("Error adding document: \(err)")
+                } else {
+                    print("Document added with ID: \(leftOverRec.documentID)")
+                    self.isLeftFood = false
+                    self.performSegue(withIdentifier: "gotoAfterVote", sender: self)
+                }
+            }
+            
+        } )
+        
+        let action1 = UIAlertAction(title: "Yes", style: .cancel , handler: { (action) in
+            
+            if textField.text != "" {
+                let leftOverRec = self.db.collection("leftover").document("\(self.family_id)_\(Date().timeIntervalSince1970)")
+                
+                leftOverRec.setData([
+                    "family_id": "\(self.family_id)",
+                    "date": Date().timeIntervalSince1970,
+                    "note": "\(textField.text! ?? "")",
+                    "leftOver" : true
+                ])
+
+                
+                { err in
+                    if let err = err {
+                        print("Error adding document: \(err)")
+                    } else {
+                        print("Document added with ID: \(leftOverRec.documentID)")
+                        self.isLeftFood = true
+                        self.performSegue(withIdentifier: "gotoAfterVote", sender: self)
+                    }
+                }
+            }
+
+            if textField.text == "" {
+                let alert = UIAlertController(title: "Please fill out why did you leave the food?", message: "", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
+                }))
+                self.present(alert, animated: true, completion: nil)
+            }
+            
+        } )
+        
+        alert.view.tintColor = UIColor(named: "BrandOrange")
+        
+        alert.addTextField{(alertTextField) in
+            alertTextField.placeholder = "Why did you leave the food?"
+            textField = alertTextField
+        }
+        
+        alert.addAction(action)
+        alert.addAction(action1)
+        
+        alert.preferredAction = action
+        
+        present(alert, animated: true, completion: nil)
     }
     
     
@@ -237,6 +316,13 @@ class VoteViewController: UIViewController {
           if segue.identifier == "goToSignIn" {
               guard let vc = segue.destination as? SignInViewController else { return }
           }
+        
+        if segue.identifier == "gotoAfterVote" {
+            guard let vc = segue.destination as? AfterVoteViewController else { return }
+            vc.isLeftFood = self.isLeftFood
+        }
+        
+        
       }
 }
 

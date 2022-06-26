@@ -59,6 +59,7 @@ extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPar
                 print("jumlah menu : \(self.menu.count)")
             }
     }
+    
     func loadLike() {
         
         let likeRef = db.collection("like").document()
@@ -414,5 +415,13 @@ extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPar
         let view = UIView()
         view.backgroundColor = .clear
         return view
+    }
+}
+
+
+extension JoinCreateFamilyViewController {
+    func randomString(length: Int) -> String {
+      let letters = "abcdefghijklmnopqrstuvwxyz0123456789"
+      return String((0..<length).map{ _ in letters.randomElement()! })
     }
 }

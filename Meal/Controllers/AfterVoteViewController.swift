@@ -6,20 +6,52 @@
 //
 
 import UIKit
+import CryptoKit
+import FirebaseAuth
+import FirebaseFirestore
 
 class AfterVoteViewController: UIViewController {
+    
+    var isLeftFood: Bool?
 
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var label: UILabel!
     
+    let left = "Illustration_Encourage"
+    let notLeft = "Illustration_Appreciation"
+    
+    var db: Firestore!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        image.image = UIImage(named: "Illustration_Appreciation")
-        label.text = "Woah, cool!\nThank you for finishing all the food. It helps in reducing food waste."
+        // [START setup]
+        let settings = FirestoreSettings()
+
+        Firestore.firestore().settings = settings
+        // [END setup]
+        db = Firestore.firestore()
+        
+        if !isLeftFood! {
+            image.image = UIImage(named: notLeft)
+            label.text = "Woah, cool!\nThank you for finishing all the food. It helps in reducing food waste."
+        } else {
+            image.image = UIImage(named: left)
+            label.text = "Uh, no! You have wasted the food. Try to finish & less the portion of the food for the next time!"
+        }
     }
     
     
     @IBAction func okButtonPressed(_ sender: Any) {
+        db.collection("menu").whereField("family_id", isEqualTo: UserDefaults.standard.string(forKey: "family_id")).getDocuments() { (querySnapshot, err) in
+          if let err = err {
+            print("Error getting documents: \(err)")
+          } else {
+            for document in querySnapshot!.documents {
+              document.reference.delete()
+            }
+          }
+        }
+        self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
     }
 }

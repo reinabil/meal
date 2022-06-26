@@ -155,11 +155,22 @@
                         <outlet property="tableViewFooterButton" destination="XJK-76-maV" id="jNK-Qw-iyk"/>
                         <outlet property="tableViewFooterView" destination="P9J-CC-h1i" id="YgG-a3-ZFG"/>
                         <segue destination="QRh-Lx-7cm" kind="presentation" identifier="goToSignIn" id="akN-qt-B54"/>
+                        <segue destination="2C5-Az-gbT" kind="show" identifier="gotoAfterVote" id="ii7-vG-Ij9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="950.72463768115949" y="45.535714285714285"/>
+        </scene>
+        <!--AfterVote-->
+        <scene sceneID="wVR-tp-2rY">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AfterVote" id="2C5-Az-gbT" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Rcu-MO-J9s"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="USK-D2-adf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1805" y="-133"/>
         </scene>
         <!--SignIn-->
         <scene sceneID="CsB-wh-g3r">

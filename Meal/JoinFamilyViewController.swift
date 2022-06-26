@@ -70,6 +70,7 @@ class JoinFamilyViewController: UIViewController {
         print(family_id!)
     }
     @IBAction func createFamilyPressed(_ sender: UIButton) {
+        
         family_id = randomString(length: 5)
         db.collection("family").document(family_id!).setData([
             "family_id": "\(family_id!)"
@@ -87,6 +88,7 @@ class JoinFamilyViewController: UIViewController {
         
         
         self.performSegue(withIdentifier: "goToMenu", sender: self)
+        
     }
     
     

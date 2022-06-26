@@ -61,10 +61,7 @@ class JoinCreateFamilyViewController: UIViewController {
                             self.db.collection("user").document("\(Auth.auth().currentUser!.uid)").updateData([
                                 "family_id" : self.family_id
                             ])
-                            
-                            
-                            
-                            
+                        
                             self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
                        
                     } else {
@@ -79,17 +76,12 @@ class JoinCreateFamilyViewController: UIViewController {
                 }
             }
 
-            
             if textField.text == "" {
-                
                 let alert = UIAlertController(title: "Family ID Masih kosong", message: "", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
                 }))
                 self.present(alert, animated: true, completion: nil)
             }
-                
-                
-            
         } )
         
         let action1 = UIAlertAction(title: "Cancel", style: .cancel , handler: { (action) in
@@ -98,11 +90,9 @@ class JoinCreateFamilyViewController: UIViewController {
         alert.view.tintColor = UIColor(named: "BrandOrange")
         
         alert.addTextField{(alertTextField) in
-            alertTextField.placeholder = "n4b1l"
+            alertTextField.placeholder = "f000d"
             textField = alertTextField
         }
-        
-        
         
         alert.addAction(action)
         alert.addAction(action1)
@@ -110,13 +100,71 @@ class JoinCreateFamilyViewController: UIViewController {
         alert.preferredAction = action
         
         present(alert, animated: true, completion: nil)
-        
-        
-//        self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
     }
     
-    //Create New Family Group button pressed
+    
+    // MARK: - Create new family id
+    // Create New Family Group button pressed
     @IBAction func createNewFamilyButtonPressed(_ sender: UIButton) {
+        
+        family_id = randomString(length: 5)
+        db.collection("family").document(family_id!).setData([
+            "family_id": "\(family_id!)"
+        ]) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully written!")
+            }
+        }
+            
+        db.collection("user").document("\(Auth.auth().currentUser!.uid)").updateData([
+            "family_id" : family_id
+        ])
+        
+        UserDefaults.standard.set("\(family_id! ?? "".lowercased())", forKey: "family_id")
+        
+        // alert
+        let alert = UIAlertController(title: "Your Family Group ID \"\(family_id! ?? "")\"", message: "", preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "Share", style: .default, handler: { (action) in
+            
+            print("shared button")
+            //Set the default sharing message.
+        let message = """
+            Let's join to our Famealy group:
+            \(self.family_id! ?? "")
+
+            🌭🍞🍕🍗🍱🥪
+            Famealy.
+            Vote more, waste less.
+            """
+                   //Set the link to share.
+                   if let link = NSURL(string: "")
+                   {
+                       let objectsToShare = [message,link] as [Any]
+                       let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+                       activityVC.excludedActivityTypes = [UIActivity.ActivityType.airDrop, UIActivity.ActivityType.addToReadingList]
+                       self.present(activityVC, animated: true, completion: nil)
+                   }
+            
+            self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
+            
+            
+          
+        } )
+        
+        let action1 = UIAlertAction(title: "Join", style: .cancel , handler: { (action) in
+        } )
+        
+        alert.view.tintColor = UIColor(named: "BrandOrange")
+        
+        alert.addAction(action)
+        alert.addAction(action1)
+        
+        alert.preferredAction = action
+        
+        present(alert, animated: true, completion: nil)
         
     }
 }
