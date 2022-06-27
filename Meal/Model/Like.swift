@@ -11,4 +11,5 @@ struct Like {
     let like_id: String
     let menu_id: String
     let user_id: String
+    let family_id: String
 }

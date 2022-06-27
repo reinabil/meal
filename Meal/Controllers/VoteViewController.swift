@@ -21,7 +21,10 @@ class VoteViewController: UIViewController {
     var menuArray: Array<Any>?
     var menu: [Menu] = []
     var like: [Like] = []
+    var allLike: [Like] = []
     var dislike: [Dislike] = []
+    
+    var portions = 0
     
     var isLeftFood: Bool?
     
@@ -39,6 +42,8 @@ class VoteViewController: UIViewController {
     var emptyStateTopLabel: UILabel!
     var emptyStateBottomLabel: UILabel!
     
+    var isFromCreateFamily = false
+    
     override func viewDidLoad() {
         
         // reset user defaults
@@ -47,13 +52,10 @@ class VoteViewController: UIViewController {
 //        UserDefaults.standard.synchronize()
 //        print(Array(UserDefaults.standard.dictionaryRepresentation().keys).count)
         
-        print("\(UserDefaults.standard.string(forKey: "family_id"))")
-        
         if UserDefaults.standard.string(forKey: "family_id") != nil || UserDefaults.standard.string(forKey: "family_id") != "" {
             family_id = UserDefaults.standard.string(forKey: "family_id") ?? ""
         }
-        
-        print(Auth.auth().currentUser?.email)
+     
         super.viewDidLoad()
 
         // [START setup]
@@ -83,6 +85,7 @@ class VoteViewController: UIViewController {
 //            tableView.isHidden = false
             
             loadLike()
+            loadAllLike()
             loadDisike()
             loadMenu()
         }
@@ -160,13 +163,6 @@ class VoteViewController: UIViewController {
     }
     
     @IBAction func addButtonPressed(_ sender: UIButton) {
-        
-        
-        
-    print(UserDefaults.standard.bool(forKey: "usersignedin"))
-        print(Auth.auth().currentUser?.email)
-    
-        
         // kalo sudah login
         if UserDefaults.standard.bool(forKey: "usersignedin") && Auth.auth().currentUser?.uid != nil {
             print("Add ITEM")
@@ -180,17 +176,16 @@ class VoteViewController: UIViewController {
                     
                     // ADD DATA MENU
                     print("Document data: \(dataDescription)")
-                    print("\(document.get("family_id"))")
+                    print("\(document.get("family_id") ?? "")")
                     let alert = UIAlertController(title: "Add New Item", message: "", preferredStyle: .alert)
                     var textField = UITextField()
                     
                     let action = UIAlertAction(title: "Add item", style: .default, handler: { (action) in
                         
-                        print(textField.text)
                         if textField.text != "" {
                             
                             // Add a new document with a generated id.
-                            var ref = self.db.collection("menu").document()
+                            let ref = self.db.collection("menu").document()
                             
                             ref.setData([
                                 "name": "\(textField.text ?? "")",
@@ -248,10 +243,7 @@ class VoteViewController: UIViewController {
                 "date": Date().timeIntervalSince1970,
                 "note": "",
                 "leftOver" : false
-            ])
-
-            
-            { err in
+            ]) { err in
                 if let err = err {
                     print("Error adding document: \(err)")
                 } else {
@@ -271,12 +263,9 @@ class VoteViewController: UIViewController {
                 leftOverRec.setData([
                     "family_id": "\(self.family_id)",
                     "date": Date().timeIntervalSince1970,
-                    "note": "\(textField.text! ?? "")",
+                    "note": "\(textField.text ?? "" )",
                     "leftOver" : true
-                ])
-
-                
-                { err in
+                ]) { err in
                     if let err = err {
                         print("Error adding document: \(err)")
                     } else {
@@ -314,7 +303,7 @@ class VoteViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
           if segue.identifier == "goToSignIn" {
-              guard let vc = segue.destination as? SignInViewController else { return }
+              guard segue.destination is SignInViewController else { return }
           }
         
         if segue.identifier == "gotoAfterVote" {

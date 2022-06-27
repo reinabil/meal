@@ -113,7 +113,7 @@ class ViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
           if segue.identifier == "goToJoinFamilyPage" {
-              guard let vc = segue.destination as? JoinFamilyViewController else { return }
+              guard segue.destination is JoinFamilyViewController else { return }
           }
       }
 }

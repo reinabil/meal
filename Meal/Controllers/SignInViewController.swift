@@ -39,6 +39,8 @@ class SignInViewController: UIViewController {
     //Continue with Apple button pressed
     @IBAction func buttonPressed(_ sender: UIButton) {
         print("Sign in with apple")
+        
+        //MARK: - remove comment
         let request  = createAppleIDRequest()
         let authorizationController = ASAuthorizationController(authorizationRequests: [request])
 
@@ -46,6 +48,8 @@ class SignInViewController: UIViewController {
         authorizationController.presentationContextProvider = self
 
         authorizationController.performRequests()
+        
+        self.performSegue(withIdentifier: "goToJoinCreateFamily", sender: self)
         
     }
     
@@ -108,7 +112,7 @@ class SignInViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
           if segue.identifier == "goToJoinCreateFamily" {
-              guard let vc = segue.destination as? JoinCreateFamilyViewController else { return }
+              guard segue.destination is JoinCreateFamilyViewController else { return }
           }
       }
 }
@@ -149,7 +153,7 @@ extension SignInViewController: ASAuthorizationControllerDelegate {
                 if error == nil {
                     UserDefaults.standard.set(true, forKey: "usersignedin")
                     UserDefaults.standard.synchronize()
-                    print(authDataResult?.user.email)
+                    print(authDataResult?.user.email ?? "")
                 }
                 
                 changeRequest?.commitChanges(completion: { (error) in

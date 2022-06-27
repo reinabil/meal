@@ -75,17 +75,16 @@ class MenuViewController: UIViewController {
 
                
                 print("document ID : \(menuRef.documentID)")
-                print("query snapshot : \(querySnapshot?.documents)")
                 
-                if name != nil || name[0] as! String != "" {
+                if name != nil || name[0] as? String != "" {
                     for i in 0..<name.count {
-                        self.menu.append(Menu(menu_id: menu_id[i] as! String, name: name[i] as! String, family_id: family_id[i] as! String, portions: portions[i] as! Int, isOpened: isOpened as! Bool))
+                        self.menu.append(Menu(menu_id: menu_id[i] as? String ?? "", name: name[i] as? String ?? "", family_id: family_id[i] as? String ?? "", portions: portions[i] as? Int ?? 0, isOpened: isOpened as? Bool ?? false))
                     }
                 }
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
-                    let indexPath = IndexPath(row: self.menu.count - 1, section: 0)
+                    _ = IndexPath(row: self.menu.count - 1, section: 0)
 //                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
                 }
                     
@@ -104,12 +103,11 @@ class MenuViewController: UIViewController {
         var textField = UITextField()
         
         let action = UIAlertAction(title: "Add item", style: .default, handler: { (action) in
-            
-            print(textField.text)
+        
             if textField.text != "" {
                 
                 // Add a new document with a generated id.
-                var ref = self.db.collection("menu").document()
+                let ref = self.db.collection("menu").document()
                 
                 ref.setData([
                     "name": "\(textField.text!)",
@@ -146,7 +144,7 @@ extension MenuViewController: UITableViewDelegate{
 
 extension MenuViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.menu.count ?? 0
+        return self.menu.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -161,10 +159,8 @@ extension MenuViewController: UITableViewDataSource {
         
         //MARK: - LIKE
         let like = UIContextualAction(style: .normal, title: "Like") { [weak self] (action, view, completionHandler) in
-            print(self?.family_id)
-            print("menu ID : \(self!.menu[indexPath.row].menu_id)")
             
-            var likeRef = self?.db.collection("like").document("\(Auth.auth().currentUser!.uid)_\(self!.menu[indexPath.row].menu_id)")
+            let likeRef = self?.db.collection("like").document("\(Auth.auth().currentUser!.uid)_\(self!.menu[indexPath.row].menu_id)")
             
             self?.db.collection("dislike").document("\(Auth.auth().currentUser!.uid)_\(self!.menu[indexPath.row].menu_id)").delete() { err in
                 if let err = err {
@@ -178,7 +174,7 @@ extension MenuViewController: UITableViewDataSource {
                 if let document = document, document.exists {
                     
                     /// DELETE DATA KALO DATANYA UDH ADA DI LIKE (unlike)
-                    let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                    _ = document.data().map(String.init(describing:)) ?? "nil"
                     self?.db.collection("like").document("\(Auth.auth().currentUser!.uid)_\(self!.menu[indexPath.row].menu_id)").delete() { err in
                         if let err = err {
                             print("Error removing document: \(err)")
@@ -190,7 +186,7 @@ extension MenuViewController: UITableViewDataSource {
                     
                     /// KALO DATANYA GAADA DI LIKE, LIKE
                     likeRef?.setData([
-                        "like_id": "\(likeRef?.documentID)",
+                        "like_id": "\(likeRef?.documentID ?? "")",
                         "user_id": "\(Auth.auth().currentUser!.uid)",
                         "menu_id": "\(self!.menu[indexPath.row].menu_id)"
                     ]) { err in
@@ -209,10 +205,8 @@ extension MenuViewController: UITableViewDataSource {
         //MARK: - DISLIKE
         
         let dislike = UIContextualAction(style: .normal, title: "Dislike") { [weak self] (action, view, completionHandler) in
-            print(self?.family_id)
-            print("menu ID : \(self!.menu[indexPath.row].menu_id)")
             
-            var dislikeRef = self?.db.collection("dislike").document("\(Auth.auth().currentUser!.uid)_\(self!.menu[indexPath.row].menu_id)")
+            let dislikeRef = self?.db.collection("dislike").document("\(Auth.auth().currentUser!.uid)_\(self!.menu[indexPath.row].menu_id)")
             
             self?.db.collection("like").document("\(Auth.auth().currentUser!.uid)_\(self!.menu[indexPath.row].menu_id)").delete() { err in
                 if let err = err {
@@ -226,7 +220,7 @@ extension MenuViewController: UITableViewDataSource {
                 if let document = document, document.exists {
                     
                     /// DELETE DATA KALO DATANYA UDH ADA DI DILIKE (undilike)
-                    let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                    _ = document.data().map(String.init(describing:)) ?? "nil"
                     self?.db.collection("dislike").document("\(Auth.auth().currentUser!.uid)_\(self!.menu[indexPath.row].menu_id)").delete() { err in
                         if let err = err {
                             print("Error removing document: \(err)")
@@ -238,7 +232,7 @@ extension MenuViewController: UITableViewDataSource {
                     
                     /// KALO DATANYA GAADA DI LIKE, LIKE
                     dislikeRef?.setData([
-                        "dislike_id": "\(dislikeRef?.documentID)",
+                        "dislike_id": "\(dislikeRef?.documentID ?? "")",
                         "user_id": "\(Auth.auth().currentUser!.uid)",
                         "menu_id": "\(self!.menu[indexPath.row].menu_id)"
                     ]) { err in

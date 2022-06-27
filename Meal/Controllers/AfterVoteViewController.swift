@@ -43,7 +43,7 @@ class AfterVoteViewController: UIViewController {
     
     
     @IBAction func okButtonPressed(_ sender: Any) {
-        db.collection("menu").whereField("family_id", isEqualTo: UserDefaults.standard.string(forKey: "family_id")).getDocuments() { (querySnapshot, err) in
+        db.collection("menu").whereField("family_id", isEqualTo: UserDefaults.standard.string(forKey: "family_id") ?? "").getDocuments() { (querySnapshot, err) in
           if let err = err {
             print("Error getting documents: \(err)")
           } else {

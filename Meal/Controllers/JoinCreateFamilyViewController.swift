@@ -59,7 +59,7 @@ class JoinCreateFamilyViewController: UIViewController {
                             UserDefaults.standard.set("\(textField.text!.lowercased())", forKey: "family_id")
                         
                             self.db.collection("user").document("\(Auth.auth().currentUser!.uid)").updateData([
-                                "family_id" : self.family_id
+                                "family_id" : self.family_id ?? ""
                             ])
                         
                             self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
@@ -118,40 +118,30 @@ class JoinCreateFamilyViewController: UIViewController {
             }
         }
             
+        //MARK: - remove comment
         db.collection("user").document("\(Auth.auth().currentUser!.uid)").updateData([
-            "family_id" : family_id
+            "family_id" : family_id ?? ""
         ])
         
-        UserDefaults.standard.set("\(family_id! ?? "".lowercased())", forKey: "family_id")
+        UserDefaults.standard.set("\(family_id ?? "".lowercased())", forKey: "family_id")
         
         // alert
-        let alert = UIAlertController(title: "Your Family Group ID \"\(family_id! ?? "")\"", message: "", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Your Family Group ID \"\(family_id ?? "")\"", message: "", preferredStyle: .alert)
         
         let action = UIAlertAction(title: "Share", style: .default, handler: { (action) in
-            
-            print("shared button")
             //Set the default sharing message.
-        let message = """
-            Let's join to our Famealy group:
-            \(self.family_id! ?? "")
+            let message = """
+                Let's join to our Famealy group:
+                \(self.family_id ?? "")
 
-            🌭🍞🍕🍗🍱🥪
-            Famealy.
-            Vote more, waste less.
-            """
-                   //Set the link to share.
-                   if let link = NSURL(string: "")
-                   {
-                       let objectsToShare = [message,link] as [Any]
-                       let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
-                       activityVC.excludedActivityTypes = [UIActivity.ActivityType.airDrop, UIActivity.ActivityType.addToReadingList]
-                       self.present(activityVC, animated: true, completion: nil)
-                   }
-            
-            self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
-            
-            
-          
+                🌭🍞🍕🍗🍱🥪
+                Famealy.
+                Vote more, waste less.
+                """
+            let objectsToShare = [message]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            activityVC.excludedActivityTypes = [UIActivity.ActivityType.airDrop, UIActivity.ActivityType.addToReadingList]
+            self.present(activityVC, animated: true, completion: nil)
         } )
         
         let action1 = UIAlertAction(title: "Join", style: .cancel , handler: { (action) in

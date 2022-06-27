@@ -31,9 +31,6 @@ class JoinFamilyViewController: UIViewController {
         // [END setup]
         db = Firestore.firestore()
 
-        
-        
-        print(Auth.auth().currentUser?.uid)
         let docRef = db.collection("user").document("\(Auth.auth().currentUser!.uid)")
 //        let docRef = db.collection("user").document("r3LF7aqEu9ZXJoOgnvWlixFd8083")
 
@@ -41,7 +38,7 @@ class JoinFamilyViewController: UIViewController {
             if let document = document, document.exists {
                 let dataDescription = document.get("username") ?? "nil"
                 print("Document data: \(dataDescription)")
-                self.userName.text = dataDescription as! String
+                self.userName.text = dataDescription as? String
             } else {
                 print("Document does not exist")
             }
@@ -62,7 +59,7 @@ class JoinFamilyViewController: UIViewController {
             family_id = familyId.text?.lowercased()
             
             db.collection("user").document("\(Auth.auth().currentUser!.uid)").updateData([
-                "family_id" : family_id
+                "family_id" : family_id ?? ""
             ])
             
             self.performSegue(withIdentifier: "goToMenu", sender: self)
@@ -83,7 +80,7 @@ class JoinFamilyViewController: UIViewController {
         }
             
         db.collection("user").document("\(Auth.auth().currentUser!.uid)").updateData([
-            "family_id" : family_id
+            "family_id" : family_id ?? ""
         ])
         
         

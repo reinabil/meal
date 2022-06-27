@@ -12,7 +12,7 @@ import FirebaseAuth
 import FirebaseFirestore
 
 extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPartTableViewCellDelegate {
-    
+
     func loadMenu() {
         
         let menuRef = db.collection("menu").document()
@@ -33,11 +33,10 @@ extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPar
                 
                
                 print("document ID : \(menuRef.documentID)")
-                print("query snapshot : \(querySnapshot?.documents)")
                 
-                if name != nil || name[0] as! String != "" {
+                if name != nil || name[0] as? String != "" {
                     for i in 0..<name.count {
-                        self.menu.append(Menu(menu_id: menu_id[i] as! String, name: name[i] as! String, family_id: family_id[i] as! String, portions: portions[i] as! Int, isOpened: isOpened[i] as! Bool))
+                        self.menu.append(Menu(menu_id: menu_id[i] as? String ?? "", name: name[i] as? String ?? "", family_id: family_id[i] as? String ?? "", portions: portions[i] as? Int ?? 0, isOpened: isOpened[i] as? Bool ?? false))
                     }
                 }
                 
@@ -54,17 +53,44 @@ extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPar
                 print("Portions: \(portions)")
                 print("Family ID: \(family_id)")
                 print(self.menu)
-                
-                
                 print("jumlah menu : \(self.menu.count)")
             }
     }
     
+    func loadAllLike() {
+        
+        db.collection("like").whereField("family_id", isEqualTo: "\(UserDefaults.standard.string(forKey: "family_id") ?? "" )")
+            .addSnapshotListener { querySnapshot, error in
+                self.allLike = []
+                guard let documents = querySnapshot?.documents else {
+                    print("Error fetching documents: \(error!)")
+                    return
+                }
+                
+                let like_id = documents.map { $0["like_id"] ?? [""] }
+                let menu_id = documents.map { $0["menu_id"] ?? [""] }
+                let user_id = documents.map { $0["user_id"] ?? [""]}
+                let family_id = documents.map { $0["family_id"] ?? [""]}
+                
+                for i in 0..<like_id.count {
+                    self.allLike.append(Like(like_id: like_id[i] as! String, menu_id: menu_id[i] as! String, user_id: user_id[i] as! String, family_id: family_id[i] as! String))
+                }
+                
+                print("family_id : \(UserDefaults.standard.string(forKey: "family_id") ?? "") ALL LIKE = \(self.allLike)")
+                
+//                for 0...self.allLike {
+//                    if self.allLike[1].menu_id {
+//
+//                    }
+//                }
+                
+            }
+       
+    }
+    
     func loadLike() {
         
-        let likeRef = db.collection("like").document()
-        
-        db.collection("like").whereField("user_id", isEqualTo: "\(Auth.auth().currentUser!.uid ?? "")")
+        db.collection("like").whereField("user_id", isEqualTo: "\(Auth.auth().currentUser?.uid ?? "")")
             .addSnapshotListener { querySnapshot, error in
                 self.like = []
                 guard let documents = querySnapshot?.documents else {
@@ -75,26 +101,20 @@ extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPar
                 let like_id = documents.map { $0["like_id"] ?? [""] }
                 let menu_id = documents.map { $0["menu_id"] ?? [""] }
                 let user_id = documents.map { $0["user_id"] ?? [""]}
+                let family_id = documents.map { $0["family_id"] ?? [""]}
                 
                 for i in 0..<like_id.count {
-                    self.like.append(Like(like_id: like_id[i] as! String, menu_id: menu_id[i] as! String, user_id: user_id[i] as! String))
+                    self.like.append(Like(like_id: like_id[i] as! String, menu_id: menu_id[i] as! String, user_id: user_id[i] as! String, family_id: family_id[i] as! String))
                 }
                 
                 print("LIKE = \(self.like)")
-                
-//                DispatchQueue.main.async {
-//                    self.tableView.reloadData()
-//                    let indexPath = IndexPath(row: self.like.count - 1, section: 0)
-//                }
-                    
-            
             }
+        
+        
     }
     func loadDisike() {
         
-        let dislikeRef = db.collection("dislike").document()
-        
-        db.collection("dislike").whereField("user_id", isEqualTo: "\(Auth.auth().currentUser!.uid ?? "")")
+        db.collection("dislike").whereField("user_id", isEqualTo: "\(Auth.auth().currentUser?.uid ?? "")")
             .addSnapshotListener { querySnapshot, error in
                 self.dislike = []
                 guard let documents = querySnapshot?.documents else {
@@ -110,16 +130,7 @@ extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPar
                     self.dislike.append(Dislike(dislike_id: dislike_id[i] as! String, menu_id: menu_id[i] as! String, user_id: user_id[i] as! String))
                 }
                 
-                
                 print("DISLIKE = \(self.dislike)")
-                
-//                DispatchQueue.main.async {
-//                    self.tableView.reloadData()
-//                    let indexPath = IndexPath(row: self.dislike.count - 1, section: 0)
-////                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
-//                }
-                    
-            
             }
     }
     
@@ -130,7 +141,7 @@ extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPar
         print(self.family_id)
         print("menu ID : \(self.menu[send.tag].menu_id)")
         
-        var likeRef = self.db.collection("like").document("\(Auth.auth().currentUser!.uid)_\(self.menu[send.tag].menu_id)")
+        let likeRef = self.db.collection("like").document("\(Auth.auth().currentUser!.uid)_\(self.menu[send.tag].menu_id)")
         
         // hanya menghapus like, kalo ada dislike
         self.db.collection("dislike").document("\(Auth.auth().currentUser!.uid)_\(self.menu[send.tag].menu_id)").delete() { err in
@@ -147,7 +158,7 @@ extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPar
             if let document = document, document.exists {
                 
                 /// DELETE DATA KALO DATANYA UDH ADA DI LIKE (unlike)
-                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                _ = document.data().map(String.init(describing:)) ?? "nil"
                 self.db.collection("like").document("\(Auth.auth().currentUser!.uid)_\(self.menu[send.tag].menu_id)").delete() { err in
                     if let err = err {
                         print("Error removing document: \(err)")
@@ -161,7 +172,8 @@ extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPar
                 likeRef.setData([
                     "like_id": "\(likeRef.documentID)",
                     "user_id": "\(Auth.auth().currentUser!.uid)",
-                    "menu_id": "\(self.menu[send.tag].menu_id)"
+                    "menu_id": "\(self.menu[send.tag].menu_id)",
+                    "family_id": "\(UserDefaults.standard.string(forKey: "family_id") ?? "")"
                 ]) { err in
                     if let err = err {
                         print("Error writing document: \(err)")
@@ -173,7 +185,7 @@ extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPar
         }
         print("tag : \(send.tag)")
         
-        guard let indexPath = self.tableView.indexPath(for: cell) else {
+        guard self.tableView.indexPath(for: cell) != nil else {
                     // Note, this shouldn't happen - how did the user tap on a button that wasn't on screen?
                     return
                 }
@@ -206,7 +218,7 @@ extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPar
         print(self.family_id)
         print("menu ID : \(self.menu[send.tag].menu_id)")
         
-        var dislikeRef = self.db.collection("dislike").document("\(Auth.auth().currentUser!.uid)_\(self.menu[send.tag].menu_id)")
+        let dislikeRef = self.db.collection("dislike").document("\(Auth.auth().currentUser!.uid)_\(self.menu[send.tag].menu_id)")
         
         self.db.collection("like").document("\(Auth.auth().currentUser!.uid)_\(self.menu[send.tag].menu_id)").delete() { err in
             if let err = err {
@@ -222,7 +234,7 @@ extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPar
             if let document = document, document.exists {
                 
                 /// DELETE DATA KALO DATANYA UDH ADA DI DISLIKE (undislike)
-                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                _ = document.data().map(String.init(describing:)) ?? "nil"
                 self.db.collection("dislike").document("\(Auth.auth().currentUser!.uid)_\(self.menu[send.tag].menu_id)").delete() { err in
                     if let err = err {
                         print("Error removing document: \(err)")
@@ -238,7 +250,8 @@ extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPar
                 dislikeRef.setData([
                     "dislike_id": "\(dislikeRef.documentID)",
                     "user_id": "\(Auth.auth().currentUser!.uid)",
-                    "menu_id": "\(self.menu[send.tag].menu_id)"
+                    "menu_id": "\(self.menu[send.tag].menu_id)",
+                    "family_id": "\(UserDefaults.standard.string(forKey: "family_id") ?? "")"
                 ]) { err in
                     if let err = err {
                         print("Error writing document: \(err)")
@@ -274,7 +287,7 @@ extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPar
         if indexPath.row == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "topCell") as? TopPartTableViewCell else { return UITableViewCell() }
             
-            var portions = 0
+            let portions = self.portions
             
             cell.delegate = self
             // Set foodName, portion, and button state here (Example code below)
