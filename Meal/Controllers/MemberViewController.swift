@@ -14,6 +14,8 @@ class MemberViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var leaveGroupButton: UIButton!
     
+    let familyID = UserDefaults.standard.string(forKey: "family_id")
+    let username = UserDefaults.standard.string(forKey: "username")
     let textGrayColor = UIColor(red: 60/255, green: 60/255, blue: 67/255, alpha: 0.6)
     let sections = [
         ["USERNAME", ["First Name", "Last Name"]],
@@ -53,27 +55,27 @@ extension MemberViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell: UITableViewCell? = nil
-        
         if indexPath.section == 0 {
-            cell = tableView.dequeueReusableCell(withIdentifier: "UsernameCell") as? UserNameTableViewCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "UsernameCell") as? UserNameTableViewCell else { return UITableViewCell() }
             // Set cell content below
-//            cell.leftSideLabel.text = "First Name"
-            //cell.rightSideLabel.text = "John"
+            //cell.leftSideLabel.text = "First Name"
+            cell.rightSideLabel.text = username
             
+            return cell
         } else if indexPath.section == 1 {
-            cell = tableView.dequeueReusableCell(withIdentifier: "FamilyIDCell") as? FamilyIDTableViewCell
-            // Set cell content below
-//            cell.familyIDLabel.text = "ABC123"
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "FamilyIDCell") as? FamilyIDTableViewCell else { return UITableViewCell() }
+            cell.familyIDLabel.text = familyID
             
+            return cell
         } else if indexPath.section == 2 {
-            cell = tableView.dequeueReusableCell(withIdentifier: "FamilyMemberCell") as? FamilyMemberTableViewCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "FamilyMemberCell") as? FamilyMemberTableViewCell else { return UITableViewCell() }
             // Set cell content below
             //cell.personProfilePicture.image = UIImage()
             //cell.familyMemberNameLabel.text = "His/Her Name"
+            return cell
+        } else {
+            return UITableViewCell()
         }
-        
-        return cell ?? UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -81,6 +83,25 @@ extension MemberViewController: UITableViewDelegate, UITableViewDataSource {
         header.textLabel?.textColor = textGrayColor
         header.textLabel?.font = UIFont(name: "Poppins-Regular", size: 12)
         header.contentView.backgroundColor = .white
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            let message = """
+                Let's join to our Famealy group:
+                \(self.familyID ?? "")
+                
+                🌭🍞🍕🍗🍱🥪
+                Famealy.
+                Vote more, waste less.
+                """
+            let objectsToShare = [message]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            activityVC.excludedActivityTypes = [UIActivity.ActivityType.airDrop, UIActivity.ActivityType.addToReadingList]
+            self.present(activityVC, animated: true, completion: nil)
+        } else {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
     }
 }
 
