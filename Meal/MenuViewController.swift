@@ -76,16 +76,17 @@ class MenuViewController: UIViewController {
                
                 print("document ID : \(menuRef.documentID)")
                 
-                if name != nil || name[0] as? String != "" {
+                let name0 = name[0] as? String ?? ""
+                
+                if name0 != "" {
                     for i in 0..<name.count {
-                        self.menu.append(Menu(menu_id: menu_id[i] as? String ?? "", name: name[i] as? String ?? "", family_id: family_id[i] as? String ?? "", portions: portions[i] as? Int ?? 0, isOpened: isOpened as? Bool ?? false))
+                        self.menu.append(Menu(menu_id: menu_id[i] as? String ?? "", name: name[i] as? String ?? "", family_id: family_id[i] as? String ?? "", portions: portions[i] as? Int ?? 0, isOpened: isOpened[i] as? Bool ?? false))
                     }
                 }
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                     _ = IndexPath(row: self.menu.count - 1, section: 0)
-//                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
                 }
                     
                 

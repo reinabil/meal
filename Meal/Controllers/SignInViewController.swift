@@ -142,14 +142,7 @@ extension SignInViewController: ASAuthorizationControllerDelegate {
                 
                 // Mak a request to set user's display name on Firebase
                 let changeRequest = authDataResult?.user.createProfileChangeRequest()
-                changeRequest?.displayName = appleIDCredential.fullName?.givenName
-                
-//
-//                if changeRequest?.displayName != nil {
-//                    self.defaults.set(changeRequest?.displayName, forKey: "userName")
-//                    self.defaults.set(Auth.auth().currentUser?.uid, forKey: "uid")
-//                }
-                
+                changeRequest?.displayName = appleIDCredential.fullName?.givenName ?? ""
                 if error == nil {
                     UserDefaults.standard.set(true, forKey: "usersignedin")
                     UserDefaults.standard.synchronize()

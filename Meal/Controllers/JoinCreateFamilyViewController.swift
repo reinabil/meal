@@ -59,7 +59,7 @@ class JoinCreateFamilyViewController: UIViewController {
                             UserDefaults.standard.set("\(textField.text!.lowercased())", forKey: "family_id")
                         
                             self.db.collection("user").document("\(Auth.auth().currentUser!.uid)").updateData([
-                                "family_id" : self.family_id ?? ""
+                                "family_id" : self.family_id ?? "" 
                             ])
                         
                             self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
@@ -133,7 +133,7 @@ class JoinCreateFamilyViewController: UIViewController {
             let message = """
                 Let's join to our Famealy group:
                 \(self.family_id ?? "")
-
+                
                 🌭🍞🍕🍗🍱🥪
                 Famealy.
                 Vote more, waste less.
