@@ -159,12 +159,13 @@ extension SignInViewController: ASAuthorizationControllerDelegate {
                             self.db.collection("user").document(Auth.auth().currentUser!.uid).setData([
                                 "family_id": "",
                                 "username": "\(Auth.auth().currentUser!.displayName!)",
-                                "email": "\(Auth.auth().currentUser!.email!)"
+                                "email": "\(Auth.auth().currentUser!.email ?? "" )"
                             ]) { err in
                                 if let err = err {
                                     print("Error writing document: \(err)")
                                 } else {
                                     print("Document successfully written!")
+                                    UserDefaults.standard.set(Auth.auth().currentUser?.displayName, forKey: "username")
                                 }
                             }
                         }

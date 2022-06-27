@@ -23,7 +23,7 @@ class MemberViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupTableView()
         profilePicture.layer.cornerRadius = profilePicture.frame.height/2
     }
@@ -64,7 +64,7 @@ extension MemberViewController: UITableViewDelegate, UITableViewDataSource {
         } else if indexPath.section == 1 {
             cell = tableView.dequeueReusableCell(withIdentifier: "FamilyIDCell") as? FamilyIDTableViewCell
             // Set cell content below
-            //cell.familyIDLabel.text = "ABC123"
+//            cell.familyIDLabel.text = "ABC123"
             
         } else if indexPath.section == 2 {
             cell = tableView.dequeueReusableCell(withIdentifier: "FamilyMemberCell") as? FamilyMemberTableViewCell
@@ -83,3 +83,24 @@ extension MemberViewController: UITableViewDelegate, UITableViewDataSource {
         header.contentView.backgroundColor = .white
     }
 }
+
+//MARK: - family_id
+//UserDefaults.standard.string(forKey: "family_id")
+
+//MARK: - username
+//UserDefaults.standard.string(forKey: "username")
+
+//MARK: - SHARE FUNCTION
+//Set the default sharing message.
+//let message = """
+//    Let's join to our Famealy group:
+//    \(self.family_id ?? "")
+//
+//    🌭🍞🍕🍗🍱🥪
+//    Famealy.
+//    Vote more, waste less.
+//    """
+//let objectsToShare = [message]
+//let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+//activityVC.excludedActivityTypes = [UIActivity.ActivityType.airDrop, UIActivity.ActivityType.addToReadingList]
+//self.present(activityVC, animated: true, completion: nil)
