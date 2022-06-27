@@ -6,13 +6,17 @@
 //
 
 import UIKit
+import FirebaseAuth
+import AuthenticationServices
 
 class MemberViewController: UIViewController {
 
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var profilePicture: UIImageView!
+    @IBOutlet weak var youLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var leaveGroupButton: UIButton!
+    @IBOutlet weak var notSignInStackView: UIStackView!
     
     let familyID = UserDefaults.standard.string(forKey: "family_id")
     let username = UserDefaults.standard.string(forKey: "username")
@@ -28,6 +32,21 @@ class MemberViewController: UIViewController {
         
         setupTableView()
         profilePicture.layer.cornerRadius = profilePicture.frame.height/2
+        
+        //Show or hide views based on user SignIn state
+        if UserDefaults.standard.bool(forKey: "usersignedin") && Auth.auth().currentUser?.uid != nil {
+            notSignInStackView.isHidden = true
+            editButton.isHidden = false
+            tableView.isHidden = false
+            profilePicture.isHidden = false
+            youLabel.isHidden = false
+        } else {
+            notSignInStackView.isHidden = false
+            editButton.isHidden = true
+            tableView.isHidden = true
+            profilePicture.isHidden = true
+            youLabel.isHidden = true
+        }
     }
     
     func setupTableView() {
@@ -37,6 +56,10 @@ class MemberViewController: UIViewController {
         tableView.register(UINib(nibName: "FamilyIDTableViewCell", bundle: nil), forCellReuseIdentifier: "FamilyIDCell")
         tableView.register(UINib(nibName: "FamilyMemberTableViewCell", bundle: nil), forCellReuseIdentifier: "FamilyMemberCell")
         tableView.backgroundColor = .clear
+    }
+    
+    @IBAction func continueWithAppleButtonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToSignIn", sender: self)
     }
 }
 
