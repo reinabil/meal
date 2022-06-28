@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class HistoryViewController: UIViewController {
 
@@ -94,9 +95,20 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        tableView.backgroundView?.isHidden = (dummyData.count > 0) ? true : false
+        //Temp logic to mimic real scenario
+        if UserDefaults.standard.bool(forKey: "usersignedin") && Auth.auth().currentUser?.uid != nil && dummyData.count > 0 {
+            tableView.backgroundView?.isHidden = true
+            
+            return dummyData.count
+        } else {
+            tableView.backgroundView?.isHidden = false
+            
+            return 0
+        }
         
-        return dummyData.count
+//        Real logic
+//        tableView.backgroundView?.isHidden = (dummyData.count > 0) ? true : false
+//        return dummyData.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

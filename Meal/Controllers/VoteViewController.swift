@@ -102,14 +102,14 @@ class VoteViewController: UIViewController {
         emptyStateContainerView = UIView()
         
         emptyStateTopLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 232, height: 24))
-        emptyStateTopLabel.text = "History is Empty"
+        emptyStateTopLabel.text = "You don’t have any meal yet."
         emptyStateTopLabel.textColor = .black
         emptyStateTopLabel.textAlignment = .center
         emptyStateTopLabel.font = UIFont(name: "Poppins-SemiBold", size: 14)
         emptyStateContainerView?.addSubview(emptyStateTopLabel)
         
         emptyStateBottomLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 232, height: 24))
-        emptyStateBottomLabel.text = "Start adding and voting meal"
+        emptyStateBottomLabel.text = "Add meal to vote and see who’s eating and how many portions to cook"
         emptyStateBottomLabel.textColor = .black
         emptyStateBottomLabel.textAlignment = .center
         emptyStateBottomLabel.numberOfLines = 0
