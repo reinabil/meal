@@ -18,9 +18,6 @@ class SignInViewController: UIViewController {
     let launchedBefore = UserDefaults.standard.bool(forKey: "usersignedin")
     
     override func viewDidLoad() {
-        
-            
-        
         navigationItem.hidesBackButton = true  
         super.viewDidLoad()
 
@@ -173,13 +170,6 @@ extension SignInViewController: ASAuthorizationControllerDelegate {
                         self.performSegue(withIdentifier: "goToJoinCreateFamily", sender: self)
                     }
                 })
-                
-//                if let user = authDataResult?.user {
-//                    print("Nice! you logged in as \(user.uid) with \(user.email)" ?? "unknwon")
-//                    self.performSegue(withIdentifier: "goToJoinFamilyPage", sender: self)
-//                }
-                
-                
             }
             
         }

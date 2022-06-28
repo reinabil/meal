@@ -34,9 +34,7 @@ extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPar
                
                 print("document ID : \(menuRef.documentID)")
                 
-                let name0 = name[0] as? String ?? ""
-                
-                if name0 != "" {
+                if name[0] != nil || name[0] as? String ?? "" != "" {
                     for i in 0..<name.count {
                         self.menu.append(Menu(menu_id: menu_id[i] as? String ?? "", name: name[i] as? String ?? "", family_id: family_id[i] as? String ?? "", portions: portions[i] as? Int ?? 0, isOpened: isOpened[i] as? Bool ?? false))
                     }
@@ -44,18 +42,7 @@ extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPar
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
-//                    let indexPath = IndexPath(row: self.menu.count - 1, section: 0)
-//                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
                 }
-                    
-                
-                
-                print("Menu: \(name)")
-//                print("Document ID: \()")
-                print("Portions: \(portions)")
-                print("Family ID: \(family_id)")
-                print(self.menu)
-                print("jumlah menu : \(self.menu.count)")
             }
     }
     
@@ -79,13 +66,7 @@ extension VoteViewController: UITableViewDelegate, UITableViewDataSource, TopPar
                 }
                 
                 print("family_id : \(UserDefaults.standard.string(forKey: "family_id") ?? "") ALL LIKE = \(self.allLike)")
-                
-//                for 0...self.allLike {
-//                    if self.allLike[1].menu_id {
-//
-//                    }
-//                }
-                
+             
             }
        
     }
