@@ -189,7 +189,7 @@ class VoteViewController: UIViewController {
                             
                             ref.setData([
                                 "name": "\(textField.text ?? "")",
-                                "family_id": "\(self.family_id)",
+                                "family_id": "\(UserDefaults.standard.string(forKey: "family_id") ?? "")",
                                 "portions": 0,
                                 "date": Date().timeIntervalSince1970,
                                 "menu_id": ref.documentID,

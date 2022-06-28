@@ -106,6 +106,9 @@
                                                 <fontDescription key="titleFontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="20"/>
                                                 <color key="baseForegroundColor" name="BrandOrange"/>
                                             </buttonConfiguration>
+                                            <connections>
+                                                <action selector="leaveGroupButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="PqS-il-ZM0"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -160,11 +163,20 @@
                         <outlet property="tableView" destination="DA7-DH-S2c" id="R6x-xa-A5d"/>
                         <outlet property="youLabel" destination="fcJ-16-d0r" id="4Xl-A1-WCd"/>
                         <segue destination="Ife-cA-ICB" kind="presentation" identifier="goToSignIn" id="qj4-Mf-lEB"/>
+                        <segue destination="wTi-hM-BR5" kind="presentation" identifier="goToJoinFamily" id="h9s-Jv-ykZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="42" y="61"/>
+        </scene>
+        <!--JoinCreateFamilyStoryboard-->
+        <scene sceneID="mhQ-lt-Hrm">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SignIn" referencedIdentifier="JoinCreateFamilyStoryboard" id="wTi-hM-BR5" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8by-hn-OVw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="751" y="-41"/>
         </scene>
         <!--SignIn-->
         <scene sceneID="l9r-tf-QdC">
@@ -172,7 +184,7 @@
                 <viewControllerPlaceholder storyboardName="SignIn" id="Ife-cA-ICB" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZVV-8t-4HW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="641" y="55"/>
+            <point key="canvasLocation" x="653" y="132"/>
         </scene>
     </scenes>
     <resources>

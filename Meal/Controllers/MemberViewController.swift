@@ -61,6 +61,10 @@ class MemberViewController: UIViewController {
     @IBAction func continueWithAppleButtonPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "goToSignIn", sender: self)
     }
+    
+    @IBAction func leaveGroupButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "goToJoinFamily", sender: self)
+    }
 }
 
 extension MemberViewController: UITableViewDelegate, UITableViewDataSource {

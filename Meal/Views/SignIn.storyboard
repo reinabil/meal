@@ -121,7 +121,7 @@ waste in your home</string>
         <!--Join Create Family View Controller-->
         <scene sceneID="bHl-0B-P4T">
             <objects>
-                <viewController id="A16-ig-Pbq" customClass="JoinCreateFamilyViewController" customModule="Meal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="JoinCreateFamilyStoryboard" id="A16-ig-Pbq" customClass="JoinCreateFamilyViewController" customModule="Meal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rke-X5-V1i">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -257,7 +257,7 @@ waste in your home</string>
         <image name="Illustration_SignIn" width="334" height="284"/>
         <image name="applelogo" catalog="system" width="103" height="128"/>
         <namedColor name="BrandOrange">
-            <color red="0.98039215686274506" green="0.3529411764705882" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.98039215686274506" green="0.35294117647058826" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

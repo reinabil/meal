@@ -46,7 +46,7 @@ class SignInViewController: UIViewController {
 
         authorizationController.performRequests()
         
-        self.performSegue(withIdentifier: "goToJoinCreateFamily", sender: self)
+//        self.performSegue(withIdentifier: "goToJoinCreateFamily", sender: self)
         
     }
     

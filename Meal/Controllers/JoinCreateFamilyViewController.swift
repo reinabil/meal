@@ -145,6 +145,7 @@ class JoinCreateFamilyViewController: UIViewController {
         } )
         
         let action1 = UIAlertAction(title: "Join", style: .cancel , handler: { (action) in
+            self.dismiss(animated: true)
         } )
         
         alert.view.tintColor = UIColor(named: "BrandOrange")
