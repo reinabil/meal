@@ -17,8 +17,8 @@ class AfterVoteViewController: UIViewController {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var label: UILabel!
     
-    let left = "Illustration_Encourage"
-    let notLeft = "Illustration_Appreciation"
+    let left = "Encouragement"
+    let notLeft = "Appreciation"
     
     var db: Firestore!
     
@@ -33,10 +33,10 @@ class AfterVoteViewController: UIViewController {
         db = Firestore.firestore()
         
         if !isLeftFood! {
-            image.image = UIImage(named: notLeft)
+            image.loadGif(name: notLeft)
             label.text = "Woah, cool!\nThank you for finishing all the food. It helps in reducing food waste."
         } else {
-            image.image = UIImage(named: left)
+            image.loadGif(name: left)
             label.text = "Uh, no! You have wasted the food. Try to finish & less the portion of the food for the next time!"
         }
     }

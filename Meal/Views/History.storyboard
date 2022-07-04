@@ -53,7 +53,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="erR-FA-Tok" secondAttribute="bottom" constant="16" id="vGI-05-Tgd"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="History" image="clock" catalog="system" id="fwy-c9-lPi"/>
+                    <tabBarItem key="tabBarItem" title="History" image="clock" catalog="system" selectedImage="clock.fill" id="fwy-c9-lPi"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="erR-FA-Tok" id="nbf-2i-1GB"/>
@@ -66,6 +66,7 @@
     </scenes>
     <resources>
         <image name="clock" catalog="system" width="128" height="121"/>
+        <image name="clock.fill" catalog="system" width="128" height="121"/>
         <systemColor name="separatorColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
