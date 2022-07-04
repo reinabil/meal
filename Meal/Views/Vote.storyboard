@@ -50,8 +50,8 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vote Meal's" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mf7-kg-1Fw">
-                                <rect key="frame" x="16" y="83" width="188.5" height="45"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vote Meal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mf7-kg-1Fw">
+                                <rect key="frame" x="16" y="83" width="163.5" height="45"/>
                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="32"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -134,7 +134,7 @@
                             <constraint firstItem="Mf7-kg-1Fw" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="zfp-Qo-dET"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Vote" image="hand.thumbsup.fill" catalog="system" id="RzC-Vu-8RL"/>
+                    <tabBarItem key="tabBarItem" title="Vote" image="hand.thumbsup" catalog="system" selectedImage="hand.thumbsup.fill" id="RzC-Vu-8RL"/>
                     <connections>
                         <outlet property="addButton" destination="Ddf-Z1-PUz" id="kCr-Um-nTA"/>
                         <outlet property="tableView" destination="8Ww-Vv-NZE" id="A1S-CP-Xsz"/>
@@ -210,6 +210,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="hand.thumbsup" catalog="system" width="128" height="128"/>
         <image name="hand.thumbsup.fill" catalog="system" width="128" height="121"/>
         <namedColor name="BrandLightGray">
             <color red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

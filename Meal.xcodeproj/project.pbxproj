@@ -50,6 +50,9 @@
 		E97EACB0285A29E900DEA510 /* VoterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97EACAE285A29E900DEA510 /* VoterCollectionViewCell.swift */; };
 		E97EACB1285A29E900DEA510 /* VoterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E97EACAF285A29E900DEA510 /* VoterCollectionViewCell.xib */; };
 		E97EACB3285B74AC00DEA510 /* VoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97EACB2285B74AC00DEA510 /* VoteViewController.swift */; };
+		E9E051B1286B3B1C00314FC9 /* Appreciation.gif in Resources */ = {isa = PBXBuildFile; fileRef = E9E051AF286B3B1C00314FC9 /* Appreciation.gif */; };
+		E9E051B2286B3B1C00314FC9 /* Encouragement.gif in Resources */ = {isa = PBXBuildFile; fileRef = E9E051B0286B3B1C00314FC9 /* Encouragement.gif */; };
+		E9E051B5286B3B8F00314FC9 /* UIImageGIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E051B4286B3B8F00314FC9 /* UIImageGIF.swift */; };
 		E9F42926285CD3B100C85012 /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9F42925285CD3B100C85012 /* History.storyboard */; };
 		E9F42929285CD89800C85012 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F42927285CD89800C85012 /* HistoryTableViewCell.swift */; };
 		E9F4292A285CD89800C85012 /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9F42928285CD89800C85012 /* HistoryTableViewCell.xib */; };
@@ -105,6 +108,9 @@
 		E97EACAE285A29E900DEA510 /* VoterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoterCollectionViewCell.swift; sourceTree = "<group>"; };
 		E97EACAF285A29E900DEA510 /* VoterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VoterCollectionViewCell.xib; sourceTree = "<group>"; };
 		E97EACB2285B74AC00DEA510 /* VoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteViewController.swift; sourceTree = "<group>"; };
+		E9E051AF286B3B1C00314FC9 /* Appreciation.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Appreciation.gif; sourceTree = "<group>"; };
+		E9E051B0286B3B1C00314FC9 /* Encouragement.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Encouragement.gif; sourceTree = "<group>"; };
+		E9E051B4286B3B8F00314FC9 /* UIImageGIF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageGIF.swift; sourceTree = "<group>"; };
 		E9F42925285CD3B100C85012 /* History.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
 		E9F42927285CD89800C85012 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		E9F42928285CD89800C85012 /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
@@ -161,6 +167,7 @@
 		DE9FE5C5284DA7210032242F /* Meal */ = {
 			isa = PBXGroup;
 			children = (
+				E9E051B3286B3B2900314FC9 /* Helpers */,
 				E97EAC942859DE3C00DEA510 /* Themes */,
 				DE21569728503F7800841DF0 /* Meal.entitlements */,
 				DE9FE5C6284DA7210032242F /* AppDelegate.swift */,
@@ -245,6 +252,7 @@
 		E97EAC942859DE3C00DEA510 /* Themes */ = {
 			isa = PBXGroup;
 			children = (
+				E9E051AE286B3AFC00314FC9 /* GIF */,
 				E97EAC952859DE5100DEA510 /* Fonts */,
 			);
 			path = Themes;
@@ -259,6 +267,23 @@
 				E97EAC972859DE5D00DEA510 /* Poppins-SemiBold.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		E9E051AE286B3AFC00314FC9 /* GIF */ = {
+			isa = PBXGroup;
+			children = (
+				E9E051AF286B3B1C00314FC9 /* Appreciation.gif */,
+				E9E051B0286B3B1C00314FC9 /* Encouragement.gif */,
+			);
+			path = GIF;
+			sourceTree = "<group>";
+		};
+		E9E051B3286B3B2900314FC9 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E9E051B4286B3B8F00314FC9 /* UIImageGIF.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,11 +350,13 @@
 				E97EACA12859E2F400DEA510 /* JoinCreateFamily_temp.storyboard in Resources */,
 				DE21569B28505A6B00841DF0 /* GoogleService-Info.plist in Resources */,
 				E9451D49285B8A640091A31E /* Member.storyboard in Resources */,
+				E9E051B1286B3B1C00314FC9 /* Appreciation.gif in Resources */,
 				DE9FE5D6284DA7240032242F /* LaunchScreen.storyboard in Resources */,
 				E97EACA5285A235400DEA510 /* Vote.storyboard in Resources */,
 				E9F4292A285CD89800C85012 /* HistoryTableViewCell.xib in Resources */,
 				E97EAC9C2859DE5D00DEA510 /* Poppins-Bold.ttf in Resources */,
 				E9451D51285BA1760091A31E /* FamilyMemberTableViewCell.xib in Resources */,
+				E9E051B2286B3B1C00314FC9 /* Encouragement.gif in Resources */,
 				DE9FE5D3284DA7240032242F /* Assets.xcassets in Resources */,
 				E9F42926285CD3B100C85012 /* History.storyboard in Resources */,
 				E97EAC9F2859DEFF00DEA510 /* SignIn.storyboard in Resources */,
@@ -415,6 +442,7 @@
 				DE9FE5CB284DA7210032242F /* ViewController.swift in Sources */,
 				E969B12E285D92750025E31F /* SignInViewController.swift in Sources */,
 				DE9FE5C7284DA7210032242F /* AppDelegate.swift in Sources */,
+				E9E051B5286B3B8F00314FC9 /* UIImageGIF.swift in Sources */,
 				DE29375628658D89000F6556 /* Dislike.swift in Sources */,
 				E9F4292C285CDB5600C85012 /* HistoryViewController.swift in Sources */,
 				DE9FE5C9284DA7210032242F /* SceneDelegate.swift in Sources */,

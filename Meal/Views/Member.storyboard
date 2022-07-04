@@ -153,7 +153,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="DA7-DH-S2c" secondAttribute="trailing" id="yn9-RQ-eGW"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Member" image="person" catalog="system" id="P6p-MH-omD"/>
+                    <tabBarItem key="tabBarItem" title="Member" image="person" catalog="system" selectedImage="person.fill" id="P6p-MH-omD"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="editButton" destination="Yf0-aK-yHB" id="1eM-yX-v2X"/>
@@ -190,6 +190,7 @@
     <resources>
         <image name="applelogo" catalog="system" width="103" height="128"/>
         <image name="person" catalog="system" width="128" height="117"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <namedColor name="BrandOrange">
             <color red="0.98039215686274506" green="0.35294117647058826" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
