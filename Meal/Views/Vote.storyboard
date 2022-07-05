@@ -137,6 +137,7 @@
                     <tabBarItem key="tabBarItem" title="Vote" image="hand.thumbsup" catalog="system" selectedImage="hand.thumbsup.fill" id="RzC-Vu-8RL"/>
                     <connections>
                         <outlet property="addButton" destination="Ddf-Z1-PUz" id="kCr-Um-nTA"/>
+                        <outlet property="editButton" destination="Y07-vR-dwo" id="VnW-U1-RUV"/>
                         <outlet property="tableView" destination="8Ww-Vv-NZE" id="A1S-CP-Xsz"/>
                         <outlet property="tableViewFooterButton" destination="XJK-76-maV" id="jNK-Qw-iyk"/>
                         <outlet property="tableViewFooterView" destination="P9J-CC-h1i" id="YgG-a3-ZFG"/>

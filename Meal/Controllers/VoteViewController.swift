@@ -18,6 +18,7 @@ class VoteViewController: UIViewController {
     @IBOutlet weak var tableViewFooterView: UIView!
     @IBOutlet weak var tableViewFooterButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var editButton: UIButton!
     var menuArray: Array<Any>?
     var menu: [Menu] = []
     var like: [Like] = []
@@ -163,70 +164,79 @@ class VoteViewController: UIViewController {
     }
     
     @IBAction func addButtonPressed(_ sender: UIButton) {
-        // kalo sudah login
-        if UserDefaults.standard.bool(forKey: "usersignedin") && Auth.auth().currentUser?.uid != nil {
-            print("Add ITEM")
-            
-            //klo udh login tp belom masukin family id
-            let docRef = db.collection("user").document("\(Auth.auth().currentUser!.uid)")
+        if sender.titleLabel?.text == "Add Meal" {
+            // kalo sudah login
+            if UserDefaults.standard.bool(forKey: "usersignedin") && Auth.auth().currentUser?.uid != nil {
+                print("Add ITEM")
+                
+                //klo udh login tp belom masukin family id
+                let docRef = db.collection("user").document("\(Auth.auth().currentUser!.uid)")
 
-            docRef.getDocument { (document, error) in
-                if let document = document, document.exists {
-                    let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                    
-                    // ADD DATA MENU
-                    print("Document data: \(dataDescription)")
-                    print("\(document.get("family_id") ?? "")")
-                    let alert = UIAlertController(title: "Add New Item", message: "", preferredStyle: .alert)
-                    var textField = UITextField()
-                    
-                    let action = UIAlertAction(title: "Add item", style: .default, handler: { (action) in
+                docRef.getDocument { (document, error) in
+                    if let document = document, document.exists {
+                        let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
                         
-                        if textField.text != "" {
+                        // ADD DATA MENU
+                        print("Document data: \(dataDescription)")
+                        print("\(document.get("family_id") ?? "")")
+                        let alert = UIAlertController(title: "Add New Item", message: "", preferredStyle: .alert)
+                        var textField = UITextField()
+                        
+                        let action = UIAlertAction(title: "Add item", style: .default, handler: { (action) in
                             
-                            // Add a new document with a generated id.
-                            let ref = self.db.collection("menu").document()
-                            
-                            ref.setData([
-                                "name": "\(textField.text ?? "")",
-                                "family_id": "\(UserDefaults.standard.string(forKey: "family_id") ?? "")",
-                                "portions": 0,
-                                "date": Date().timeIntervalSince1970,
-                                "menu_id": ref.documentID,
-                                "isOpened": false
-                            ]) { err in
-                                if let err = err {
-                                    print("Error adding document: \(err)")
-                                } else {
-                                    print("Document added with ID: \(ref.documentID)")
+                            if textField.text != "" {
+                                
+                                // Add a new document with a generated id.
+                                let ref = self.db.collection("menu").document()
+                                
+                                ref.setData([
+                                    "name": "\(textField.text ?? "")",
+                                    "family_id": "\(UserDefaults.standard.string(forKey: "family_id") ?? "")",
+                                    "portions": 0,
+                                    "date": Date().timeIntervalSince1970,
+                                    "menu_id": ref.documentID,
+                                    "isOpened": false
+                                ]) { err in
+                                    if let err = err {
+                                        print("Error adding document: \(err)")
+                                    } else {
+                                        print("Document added with ID: \(ref.documentID)")
+                                    }
                                 }
+                                
+                                
                             }
-                            
-                            
+                        } )
+                        
+                        alert.addTextField{(alertTextField) in
+                            alertTextField.placeholder = "Write your new item here"
+                            textField = alertTextField
                         }
-                    } )
-                    
-                    alert.addTextField{(alertTextField) in
-                        alertTextField.placeholder = "Write your new item here"
-                        textField = alertTextField
+                        
+                        alert.addAction(action)
+                        self.present(alert, animated: true, completion: nil)
+                        
+                        
+                        if document.get("family_id") as! String == "" {
+                            self.performSegue(withIdentifier: "goToSignIn", sender: self)
+                        }
+                       
+                    } else {
+                        print("Document does not exist")
                     }
-                    
-                    alert.addAction(action)
-                    self.present(alert, animated: true, completion: nil)
-                    
-                    
-                    if document.get("family_id") as! String == "" {
-                        self.performSegue(withIdentifier: "goToSignIn", sender: self)
-                    }
-                   
-                } else {
-                    print("Document does not exist")
                 }
+                
+            // kalo belom login
+            } else {
+                performSegue(withIdentifier: "goToSignIn", sender: self)
             }
-            
-        // kalo belom login
         } else {
-            performSegue(withIdentifier: "goToSignIn", sender: self)
+            sender.setTitle("Add Meal", for: .normal)
+            editButton.setTitle("Edit", for: .normal)
+            tableViewFooterButton.titleLabel?.text = "New Meal List"
+            tableViewFooterButton.titleLabel?.textColor = UIColor(named: "BrandOrange")
+            setupTableViewFooterButton()
+            tableView.setEditing(false, animated: true)
         }
     }
     
